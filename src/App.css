@@ -49,17 +49,19 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vh;
-  background-color: #f4f4f4;
+  /* width: 100vh; */
+  /* background-color: #f4f4f4; */
   text-align: center;
   font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
 /* Title styling */
 .title {
   font-size: 3rem;
   color: #2c3e50;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  margin: 20px 0;
 }
 
 /* Subtitle text styling */
@@ -71,6 +73,7 @@
 .logo {
   width: 300px; /* Adjust size as needed */
   height: auto;
+  max-width: 80%; /* Adjust width on smaller screens */
   margin-bottom: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
@@ -86,4 +89,19 @@
   top: 0;
   left: 0;
   background: radial-gradient(circle, rgba(255,255,255,0.4) 20%, transparent 80%);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  .logo {
+    width: 120px; /* Smaller logo on mobile */
+  }
 }
