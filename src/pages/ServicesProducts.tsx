@@ -1,8 +1,24 @@
-import React, { useState } from "react";
+import React, { JSX, useState } from "react";
 import "../styles/ServicesProducts.css";
 import { Leaf, Sprout, Droplet } from "lucide-react";
 
-const ProductCard = ({ product, bgColor, hoverBgColor, onLearnMore }) => {
+// Define the type for a product
+type Product = {
+  name: string;
+  description: string;
+  icon: JSX.Element;
+};
+
+// Define the type for the ProductCard props
+type ProductCardProps = {
+  product: Product;
+  bgColor: string;
+  hoverBgColor: string;
+  onLearnMore: (product: Product) => void;
+};
+
+// ProductCard component
+const ProductCard: React.FC<ProductCardProps> = ({ product, bgColor, hoverBgColor, onLearnMore }) => {
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105">
       <div className="flex justify-center mb-4" aria-hidden="true">
@@ -21,33 +37,39 @@ const ProductCard = ({ product, bgColor, hoverBgColor, onLearnMore }) => {
   );
 };
 
-const ServiceProducts = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+// Main ServiceProducts component
+const ServiceProducts: React.FC = () => {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const greenProducts = [
+  // Define the green products
+  const greenProducts: Product[] = [
     { name: "Microgreens", description: "Fresh microgreens, rich in nutrients.", icon: <Sprout className="text-green-500 w-10 h-10" /> },
     { name: "Green Tea Leaves", description: "Organic green tea leaves for a refreshing brew.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
     { name: "Herbal Leaves", description: "A variety of herbal leaves for medicinal and culinary use.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
   ];
 
-  const agroTechProducts = [
+  // Define the agro-tech products
+  const agroTechProducts: Product[] = [
     { name: "Automated Irrigation Systems", description: "Smart irrigation solutions for efficient farming.", icon: <Droplet className="text-blue-500 w-10 h-10" /> },
   ];
 
-  const microgreensDetails = {
-    "Microgreens": [
+  // Define the microgreens details
+  const microgreensDetails: { [key: string]: { name: string; description: string }[] } = {
+    Microgreens: [
       { name: "Radish", description: "Spicy and crisp, perfect for salads." },
       { name: "Kangkung", description: "Nutrient-rich, ideal for stir-fries." },
-      { name: "Beetroot", description: "Sweet and earthy, great for juices and salads." }
-    ]
+      { name: "Beetroot", description: "Sweet and earthy, great for juices and salads." },
+    ],
   };
 
-  const handleLearnMore = (product) => {
+  // Handle the "Learn More" button click
+  const handleLearnMore = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
+  // Close the modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
@@ -88,6 +110,7 @@ const ServiceProducts = () => {
         </div>
       </section>
 
+      {/* Modal for displaying product details */}
       {isModalOpen && selectedProduct && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
           <div className="bg-white rounded-lg p-6 max-w-sm w-full">
