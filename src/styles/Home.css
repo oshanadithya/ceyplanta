@@ -1,0 +1,105 @@
+.home {
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.home-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Featured Products Section */
+.featured-products {
+  margin-top: 40px;
+  background-color: #f9f9f9;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.featured-products h2 {
+  font-size: 2rem;
+  color: #27ae60;
+  margin-bottom: 20px;
+}
+
+.product-slide {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.product-slide h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.product-slide p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Nildola Estate Section */
+.nildola-estate {
+  margin-top: 40px;
+  padding: 30px 20px;
+  background-color: #eaf2f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nildola-estate h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.nildola-estate p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.estate-image {
+  width: 60%; /* Adjust width to make it smaller */
+  max-width: 400px; /* Limit max size */
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .home {
+    padding: 40px 15px;
+  }
+
+  .home-logo {
+    width: 120px;
+  }
+
+  .featured-products h2, .nildola-estate h2 {
+    font-size: 1.8rem;
+  }
+
+  .product-slide p, .nildola-estate p {
+    font-size: 1rem;
+  }
+}

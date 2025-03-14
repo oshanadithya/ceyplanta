@@ -1,0 +1,77 @@
+/* Sidebar Styling */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hidden */
+  width: 250px;
+  height: 100%;
+  background-color: #2c3e50;
+  color: white;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: left 0.3s ease-in-out;
+}
+
+/* When Sidebar is Open */
+.sidebar.open {
+  left: 0;
+}
+
+/* Sidebar Title */
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+/* Sidebar List */
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+  color: #1abc9c;
+}
+
+/* Toggle Button */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Hover effect on Toggle Button */
+.menu-toggle:hover {
+  background-color: #1a252f;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .menu-toggle {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,98 @@
+/* src/styles/ContactUs.css */
+
+.contact-us {
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 600px;
+  margin: auto;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.contact-us h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.contact-details p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.contact-details a {
+  color: #27ae60;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+/* Social Media Button */
+.social-media {
+  margin-top: 20px;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #1877F2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+.social-button:hover {
+  background-color: #1256a0;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-us {
+    padding: 30px 15px;
+  }
+
+  .contact-us h1 {
+    font-size: 2rem;
+  }
+
+  .contact-details p {
+    font-size: 1rem;
+  }
+
+  .social-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
