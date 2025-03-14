@@ -1,7 +1,16 @@
 {
+  "compilerOptions": {
+    "jsx": "react-jsx", // For React 17 and later
+    "moduleResolution": "node", // Resolve modules according to Node.js rules
+    "strict": true, // Enable strict mode for better type safety
+    "esModuleInterop": true, // Enable compatibility with CommonJS modules
+    "paths": {
+      "lucide-react": ["node_modules/lucide-react"]
+    }
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.node.json" },
   ]
 }

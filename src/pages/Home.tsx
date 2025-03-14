@@ -1,6 +1,5 @@
 import '../styles/Home.css';
 import estate from '../assets/estate1.jpeg';
-
 import { useEffect, useState } from 'react';
 
 const Home = () => {
