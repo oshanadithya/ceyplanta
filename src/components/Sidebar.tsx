@@ -14,6 +14,9 @@ const Sidebar = () => {
 
       {/* Sidebar Navigation */}
       <div className={`sidebar ${isOpen ? "open" : ""}`} onMouseLeave={() => setIsOpen(false)}>
+        <div className="sidebar-logo">
+          <img src="/logo.png" alt="Ceyplanta Logo" className="home-logo" />
+        </div>
         <h2>Ceyplanta</h2>
         <ul>
           <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>

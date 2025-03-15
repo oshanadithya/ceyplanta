@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx", // For React 17 and later
-    "moduleResolution": "node", // Resolve modules according to Node.js rules
-    "strict": true, // Enable strict mode for better type safety
-    "esModuleInterop": true, // Enable compatibility with CommonJS modules
+    "baseUrl": ".",
     "paths": {
-      "lucide-react": ["node_modules/lucide-react"]
-    }
+      "lucide-react": ["./node_modules/lucide-react"]
+    },
+    "jsx": "react-jsx", // For React 17 and later
+    "jsxImportSource": "react",
+    "moduleResolution": "Node", // Resolve modules according to Node.js rules
+    "strict": true, // Enable strict mode for better type safety
+    "allowSyntheticDefaultImports": true,  // ✅ Allows default imports for modules using 'export ='
+    "esModuleInterop": true, // Enable compatibility with CommonJS modules
   },
   "files": [],
   "references": [
