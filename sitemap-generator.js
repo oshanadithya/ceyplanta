@@ -1,21 +1,31 @@
-import path from "path";
-import fs from "fs";
-import { fileURLToPath } from "url";
-import pkg from "react-router-sitemap"; // Import the entire package
-import routes from "./src/routes.js"; // Ensure this exports an array of routes
+import { SitemapStream, streamToPromise } from 'sitemap';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const Sitemap = pkg.default; // Use the default export
-
-// Fix __dirname issue in ES Modules
+// Define __dirname manually
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-async function generateSitemap() {
-  const sitemap = new Sitemap(routes)  // Now this should work as a constructor
-    .build("https://www.ceyplanta.com") // Change this to your domain
-    .save(path.join(__dirname, "public", "sitemap.xml"));
+const sitemap = new SitemapStream({ hostname: 'https://www.ceyplanta.com' });
 
-  console.log("✅ Sitemap generated successfully!");
-}
+// Define your routes manually or dynamically
+const routes = [
+  '/',
+  '/services-products',
+  '/buy-greens',
+  '/cart',
+  '/contact-us',
+  '/about-us'
+];
 
-generateSitemap();
+routes.forEach(route => {
+  sitemap.write({ url: route, changefreq: 'daily', priority: 0.7 });
+});
+
+sitemap.end();
+
+streamToPromise(sitemap).then(sm => {
+  fs.writeFileSync(path.join(__dirname, 'public', 'sitemap.xml'), sm);
+  console.log('✅ Sitemap generated successfully!');
+});
