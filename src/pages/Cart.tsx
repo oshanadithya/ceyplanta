@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "../styles/cart.css"; // Add styles for cart page
 
 const CartPage = () => {
   // Simulating a cart stored in state
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem('cart')) || []
+    JSON.parse(localStorage.getItem('cart') || '[]') // Default to '[]' if 'cart' is null
   );
   
   const [userDetails, setUserDetails] = useState({
@@ -13,13 +13,13 @@ const CartPage = () => {
     phoneNumber: '',
   });
 
-  const handleRemoveFromCart = (productId) => {
-    const updatedCart = cart.filter(product => product.id !== productId);
+  const handleRemoveFromCart = (productId: any) => {
+    const updatedCart = cart.filter((product: { id: any; }) => product.id !== productId);
     setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update localStorage
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setUserDetails({ ...userDetails, [name]: value });
   };
@@ -40,7 +40,7 @@ const CartPage = () => {
         <p>Your cart is empty. Add items to the cart!</p>
       ) : (
         <div className="cart-items">
-          {cart.map((product) => (
+          {cart.map((product: any) => (
             <div key={product.id} className="cart-item">
               <img src={product.image} alt={product.name} />
               <div className="item-details">

@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/buy-greens.css"; // Add styles for this page
 import emailjs from 'emailjs-com';
 
 const BuyGreens = () => {
     // Initialize EmailJS with your user ID
     emailjs.init('_BVjspFpxrJqFVQpM');
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState<{ name: string; selectedWeight: string; selectedPrice: string }[]>([]);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
-    const [products, setProducts] = useState([
+    type Product = {
+        id: number;
+        name: string;
+        description: string;
+        image: string;
+        nutritionalFacts: string[];
+        benefits: string[];
+        price: string;
+        weightOptions: { weight: string; price: string }[];
+        selectedPrice?: string;  // Add this line to make selectedPrice optional
+    };
+    const [products] = useState<Product[]>([
         {
             id: 1,
             name: "Radish",
@@ -126,8 +137,8 @@ const BuyGreens = () => {
             ],
             price: "700",
             weightOptions: [
-              { weight: "50g", price: "700" },
-              { weight: "100g", price: "1350" },
+              { weight: "50g", price: "600" },
+              { weight: "100g", price: "1150" },
             ],
           },
           {
@@ -228,31 +239,49 @@ const BuyGreens = () => {
           },
           {
             id: 10,
-            name: "Green Tea Leaves",
-            description: "Pure and natural green tea leaves for a healthy lifestyle.",
-            price: "800",
+            name: "Green Tea Premium",
+            description:
+              "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
             image: "/images/greentea.jpg",
+            nutritionalFacts: [
+              "Contains Antioxidants",
+            ],
+            benefits: [
+              "Detoxifies Heavy Metals",
+              "Aids Digestion",
+              "Lowers Blood Sugar",
+              "Supports Skin Health",
+            ],
+            price: "800",
             weightOptions: [
-              { weight: "50g", price: "400" },
-              { weight: "100g", price: "800" },
-              { weight: "200g", price: "1600" }
+              { weight: "50g", price: "350" },
+              { weight: "100g", price: "600" },
             ],
           },
           {
             id: 11,
             name: "Cinnamon",
-            description: "High-quality Ceylon cinnamon for cooking and health benefits.",
-            price: "600",
+            description:
+              "High-quality Ceylon cinnamon for cooking and health benefits.",
             image: "/images/cinnamon-sticks.jpg",
+            nutritionalFacts: [
+              "Contains Antioxidants",
+            ],
+            benefits: [
+              "Lower total cholesterol levels",
+              "Aids Digestion",
+              "Lower your triglycerides",
+              "Supports Skin Health",
+            ],
+            price: "600",
             weightOptions: [
-              { weight: "50g", price: "300" },
-              { weight: "100g", price: "600" },
-              { weight: "200g", price: "1200" }
+              { weight: "50g", price: "600" },
+              { weight: "100g", price: "1100" },
             ],
           },
     ]);
       
-    const handleAddToCart = (product, selectedWeight) => {
+    const handleAddToCart = (product: any, selectedWeight: any) => {
         setCart((prevCart) => [
             ...prevCart,
             {
@@ -288,7 +317,7 @@ const BuyGreens = () => {
         sendEmailToAdmin(checkoutMessage);
     };
 
-    const sendEmailToAdmin = (messageContent) => {
+    const sendEmailToAdmin = (messageContent: any) => {
         // EmailJS service and template IDs
         const serviceID = 'service_18vf6wc'; // Replace with your service ID
         const templateID = 'template_xcb8ynu'; // Replace with your template ID
@@ -301,7 +330,7 @@ const BuyGreens = () => {
             message,
             cartItems: messageContent, // Pass cart items
         })
-        .then((response) => {
+        .then(() => {
             alert('Your order has been placed successful. You will be contact soon by our team, Thank You!');
             // Reset form and cart
             setName('');
@@ -311,8 +340,8 @@ const BuyGreens = () => {
             setCart([]);
         })
         .catch((error) => {
-            console.error('Error sending email:', error);
-            alert('There was an error sending your checkout message.');
+            console.error('Error placing order!:', error);
+            alert('There was an error placing your order. Please try again later!');
         });
     };
 
@@ -320,7 +349,7 @@ const BuyGreens = () => {
         // Sum up the prices of the items in the cart
         return cart.reduce((total, item) => total + parseFloat(item.selectedPrice), 0);
     };
-
+    
     return (
         <div className="buy-greens-page">
             <h1>Buy Greens</h1>
@@ -340,7 +369,7 @@ const BuyGreens = () => {
                                         (option) => option.weight === weight
                                     );
                                     if (selectedWeight) {
-                                        product.price = selectedWeight.price; // Set the price when the weight is selected
+                                        product.selectedPrice = selectedWeight.price; // Set the selected price based on weight
                                     }
                                 }}
                             >
@@ -355,13 +384,16 @@ const BuyGreens = () => {
                         <button
                             className="add-to-cart"
                             onClick={() => {
-                                const selectedWeight = product.weightOptions.find(
-                                    (option) => option.weight === document.getElementById(`weight-${product.id}`).value
-                                );
-                                if (selectedWeight) {
-                                    handleAddToCart(product, selectedWeight);
-                                } else {
-                                    alert("Please select a weight!");
+                                const weightElement = document.getElementById(`weight-${product.id}`) as HTMLSelectElement;
+                                if (weightElement) {
+                                    const selectedWeight = product.weightOptions.find(
+                                        (option) => option.weight === weightElement.value
+                                    );
+                                    if (selectedWeight) {
+                                        handleAddToCart(product, selectedWeight);
+                                    } else {
+                                        alert("Please select a weight!");
+                                    }
                                 }
                             }}
                         >
@@ -370,7 +402,7 @@ const BuyGreens = () => {
                     </div>
                 ))}
             </div>
-
+    
             <br />
             <div className="cart">
                 <h2>Your Cart</h2>
@@ -389,7 +421,7 @@ const BuyGreens = () => {
                     <p>Your cart is empty.</p>
                 )}
             </div>
-
+    
             <div className="checkout-form">
                 <h2>Checkout</h2>
                 <input

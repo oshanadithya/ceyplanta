@@ -50,7 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, bgColor, hoverBgColo
 // Main ServiceProducts component
 const ServiceProducts: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [selectedMicrogreen, setSelectedMicrogreen] = useState<MicrogreenDetail | null>(null);
+  // const [selectedMicrogreen, setSelectedMicrogreen] = useState<MicrogreenDetail | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -163,15 +163,15 @@ const ServiceProducts: React.FC = () => {
   };
 
   // Handle Microgreen Click
-  const handleMicrogreenClick = (microgreen: MicrogreenDetail) => {
-    setSelectedMicrogreen(microgreen);
-  };
+  // const handleMicrogreenClick = (microgreen: MicrogreenDetail) => {
+  //   setSelectedMicrogreen(microgreen);
+  // };
 
   // Close Modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
-    setSelectedMicrogreen(null);
+    // setSelectedMicrogreen(null);
   };
 
   return (
