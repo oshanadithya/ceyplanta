@@ -7,6 +7,17 @@
   text-align: center;
 }
 
+.main-content {
+  padding-bottom: 40px; /* Default padding for larger screens */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .main-content {
+    padding-bottom: 20px; /* Reduced padding for mobile */
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

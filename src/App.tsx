@@ -4,6 +4,9 @@ import Home from './pages/Home';
 import ServicesProducts from './pages/ServicesProducts';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
+import Footer from './components/Footer';
+import BuyGreens from "./pages/BuyGreens";
+import CartPage from './pages/Cart';
 import './App.css'
 
 function App() {
@@ -16,10 +19,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services-products" element={<ServicesProducts />} />
+            <Route path="/buy-greens" element={<BuyGreens />} />
+            <Route path="/cart" component={CartPage} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/about-us" element={<AboutUs />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </Router>
   )

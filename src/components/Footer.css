@@ -1,0 +1,19 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #c2ffa6; /* Light grey background */
+    color: #333; /* Dark grey text */
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.6rem;
+    border-top: 1px solid #e7e7e7; /* Light grey border */
+  }
+
+  /* Media query for mobile devices */
+@media (max-width: 600px) {
+  .footer {
+    padding: 5px 0; /* Reduced padding for mobile */
+  }
+}

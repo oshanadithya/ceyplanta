@@ -5,16 +5,23 @@
   padding: 50px 20px;
   max-width: 600px;
   margin: auto;
-  background: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   animation: fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-us:hover {
+  transform: scale(1.02);
 }
 
 .contact-us h1 {
   font-size: 2.5rem;
   color: #2c3e50;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .contact-details p {
@@ -26,38 +33,63 @@
   color: #27ae60;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .contact-details a:hover {
   text-decoration: underline;
+  color: #1d8348;
 }
 
-/* Social Media Button */
+/* Social Media Section */
 .social-media {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .social-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  background-color: #1877F2;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 30px;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15), -4px -4px 10px rgba(255, 255, 255, 0.2);
 }
 
 .social-button:hover {
-  background-color: #1256a0;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Facebook & Instagram Styles */
+.facebook {
+  background: #1877F2;
+}
+
+.facebook:hover {
+  background: #1256a0;
+}
+
+.instagram {
+  background: #E4405F;
+}
+
+.instagram:hover {
+  background: #C13584;
 }
 
 .social-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
+  width: 26px;
+  height: 26px;
 }
 
 /* Fade-In Animation */
@@ -88,11 +120,11 @@
 
   .social-button {
     font-size: 1rem;
-    padding: 8px 16px;
+    padding: 10px 18px;
   }
 
   .social-icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 }
