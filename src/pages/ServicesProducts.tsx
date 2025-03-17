@@ -31,10 +31,10 @@ type MicrogreenDetail = {
 const ProductCard: React.FC<ProductCardProps> = ({ product, bgColor, hoverBgColor, onLearnMore, className }) => {
   return (
     <div className={`bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 ${className}`}>
-      <div className="flex justify-center mb-4" aria-hidden="true">
+      <div className="pcicon flex justify-center mb-4 text-gray-800 dark:text-gray-200" aria-hidden="true">
         {product.icon}
       </div>
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h3>
+      <h3 className="pcname text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{product.name}</h3>
       <p className="text-gray-600 mb-4">{product.description}</p>
       <button
         onClick={() => onLearnMore(product)}
@@ -188,10 +188,10 @@ const ServiceProducts: React.FC = () => {
                 <ProductCard
                   key={index}
                   product={product}
-                  bgColor="bg-blue-500"         // Add bgColor
-                  hoverBgColor="hover:bg-blue-600"  // Add hoverBgColor
                   className="product-card agrotech-card"
                   onLearnMore={handleLearnMore}
+                  bgColor="lightgreen" // Example value for bgColor
+                  hoverBgColor="darkgreen" // Example value for hoverBgColor
                 />
               ))}
             </div>
@@ -206,10 +206,10 @@ const ServiceProducts: React.FC = () => {
                 <ProductCard
                   key={index}
                   product={product}
-                  bgColor="bg-green-500"       // Add bgColor
-                  hoverBgColor="hover:bg-green-600"  // Add hoverBgColor
                   className="product-card green-card"
                   onLearnMore={handleLearnMore}
+                  bgColor="lightgreen" // Example value for bgColor
+                  hoverBgColor="darkgreen" // Example value for hoverBgColor
                 />
               ))}
             </div>

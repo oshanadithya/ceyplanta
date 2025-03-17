@@ -45,6 +45,14 @@
   line-height: 1.5;
 }
 
+.pcicon {
+  color: #555;
+}
+
+.pcname {
+  color: #555;
+}
+
 /* Product Card Styling */
 .product-card {
   padding: 20px;
@@ -58,7 +66,7 @@
 
 /* AgroTech Products - Transparent Blue */
 .agrotech-card {
-  background: rgba(59, 130, 246, 0.5); /* bg-blue-500 with opacity */
+  background: rgba(92, 149, 240, 0.5); /* bg-blue-500 with opacity */
 }
 
 .agrotech-card:hover {

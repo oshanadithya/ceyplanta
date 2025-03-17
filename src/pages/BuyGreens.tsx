@@ -294,7 +294,7 @@ const BuyGreens = () => {
 
     const handleCheckout = () => {
         // Check if all required fields are filled
-        if (!name || !email || !phone || !message) {
+        if (!name || !email || !phone ) {
             alert('Please fill out all the required fields!');
             return;
         }
@@ -359,8 +359,8 @@ const BuyGreens = () => {
                         <img src={product.image} alt={product.name} />
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>
-                        <div className="price-and-weight">
-                            <label htmlFor={`weight-${product.id}`}>Select weight:</label>
+                        <div className="price-and-weight ">
+                            <label htmlFor={`weight-${product.id}`}>Select weight : </label>
                             <select
                                 id={`weight-${product.id}`}
                                 onChange={(e) => {
@@ -439,17 +439,18 @@ const BuyGreens = () => {
                     required
                 />
                 <input
-                    type="tel"
-                    value={phone}
-                    placeholder="Your Phone Number"
-                    onChange={(e) => setPhone(e.target.value)}
-                    required
-                />
+                  type="number"
+                  value={phone}
+                  placeholder="Your Phone Number"
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  inputMode="tel" // Optimizes for numeric input on mobile devices
+                  pattern="[0-9]" // Only allows numbers to be entered
+              />
                 <textarea
                     value={message}
                     placeholder="Additional Details"
                     onChange={(e) => setMessage(e.target.value)}
-                    required
                 />
                 <button onClick={handleCheckout}>Checkout</button>
             </div>
