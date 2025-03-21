@@ -47,11 +47,15 @@ const Home: React.FC = () => {
     <div className="home">
       <div className="hero-section">
         <img src="/logo_2.jpg" alt="Ceyplanta Logo" className="home-logo" />
-        <h1>Welcome to Ceyplanta</h1>
-        <p>
+        <h1>Welcome to Greens</h1><p><b>by Ceyplanta</b></p>
+        {/* <p>
           Ceyplanta is a platform offering a variety of products and services. We provide nutritious
           green products like microgreens, green tea leaves, and herbal plants, as well as services like
           automated irrigation systems to help you grow and sustain your plants.
+        </p> */}
+        <p>
+          We offer variety of products and services. We provide nutritious
+          green products like Microgreens, Green tea, Cinnamon and Herbal plants.
         </p>
         <button className="order-now-button" onClick={() => navigate('/buy-greens')}>
           Order Now
@@ -66,13 +70,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="nildola-estate">
-        <h2>🌱 Visit Our Nildola Estate</h2>
+      <section className="microgreens-section">
+        <h2>Our Organic Microgreens</h2>
         <p>
-          Our Nildola Estate, located in the lush hills, is where we grow our premium green tea leaves,
-          herbs, and other plants. Come and explore the beauty of nature and witness sustainable farming practices.
+        Greens by Ceyplanta offers fresh, locally grown microgreens that pack a punch of flavor, nutrition, and sustainability. Our microgreens are young, nutrient-dense plants harvested at their peak, packed with vitamins, minerals, and antioxidants. We cultivate a wide variety of microgreens, including radish, mustard, kale, and more, providing healthy, eco-friendly options for individuals, restaurants, and businesses. At Greens by Ceyplanta, we believe in promoting healthier eating habits, supporting local agriculture, and providing a sustainable food source that’s perfect for salads, smoothies, sandwiches, and garnishes. Taste the difference with our fresh, hand-picked microgreens—straight from the farm to your table.
         </p>
-        <img src={estate} alt="Nildola Estate" className="estate-image" />
       </section>
 
       <section className="microgreens-products">
@@ -83,6 +85,17 @@ const Home: React.FC = () => {
           <p>{microgreensProducts[currentMicrogreensIndex].description}</p>
         </div>
       </section>
+
+      <section className="nildola-estate">
+        <h2>🌱 Visit Our Nildola Estate</h2>
+        <p>
+          Our Nildola Estate, located in the lush hills, is where we grow our premium green tea leaves,
+          herbs, and other plants. Come and explore the beauty of nature and witness sustainable farming practices.
+        </p>
+        <img src={estate} alt="Nildola Estate" className="estate-image" />
+      </section>
+
+      
     </div>
   );
 };

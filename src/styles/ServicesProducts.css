@@ -75,11 +75,11 @@
 
 /* Green Products - Transparent Green */
 .green-card {
-  background: rgba(34, 197, 94, 0.5); /* bg-green-500 with opacity */
+  background: rgba(255, 255, 255, 0.5); /* bg-green-500 with opacity */
 }
 
 .green-card:hover {
-  background: rgba(22, 163, 74, 0.75); /* bg-green-600 with higher opacity */
+  background: rgba(109, 165, 129, 0.75); /* bg-green-600 with higher opacity */
 }
 
 /* Smooth Fade-In Effect */

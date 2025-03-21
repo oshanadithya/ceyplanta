@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef  } from "react";
 import "../styles/buy-greens.css"; // Add styles for this page
 import emailjs from 'emailjs-com';
 
@@ -20,6 +20,7 @@ const BuyGreens = () => {
         price: string;
         weightOptions: { weight: string; price: string }[];
         selectedPrice?: string;  // Add this line to make selectedPrice optional
+        noStock: boolean;
     };
     const [products] = useState<Product[]>([
         {
@@ -42,9 +43,10 @@ const BuyGreens = () => {
             ],
             price: "400",
             weightOptions: [
-              { weight: "50g", price: "400" },
-              { weight: "100g", price: "750" },
+              { weight: "50g", price: "300" },
+              { weight: "100g", price: "500" },
             ],
+            noStock: false,
           },
           {
             id: 2,
@@ -66,8 +68,9 @@ const BuyGreens = () => {
             price: "350",
             weightOptions: [
               { weight: "50g", price: "350" },
-              { weight: "100g", price: "650" },
+              { weight: "100g", price: "550" },
             ],
+            noStock: false,
           },
           {
             id: 3,
@@ -89,16 +92,17 @@ const BuyGreens = () => {
             ],
             price: "450",
             weightOptions: [
-              { weight: "50g", price: "450" },
-              { weight: "100g", price: "850" },
+              { weight: "50g", price: "400" },
+              { weight: "100g", price: "700" },
             ],
+            noStock: false,
           },
           {
             id: 4,
             name: "Amaranth",
             description:
-              "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
-            image: "/images/amaranth.jpg",
+              "bright green color and have a mild, slightly nutty flavor with a delicate crunch.",
+            image: "/images/g-amaranth.jpg",
             nutritionalFacts: [
               "High in Vitamins A, C, and K",
               "Rich in Iron",
@@ -113,12 +117,38 @@ const BuyGreens = () => {
             ],
             price: "500",
             weightOptions: [
-              { weight: "50g", price: "500" },
-              { weight: "100g", price: "950" },
+              { weight: "50g", price: "350" },
+              { weight: "100g", price: "600" },
             ],
+            noStock: false,
           },
           {
             id: 5,
+            name: "Red Amaranth",
+            description:
+              "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
+            image: "/images/amaranth.jpg",
+            nutritionalFacts: [
+              "High in Vitamins folate (Betalains), potassium, and magnesium",
+              "Rich in antioxidants",
+              "Good Source of Protein",
+              "Contains Calcium",
+            ],
+            benefits: [
+              "Supports Vision",
+              "Boosts Immunity",
+              "Strengthens Bones",
+              "Promotes Healthy Skin",
+            ],
+            price: "500",
+            weightOptions: [
+              { weight: "50g", price: "350" },
+              { weight: "100g", price: "600" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 6,
             name: "Mustard",
             description:
               "Peppery and flavorful, commonly used in salads and Indian cuisine.",
@@ -140,9 +170,10 @@ const BuyGreens = () => {
               { weight: "50g", price: "600" },
               { weight: "100g", price: "1150" },
             ],
+            noStock: true,
           },
           {
-            id: 6,
+            id: 7,
             name: "Cabbage",
             description:
               "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.",
@@ -164,9 +195,10 @@ const BuyGreens = () => {
               { weight: "50g", price: "650" },
               { weight: "100g", price: "1200" },
             ],
+            noStock: true,
           },
           {
-            id: 7,
+            id: 8,
             name: "Kale",
             description:
               "Highly nutritious and rich in fiber, perfect for smoothies and sautés.",
@@ -188,9 +220,10 @@ const BuyGreens = () => {
               { weight: "50g", price: "400" },
               { weight: "100g", price: "750" },
             ],
+            noStock: true,
           },
           {
-            id: 8,
+            id: 9,
             name: "Basil",
             description:
               "Aromatic and flavorful, essential for pesto and Italian dishes.",
@@ -212,9 +245,10 @@ const BuyGreens = () => {
               { weight: "50g", price: "600" },
               { weight: "100g", price: "1100" },
             ],
+            noStock: true,
           },
           {
-            id: 9,
+            id: 10,
             name: "Coriander",
             description:
               "Fresh and citrusy, widely used in curries, salads, and garnishes.",
@@ -236,10 +270,11 @@ const BuyGreens = () => {
               { weight: "50g", price: "700" },
               { weight: "100g", price: "1350" },
             ],
+            noStock: true,
           },
           {
-            id: 10,
-            name: "Green Tea Premium",
+            id: 11,
+            name: "Premium Green Tea ",
             description:
               "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
             image: "/images/greentea.jpg",
@@ -254,13 +289,15 @@ const BuyGreens = () => {
             ],
             price: "800",
             weightOptions: [
-              { weight: "50g", price: "350" },
-              { weight: "100g", price: "600" },
+              { weight: "20g", price: "250" },
+              { weight: "50g", price: "400" },
+              { weight: "100g", price: "650" },
             ],
+            noStock: false,
           },
           {
-            id: 11,
-            name: "Cinnamon",
+            id: 12,
+            name: "Premium Cinnamon",
             description:
               "High-quality Ceylon cinnamon for cooking and health benefits.",
             image: "/images/cinnamon-sticks.jpg",
@@ -278,8 +315,15 @@ const BuyGreens = () => {
               { weight: "50g", price: "600" },
               { weight: "100g", price: "1100" },
             ],
+            noStock: false,
           },
     ]);
+
+    const cartRef = useRef<HTMLDivElement | null>(null);
+
+    const handleScrollToCart = () => {
+      cartRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
       
     const handleAddToCart = (product: any, selectedWeight: any) => {
         setCart((prevCart) => [
@@ -349,78 +393,68 @@ const BuyGreens = () => {
         // Sum up the prices of the items in the cart
         return cart.reduce((total, item) => total + parseFloat(item.selectedPrice), 0);
     };
+
+    const clearCart = () => {
+      setCart([]); // Assuming `setCart` is your state updater for the cart
+    };
+  
     
     return (
         <div className="buy-greens-page">
+          {/* Cart Icon */}
+          <button className="cart-icon-btn" onClick={handleScrollToCart}>
+                🛒 {/* You can replace this with any cart icon */}
+            </button>
             <h1>Buy Greens</h1>
             <div className="product-grid">
                 {products.map((product) => (
                     <div key={product.id} className="product-card">
-                        <img src={product.image} alt={product.name} />
+                        <img src={product.image} alt={product.name} className="product-image" />
                         <h2>{product.name}</h2>
                         <p>{product.description}</p>
-                        <div className="price-and-weight ">
-                            <label htmlFor={`weight-${product.id}`}>Select weight : </label>
-                            <select
-                                id={`weight-${product.id}`}
-                                onChange={(e) => {
-                                    const weight = e.target.value;
-                                    const selectedWeight = product.weightOptions.find(
-                                        (option) => option.weight === weight
-                                    );
-                                    if (selectedWeight) {
-                                        product.selectedPrice = selectedWeight.price; // Set the selected price based on weight
-                                    }
-                                }}
-                            >
+
+                        {product.noStock ? (
+                            <button className="no-stock-btn" disabled>Not Available</button>
+                        ) : (
+                            <div className="price-and-weight">
                                 {product.weightOptions.map((option) => (
-                                    <option key={option.weight} value={option.weight}>
-                                        {option.weight}
-                                    </option>
+                                    <button 
+                                        key={option.weight} 
+                                        className="weight-btn"
+                                        onClick={() => handleAddToCart(product, option)}
+                                    >
+                                        {option.weight} - Rs. {option.price}
+                                    </button>
                                 ))}
-                            </select>
-                        </div>
-                        <br />
-                        <button
-                            className="add-to-cart"
-                            onClick={() => {
-                                const weightElement = document.getElementById(`weight-${product.id}`) as HTMLSelectElement;
-                                if (weightElement) {
-                                    const selectedWeight = product.weightOptions.find(
-                                        (option) => option.weight === weightElement.value
-                                    );
-                                    if (selectedWeight) {
-                                        handleAddToCart(product, selectedWeight);
-                                    } else {
-                                        alert("Please select a weight!");
-                                    }
-                                }
-                            }}
-                        >
-                            Add to Cart
-                        </button>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
     
             <br />
-            <div className="cart">
-                <h2>Your Cart</h2>
-                {cart.length > 0 ? (
-                    <div>
-                        <ul>
-                            {cart.map((item, index) => (
-                                <li key={index}>
-                                    {item.name} - {item.selectedWeight} - Rs. {item.selectedPrice}
-                                </li>
-                            ))}
-                        </ul>
-                        <h3>Total: Rs. {calculateTotal()}</h3>
-                    </div>
-                ) : (
-                    <p>Your cart is empty.</p>
-                )}
-            </div>
+            <div ref={cartRef} className="cart">
+              <h2>Your Cart</h2>
+              {cart.length > 0 ? (
+                  <div>
+                      <ul>
+                          {cart.map((item, index) => (
+                              <li key={index}>
+                                  {item.name} - {item.selectedWeight} - Rs. {item.selectedPrice}
+                              </li>
+                          ))}
+                      </ul>
+                      <h3>Total: Rs. {calculateTotal()}</h3>
+                      
+                      {/* Clear Cart Button */}
+                      <button className="clear-cart-btn" onClick={clearCart}>
+                          Clear Cart
+                      </button>
+                  </div>
+              ) : (
+                  <p>Your cart is empty.</p>
+              )}
+          </div>
     
             <div className="checkout-form">
                 <h2>Checkout</h2>
@@ -449,7 +483,7 @@ const BuyGreens = () => {
               />
                 <textarea
                     value={message}
-                    placeholder="Additional Details"
+                    placeholder="Additional Details (Delivery Address / Need Support)"
                     onChange={(e) => setMessage(e.target.value)}
                 />
                 <button onClick={handleCheckout}>Checkout</button>

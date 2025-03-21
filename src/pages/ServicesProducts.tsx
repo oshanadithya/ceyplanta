@@ -1,6 +1,6 @@
 import React, { JSX, useState, useRef, useEffect } from "react";
 import "../styles/ServicesProducts.css";
-import { Leaf, Sprout, Droplet } from "lucide-react";
+import { Leaf, Sprout } from "lucide-react";
 
 // Define the type for a product
 type Product = {
@@ -87,10 +87,17 @@ const ServiceProducts: React.FC = () => {
       },
       {
         name: "Amaranth",
-        description: "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
-        image: "/images/amaranth.jpg",
+        description: "Bright green color and have a mild, slightly nutty flavor with a delicate crunch.",
+        image: "/images/g-amaranth.jpg",
         nutritionalFacts: ["High in Vitamins A, C, and K ", "Rich in Iron ", "Good Source of Protein ", "Contains Calcium "],
         benefits: ["Supports Vision ", "Boosts Immunity ", "Strengthens Bones ", "Promotes Healthy Skin "],
+      },
+      {
+        name: "Red Amaranth",
+        description: "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
+        image: "/images/amaranth.jpg",
+        nutritionalFacts: ["High in Vitamins folate (Betalains), potassium, and magnesium", "Rich in antioxidants", "Good Source of Protein", "Contains Calcium "],
+        benefits: ["Anti-inflammatory Properties", "Boosts Immunity ", "Strengthens Bones ", "Supports Heart Health"],
       },
       {
         name: "Mustard",
@@ -139,7 +146,7 @@ const ServiceProducts: React.FC = () => {
   ];
 
   const agroTechProducts: Product[] = [
-    { name: "Automated Irrigation Systems", description: "Smart irrigation solutions for efficient farming.", icon: <Droplet className="text-blue-500 w-10 h-10" /> },
+    // { name: "Automated Irrigation Systems", description: "Smart irrigation solutions for efficient farming.", icon: <Droplet className="text-blue-500 w-10 h-10" /> },
   ];
 
   // const microgreensDetails = {
@@ -182,7 +189,7 @@ const ServiceProducts: React.FC = () => {
         <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left: AgroTech Products */}
           <div className="w-full">
-            <h2 className="agrotech-heading">AgroTech by Ceyplanta</h2>
+            {/* <h2 className="agrotech-heading">AgroTech by Ceyplanta</h2> */}
             <div className="grid-container">
               {agroTechProducts.map((product, index) => (
                 <ProductCard

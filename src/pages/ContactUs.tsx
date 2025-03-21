@@ -5,17 +5,20 @@ const ContactUs = () => {
   return (
     <div className="contact-us">
       <div className="contact-card">
-        <h1>📞 Get in Touch</h1>
+        <h1>Get in Touch</h1>
         <p>We’d love to hear from you! Reach out through any of the following methods:</p>
 
         {/* Contact Details */}
         <div className="contact-details">
           <div className="contact-item">
             <FaPhoneAlt className="contact-icon" />
+            <br></br>
             <a href="tel:+94702342433">+94 70 234 2433</a>
           </div>
+          <br></br>
           <div className="contact-item">
             <FaEnvelope className="contact-icon" />
+            <br></br>
             <a href="mailto:ceyplanta@gmail.com">ceyplanta@gmail.com</a>
           </div>
         </div>

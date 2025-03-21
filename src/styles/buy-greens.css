@@ -48,6 +48,23 @@ body {
   opacity: 0.8;
 }
 
+.product-image {
+  width: 200px;          /* Set the width for all images */
+  height: 200px;         /* Set the height for all images */
+  object-fit: cover;     /* Ensures the image covers the area without distortion */
+  border-radius: 8px;    /* Optional: Adds rounded corners */
+}
+
+.no-stock-btn {
+  background-color: gray;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  font-size: 14px;
+}
+
 /* Dark theme support */
 @media (prefers-color-scheme: dark) {
   body {
@@ -105,6 +122,25 @@ body {
     padding: 12px 20px;
     font-size: 1.1em;
   }
+}
+
+.cart-icon-btn {
+  position: fixed;  /* Ensures the button stays in place when scrolling */
+  top: 20px;        /* Adjusts the distance from the top of the screen */
+  right: 20px;      /* Adjusts the distance from the right edge */
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;     /* Ensures the button is above other elements */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.cart-icon-btn:hover {
+  background-color: #f0f0f0;  /* Light background on hover */
 }
 
 /* Product grid for responsive design */

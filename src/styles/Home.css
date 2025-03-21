@@ -146,12 +146,12 @@ p {
 }
 
 .microgreens-image {
-  width: 100%;
-  max-width: 350px;
-  height: auto;
+  width: 300px;
+  max-width: 300px;
+  height: 200px;
   border-radius: 8px;
   margin: 10px 0;
-  transform: translateX(-20px);
+  /* transform: translateX(-20px); */
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -163,6 +163,23 @@ p {
 .microgreens-image.show {
   opacity: 1;
   transform: translateX(0);
+}
+
+.microgreens-section {
+  background-color: #84e69e; /* Green background */
+  padding: 20px;             /* Add padding for spacing */
+  color: white;              /* White text for contrast */
+  border-radius: 8px;        /* Optional: Add rounded corners */
+}
+
+.microgreens-section h2 {
+  font-size: 2rem;           /* Make the heading a bit larger */
+  margin-bottom: 15px;       /* Space between the heading and paragraph */
+}
+
+.microgreens-section p {
+  font-size: 1rem;           /* Adjust paragraph font size */
+  line-height: 1.6;          /* Line height for better readability */
 }
 
 @keyframes fadeIn {
