@@ -21,6 +21,11 @@ const ContactUs = () => {
             <br></br>
             <a href="mailto:ceyplanta@gmail.com">ceyplanta@gmail.com</a>
           </div>
+          <div className="contact-item">
+            {/* <FaEnvelope className="road-icon" /> */}
+            <br></br>
+            <a>66A 1/1, Hirana Road, Panadura</a>
+          </div>
         </div>
 
         {/* Social Media */}
