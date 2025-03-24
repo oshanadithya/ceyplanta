@@ -145,7 +145,7 @@ const BuyGreens = () => {
               { weight: "50g", price: "350" },
               { weight: "100g", price: "600" },
             ],
-            noStock: true,
+            noStock: false,
           },
           {
             id: 6,
@@ -274,7 +274,7 @@ const BuyGreens = () => {
           },
           {
             id: 11,
-            name: "Premium Green Tea ",
+            name: "Premium Ceylon Green Tea ",
             description:
               "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
             image: "/images/greentea.jpg",
@@ -297,7 +297,7 @@ const BuyGreens = () => {
           },
           {
             id: 12,
-            name: "Premium Cinnamon",
+            name: "Premium Ceylon Cinnamon",
             description:
               "High-quality Ceylon cinnamon for cooking and health benefits.",
             image: "/images/cinnamon-sticks.jpg",
