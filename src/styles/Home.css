@@ -182,6 +182,17 @@ p {
   line-height: 1.6;          /* Line height for better readability */
 }
 
+.homelogo img {
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s;
+}
+
+.homelogo img:hover {
+  transform: scale(1.1);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

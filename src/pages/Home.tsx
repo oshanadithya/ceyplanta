@@ -46,7 +46,9 @@ const Home: React.FC = () => {
   return (
     <div className="home">
       <div className="hero-section">
-        <img src="/logo_2.png" alt="Ceyplanta Logo" className="home-logo" />
+        <div className="homelogo">
+          <img src="/logo_2.png" alt="Ceyplanta Logo" className="home-logo" />
+        </div>
         <h1>Welcome to Greens</h1><p><b>by Ceyplanta</b></p>
         {/* <p>
           Ceyplanta is a platform offering a variety of products and services. We provide nutritious

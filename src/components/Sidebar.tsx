@@ -22,7 +22,8 @@ const Sidebar = () => {
           <div className="sidebar-logo">
             <img src="/logo_2.png" alt="Ceyplanta Logo" />
           </div>
-          <h2>Ceyplanta</h2>
+          <h1><b>Greens</b></h1>
+          <p>by Ceyplanta</p>
         </div>
         
         <ul className="sidebar-menu">
