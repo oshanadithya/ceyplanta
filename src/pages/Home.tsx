@@ -50,11 +50,6 @@ const Home: React.FC = () => {
           <img src="/logo_2.png" alt="Ceyplanta Logo" className="home-logo" />
         </div>
         <h1>Welcome to Greens</h1><p><b>by Ceyplanta</b></p>
-        {/* <p>
-          Ceyplanta is a platform offering a variety of products and services. We provide nutritious
-          green products like microgreens, green tea leaves, and herbal plants, as well as services like
-          automated irrigation systems to help you grow and sustain your plants.
-        </p> */}
         <p>
           We offer variety of products and services. We provide nutritious
           green products like Microgreens, Green tea, Cinnamon and Herbal plants.
