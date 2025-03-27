@@ -141,8 +141,9 @@ const ServiceProducts: React.FC = () => {
   const greenProducts: Product[] = [
     { name: "Microgreens", description: "Fresh microgreens, rich in nutrients.", icon: <Sprout className="text-green-500 w-10 h-10" /> },
     { name: "Green Tea Leaves", description: "Organic green tea leaves for a refreshing brew.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Herbal Leaves", description: "A variety of herbal leaves for medicinal and culinary use.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Cinnamon", description: "Pure 100% Handmade Cinnamon in premium quality", icon: <Leaf className="text-green-500 w-10 h-10" /> },
+    { name: "Herbal Plants", description: "A variety of herbal plants for medicinal and culinary use.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
+    { name: "Herbal Teas", description: "A variety of herbal leaves for medicinal and culinary use including hebal plants and flowers.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
+    { name: "Cinnamon & Related Products", description: "Pure 100% Handmade Cinnamon in premium quality", icon: <Leaf className="text-green-500 w-10 h-10" /> },
   ];
 
   const agroTechProducts: Product[] = [

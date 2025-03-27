@@ -22,6 +22,9 @@ const BuyGreens = () => {
         selectedPrice?: string;  // Add this line to make selectedPrice optional
         noStock: boolean;
     };
+
+
+
     const [products] = useState<Product[]>([
         {
             id: 1,
@@ -342,24 +345,17 @@ const BuyGreens = () => {
             description:
               "Mix your favourite microgreens for your highly nutritional meal plan",
             image: "/images/Microgreen-mix.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
+            nutritionalFacts: [""],
+            benefits: [""],
             price: "",
-            weightOptions: [
-              { weight: "50g", price: "" },
-              { weight: "100g", price: "" },
-            ],
+            weightOptions: [], // Removed weight options
             noStock: false,
           },
           {
             id: 15,
-            name: "Leamongrass Herbal Tea",
+            name: "Lemongrass Herbal Tea",
             description:
-              "",
+              "Refreshingly citrusy and naturally soothing, our Lemongrass Herbal Tea is a perfect blend of flavor and wellness. Made from carefully selected, sun-dried lemongrass leaves, this caffeine-free infusion offers a delightful balance of light, lemony zest with a hint of natural sweetness.",
             image: "",
             nutritionalFacts: [
               "",
@@ -378,7 +374,7 @@ const BuyGreens = () => {
             id: 16,
             name: "Mint Herbal Tea",
             description:
-              "",
+              "Cool, refreshing, and invigorating, our Mint Herbal Tea is a naturally caffeine-free infusion made from the finest handpicked mint leaves. With its crisp aroma and soothing properties, this tea is perfect for refreshing your senses while promoting digestion and relaxation. Enjoy it hot for a comforting experience or iced for a revitalizing treat.",
             image: "",
             nutritionalFacts: [
               "",
@@ -397,7 +393,7 @@ const BuyGreens = () => {
             id: 17,
             name: "Moringa Herbal Infusion Tea",
             description:
-              "",
+              "Packed with nutrients and earthy goodness, our Moringa Herbal Tea is a powerhouse of wellness in every sip. Made from handpicked, sun-dried moringa leaves, this naturally caffeine-free tea is rich in antioxidants, vitamins, and minerals that support immunity, boost energy, and promote overall well-being. With its smooth, mildly grassy flavor and subtle nuttiness, Moringa tea is a perfect addition to a healthy lifestyle.",
             image: "",
             nutritionalFacts: [
               "",
@@ -416,7 +412,7 @@ const BuyGreens = () => {
             id: 18,
             name: "Lotus Herbal Infusion Tea",
             description:
-              "Lotus, Blue Lotus",
+              "Lotus, Elegant and soothing, our Lotus Herbal Tea is a delicate infusion crafted from carefully selected lotus leaves and flowers. This naturally caffeine-free tea offers a light, floral aroma with a hint of earthiness, creating a truly calming experience. Rich in antioxidants and known for its detoxifying properties, lotus tea supports relaxation, digestion, and overall well-being. Enjoy it as a warm, tranquil brew or a refreshing iced tea.",
             image: "",
             nutritionalFacts: [
               "",
@@ -457,16 +453,19 @@ const BuyGreens = () => {
     const handleScrollToCart = () => {
       cartRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-      
-    const handleAddToCart = (product: any, selectedWeight: any) => {
-        setCart((prevCart) => [
-            ...prevCart,
-            {
-                name: product.name,
-                selectedWeight: selectedWeight.weight,
-                selectedPrice: selectedWeight.price,
-            },
-        ]);
+
+    const addToCart = (product: { id?: number; name: any; description?: string; image?: string; nutritionalFacts?: string[]; benefits?: string[]; price?: string; weightOptions?: { weight: string; price: string; }[]; selectedPrice?: string | undefined; noStock?: boolean; }, option?: { weight: string; price: string }) => {
+      const newItem = {
+        name: product.name,
+        selectedWeight: option?.weight ?? "Custom Mix",
+        selectedPrice: option?.price ?? "Requested",
+      };
+    
+      setCart([...cart, newItem]);
+    };    
+
+    const getTotalPrice = () => {
+      return cart.reduce((total, item) => total + Number(item.selectedPrice.replace("Rs. ", "").trim()), 0);
     };
 
     const handleCheckout = () => {
@@ -522,15 +521,9 @@ const BuyGreens = () => {
         });
     };
 
-    const calculateTotal = () => {
-        // Sum up the prices of the items in the cart
-        return cart.reduce((total, item) => total + parseFloat(item.selectedPrice), 0);
-    };
-
     const clearCart = () => {
       setCart([]); // Assuming `setCart` is your state updater for the cart
     };
-  
     
     return (
         <div className="buy-greens-page">
@@ -541,27 +534,26 @@ const BuyGreens = () => {
             <h1>Buy Greens</h1>
             <div className="product-grid">
                 {products.map((product) => (
-                    <div key={product.id} className="product-card">
-                        <img src={product.image} alt={product.name} className="product-image" />
-                        <h2>{product.name}</h2>
-                        <p>{product.description}</p>
+                  <div key={product.id} className="product-card">
+                    <img src={product.image} alt={product.name} className="product-image" />
+                    <h2>{product.name}</h2>
+                    <p>{product.description}</p>
 
-                        {product.noStock ? (
-                            <button className="no-stock-btn" disabled>Not Available</button>
-                        ) : (
-                            <div className="price-and-weight">
-                                {product.weightOptions.map((option) => (
-                                    <button 
-                                        key={option.weight} 
-                                        className="weight-btn"
-                                        onClick={() => handleAddToCart(product, option)}
-                                    >
-                                        {option.weight} - {option.price}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                    {product.noStock ? (
+                      <button className="no-stock-btn" disabled>Not Available</button>
+                    ) : product.id === 14 ? (
+                      <button> Request in Additional Details </button>
+                    ) : (
+                      product.weightOptions.map((option) => (
+                        <button
+                          key={option.weight}
+                          onClick={() => addToCart(product, option)}
+                        >
+                          {option.weight} - {option.price}
+                        </button>
+                      ))
+                    )}
+                  </div>
                 ))}
             </div>
     
@@ -573,12 +565,11 @@ const BuyGreens = () => {
                       <ul>
                           {cart.map((item, index) => (
                               <li key={index}>
-                                  {item.name} - {item.selectedWeight} - Rs. {item.selectedPrice}
+                                  {item.name} - {item.selectedWeight} - {item.selectedPrice}
                               </li>
                           ))}
                       </ul>
-                      <h3>Total: Rs. {calculateTotal()}</h3>
-                      
+                      <h4>Total Price: Rs. {getTotalPrice()}</h4>
                       {/* Clear Cart Button */}
                       <button className="clear-cart-btn" onClick={clearCart}>
                           Clear Cart
@@ -589,6 +580,7 @@ const BuyGreens = () => {
               )}
           </div>
     
+            <br></br>
             <div className="checkout-form">
                 <h2>Checkout</h2>
                 <input
@@ -616,7 +608,7 @@ const BuyGreens = () => {
               />
                 <textarea
                     value={message}
-                    placeholder="Additional Details (Delivery Address / Need Support)"
+                    placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages)"
                     onChange={(e) => setMessage(e.target.value)}
                 />
                 <button onClick={handleCheckout}>Checkout</button>
