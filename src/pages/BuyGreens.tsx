@@ -43,8 +43,8 @@ const BuyGreens = () => {
             ],
             price: "400",
             weightOptions: [
-              { weight: "50g", price: "450" },
-              { weight: "100g", price: "850" },
+              { weight: "50g", price: "Rs. 450" },
+              { weight: "100g", price: "Rs. 850" },
             ],
             noStock: false,
           },
@@ -67,8 +67,8 @@ const BuyGreens = () => {
             ],
             price: "350",
             weightOptions: [
-              { weight: "50g", price: "420" },
-              { weight: "100g", price: "700" },
+              { weight: "50g", price: "Rs. 420" },
+              { weight: "100g", price: "Rs. 700" },
             ],
             noStock: false,
           },
@@ -92,8 +92,8 @@ const BuyGreens = () => {
             ],
             price: "450",
             weightOptions: [
-              { weight: "50g", price: "480" },
-              { weight: "100g", price: "900" },
+              { weight: "50g", price: "Rs. 480" },
+              { weight: "100g", price: "Rs. 900" },
             ],
             noStock: false,
           },
@@ -117,8 +117,8 @@ const BuyGreens = () => {
             ],
             price: "500",
             weightOptions: [
-              { weight: "50g", price: "500" },
-              { weight: "100g", price: "950" },
+              { weight: "50g", price: "Rs. 500" },
+              { weight: "100g", price: "Rs. 950" },
             ],
             noStock: false,
           },
@@ -142,8 +142,8 @@ const BuyGreens = () => {
             ],
             price: "500",
             weightOptions: [
-              { weight: "50g", price: "500" },
-              { weight: "100g", price: "950" },
+              { weight: "50g", price: "Rs. 500" },
+              { weight: "100g", price: "Rs. 950" },
             ],
             noStock: false,
           },
@@ -167,8 +167,8 @@ const BuyGreens = () => {
             ],
             price: "700",
             weightOptions: [
-              { weight: "50g", price: "600" },
-              { weight: "100g", price: "1150" },
+              { weight: "50g", price: "Rs. 600" },
+              { weight: "100g", price: "Rs. 1150" },
             ],
             noStock: true,
           },
@@ -192,8 +192,8 @@ const BuyGreens = () => {
             ],
             price: "650",
             weightOptions: [
-              { weight: "50g", price: "650" },
-              { weight: "100g", price: "1200" },
+              { weight: "50g", price: "Rs. 650" },
+              { weight: "100g", price: "Rs. 1200" },
             ],
             noStock: true,
           },
@@ -217,8 +217,8 @@ const BuyGreens = () => {
             ],
             price: "400",
             weightOptions: [
-              { weight: "50g", price: "400" },
-              { weight: "100g", price: "750" },
+              { weight: "50g", price: "Rs. 400" },
+              { weight: "100g", price: "Rs. 750" },
             ],
             noStock: true,
           },
@@ -242,8 +242,8 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "50g", price: "600" },
-              { weight: "100g", price: "1100" },
+              { weight: "50g", price: "Rs. 600" },
+              { weight: "100g", price: "Rs. 1100" },
             ],
             noStock: true,
           },
@@ -267,8 +267,8 @@ const BuyGreens = () => {
             ],
             price: "700",
             weightOptions: [
-              { weight: "50g", price: "700" },
-              { weight: "100g", price: "1350" },
+              { weight: "50g", price: "Rs. 700" },
+              { weight: "100g", price: "Rs. 1350" },
             ],
             noStock: true,
           },
@@ -289,11 +289,11 @@ const BuyGreens = () => {
             ],
             price: "800",
             weightOptions: [
-              { weight: "20g", price: "250" },
-              { weight: "50g", price: "400" },
-              { weight: "100g", price: "650" },
+              { weight: "20g", price: "Rs. 250" },
+              { weight: "50g", price: "Rs. 400" },
+              { weight: "100g", price: "Rs. 650" },
             ],
-            noStock: false,
+            noStock: true,
           },
           {
             id: 12,
@@ -312,11 +312,144 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "50g", price: "600" },
-              { weight: "100g", price: "1100" },
+              { weight: "50g", price: "Rs. 600" },
+              { weight: "100g", price: "Rs. 1100" },
             ],
             noStock: false,
           },
+          {
+            id: 13,
+            name: "Mix Amaranth Pack",
+            description:
+              "Mix Amaranth microgreen meal includes Green and Red Amaranth",
+            image: "/images/mix-amaranth.jpg",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "50g", price: "Rs. 530" },
+              { weight: "100g", price: "Rs. 980" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 14,
+            name: "Customized Mix Microgreen Pack",
+            description:
+              "Mix your favourite microgreens for your highly nutritional meal plan",
+            image: "/images/Microgreen-mix.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 15,
+            name: "Leamongrass Herbal Tea",
+            description:
+              "",
+            image: "",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 16,
+            name: "Mint Herbal Tea",
+            description:
+              "",
+            image: "",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 17,
+            name: "Moringa Herbal Infusion Tea",
+            description:
+              "",
+            image: "",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 18,
+            name: "Lotus Herbal Infusion Tea",
+            description:
+              "Lotus, Blue Lotus",
+            image: "",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 19,
+            name: "Ceylon Cinnamon Tea",
+            description:
+              "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma",
+            image: "",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: true,
+          }
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -423,7 +556,7 @@ const BuyGreens = () => {
                                         className="weight-btn"
                                         onClick={() => handleAddToCart(product, option)}
                                     >
-                                        {option.weight} - Rs. {option.price}
+                                        {option.weight} - {option.price}
                                     </button>
                                 ))}
                             </div>
