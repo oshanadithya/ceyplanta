@@ -556,6 +556,25 @@ const BuyGreens = () => {
                   </div>
                 ))}
             </div>
+
+            <br></br>
+            <br></br>
+            {/* Subscription Packages */}
+            <div className="subscription-packages" >
+              <h2>Subscription Packages</h2>
+              <div className="package">
+                <h3>Weekly Package</h3>
+                <p>Enjoy our services for one week. Delivered once a week.</p>
+                <p><strong>Request on Additional details</strong></p>
+                {/* <button className="request-button">Request</button> */}
+              </div>
+              <div className="package2">
+                <h3>Monthly Package</h3>
+                <p>Enjoy our services for one month. Delivered weekly for a month.</p>
+                <p><strong>Request on Additional details</strong></p>
+                {/* <button className="request-button">Request</button> */}
+              </div>
+            </div>
     
             <br />
             <div ref={cartRef} className="cart">
@@ -608,7 +627,7 @@ const BuyGreens = () => {
               />
                 <textarea
                     value={message}
-                    placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages)"
+                    placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages / Request Subscription packages)"
                     onChange={(e) => setMessage(e.target.value)}
                 />
                 <button onClick={handleCheckout}>Checkout</button>

@@ -28,24 +28,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <br></br>
-        <br></br>
-        {/* Subscription Packages */}
-        <div className="subscription-packages" >
-          <h2>Subscription Packages</h2>
-          <div className="package">
-            <h3>Weekly Package</h3>
-            <p>Enjoy our services for one week.</p>
-            <p><strong>Price:</strong> LKR 500</p>
-            <button className="request-button">Request</button>
-          </div>
-          <div className="package">
-            <h3>Monthly Package</h3>
-            <p>Enjoy our services for one month.</p>
-            <p><strong>Price:</strong> LKR 1500</p>
-            <button className="request-button">Request</button>
-          </div>
-        </div>
+        
 
         {/* Social Media */}
         <div className="social-media">

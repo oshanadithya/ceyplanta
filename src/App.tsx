@@ -6,7 +6,8 @@ import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer';
 import BuyGreens from "./pages/BuyGreens";
-import CartPage from './pages/Cart';
+// import CartPage from './pages/Cart';
+import DiscountPage from './pages/OffersAndDiscounts';
 import './App.css'
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/services-products" element={<ServicesProducts />} />
             <Route path="/buy-greens" element={<BuyGreens />} />
-            <Route path="/cart" element={<CartPage />} />
+            <Route path="/offers" element={<DiscountPage />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/about-us" element={<AboutUs />} />
           </Routes>
