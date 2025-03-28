@@ -22,17 +22,17 @@ const OffersAndDiscounts = () => {
             <p>10% Discount for Customers Subscribe more than 3 months</p>
           </div>
 
-          {/* <div className="offer-item">
+          <div className="offer-item">
             <FaTag className="offer-icon" />
             <h2>Green Tea Discount</h2>
             <p>5% off on all green tea orders above Rs. 2000!</p>
-          </div> */}
+          </div>
 
-          <div className="offer-item">
+          {/* <div className="offer-item">
             <FaTag className="offer-icon" />
             <h2>Delivery Free</h2>
             <p>Free Delivery for Customer subscribe more than 4 months!</p>
-          </div>
+          </div> */}
 
           <div className="offer-item">
             <FaGift className="offer-icon" />

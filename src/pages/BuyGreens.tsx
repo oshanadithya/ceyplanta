@@ -564,13 +564,13 @@ const BuyGreens = () => {
               <h2>Subscription Packages</h2>
               <div className="package">
                 <h3>Weekly Package</h3>
-                <p>Enjoy our services for one week. Delivered once a week.</p>
+                <p>Enjoy our services for one week. Delivered once a week. Pay Weekly!</p>
                 <p><strong>Request on Additional details</strong></p>
                 {/* <button className="request-button">Request</button> */}
               </div>
               <div className="package2">
                 <h3>Monthly Package</h3>
-                <p>Enjoy our services for one month. Delivered weekly for a month.</p>
+                <p>Enjoy our services for one month. Delivered weekly for a month. Pay Monthly. Get your customized quotation!</p>
                 <p><strong>Request on Additional details</strong></p>
                 {/* <button className="request-button">Request</button> */}
               </div>
