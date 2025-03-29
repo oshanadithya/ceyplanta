@@ -88,6 +88,36 @@ body {
   }
 }
 
+.cart-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-name {
+  flex: 2; /* More space for name */
+}
+
+.cart-weight, .cart-price {
+  flex: 1; /* Equal space for weight and price */
+  text-align: center;
+}
+
+.cart-remove {
+  flex: 0.5; /* Smaller space for the remove icon */
+  text-align: center;
+  cursor: pointer;
+  color: red;
+}
+
+
 /* Light theme styles */
 @media (prefers-color-scheme: light) {
   .checkout-form input,

@@ -15,11 +15,18 @@ const microgreensProducts = [
   { name: "Coriander", description: "Fresh and citrusy, widely used in curries, salads, and garnishes.", image: "/images/coriander.jpg" }
 ];
 
+const otherProducts = [
+  { name: "Premium Ceylon Green Tea", description: "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.", image: "/images/greentea.jpg" },
+  { name: "Premium Ceylon Cinnamon", description: "High-quality Ceylon cinnamon for cooking and health benefits.", image: "/images/cinnamon-sticks.jpg" },
+  { name: "Premium Ceylon Cinnamon Tea", description: "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma", image: "/images/cinnamontea.jpg" },
+];
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
 
   const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState<number>(0);
   const [currentMicrogreensIndex, setCurrentMicrogreensIndex] = useState<number>(0);
+  const [currentProductsIndex, setCurrentProductsIndex] = useState<number>(0);
 
   const featuredProducts = [
     { name: "Microgreens", description: "Fresh and nutritious microgreens, packed with vitamins." },
@@ -37,9 +44,14 @@ const Home: React.FC = () => {
       setCurrentMicrogreensIndex((prevIndex) => (prevIndex + 1) % microgreensProducts.length);
     }, 3000);
 
+    const intervalProducts = setInterval(() => {
+      setCurrentProductsIndex((prevIndex) => (prevIndex + 1) % otherProducts.length);
+    }, 3000);
+
     return () => {
       clearInterval(intervalFeatured);
       clearInterval(intervalMicrogreens);
+      clearInterval(intervalProducts);
     };
   }, []);
 
@@ -90,6 +102,25 @@ const Home: React.FC = () => {
           herbs, and other plants. Come and explore the beauty of nature and witness sustainable farming practices.
         </p>
         <img src={estate} alt="Nildola Estate" className="estate-image" />
+        {/* <iframe
+          src="https://www.google.com/maps/place/Nildola+Estate/@6.5897311,80.2007427,224a,35y,358.13h,2.24t/data=!3m1!1e3!4m6!3m5!1s0x3ae3c919c24315ab:0xc15fa364bd39ce2d!8m2!3d6.5896022!4d80.2006088!16s%2Fg%2F11vq9j_mqz?entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"
+          width="600"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe> */}
+      </section>
+
+
+      <section className="microgreens-products">
+        <h2>🌱 Other Products</h2>
+        <div className="microgreens-slide">
+          <img src={otherProducts[currentProductsIndex].image} className="microgreens-image" />
+          <h3>{otherProducts[currentProductsIndex].name}</h3>
+          <p>{otherProducts[currentProductsIndex].description}</p>
+        </div>
       </section>
 
       

@@ -48,6 +48,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 450" },
               { weight: "100g", price: "Rs. 850" },
+              { weight: "200g", price: "Rs. 1650" },
             ],
             noStock: false,
           },
@@ -72,6 +73,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 420" },
               { weight: "100g", price: "Rs. 700" },
+              { weight: "200g", price: "Rs. 1350" },
             ],
             noStock: false,
           },
@@ -97,6 +99,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 480" },
               { weight: "100g", price: "Rs. 900" },
+              { weight: "200g", price: "Rs. 1750" },
             ],
             noStock: false,
           },
@@ -122,6 +125,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 500" },
               { weight: "100g", price: "Rs. 950" },
+              { weight: "200g", price: "Rs. 1850" },
             ],
             noStock: false,
           },
@@ -147,6 +151,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 500" },
               { weight: "100g", price: "Rs. 950" },
+              { weight: "200g", price: "Rs. 1850" },
             ],
             noStock: false,
           },
@@ -172,6 +177,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 600" },
               { weight: "100g", price: "Rs. 1150" },
+              { weight: "200g", price: "Rs. 2250" },
             ],
             noStock: true,
           },
@@ -197,6 +203,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 650" },
               { weight: "100g", price: "Rs. 1200" },
+              { weight: "200g", price: "Rs. 2300" },
             ],
             noStock: true,
           },
@@ -222,6 +229,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 400" },
               { weight: "100g", price: "Rs. 750" },
+              { weight: "200g", price: "Rs. 1450" },
             ],
             noStock: true,
           },
@@ -247,6 +255,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 600" },
               { weight: "100g", price: "Rs. 1100" },
+              { weight: "200g", price: "Rs. 2100" },
             ],
             noStock: true,
           },
@@ -272,6 +281,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 700" },
               { weight: "100g", price: "Rs. 1350" },
+              { weight: "200g", price: "Rs. 2550" },
             ],
             noStock: true,
           },
@@ -295,6 +305,7 @@ const BuyGreens = () => {
               { weight: "20g", price: "Rs. 250" },
               { weight: "50g", price: "Rs. 400" },
               { weight: "100g", price: "Rs. 650" },
+              { weight: "200g", price: "Rs. 1280" },
             ],
             noStock: true,
           },
@@ -317,6 +328,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 600" },
               { weight: "100g", price: "Rs. 1100" },
+              { weight: "200g", price: "Rs. 2150" },
             ],
             noStock: false,
           },
@@ -336,6 +348,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "50g", price: "Rs. 530" },
               { weight: "100g", price: "Rs. 980" },
+              { weight: "200g", price: "Rs. 1900" },
             ],
             noStock: false,
           },
@@ -356,7 +369,7 @@ const BuyGreens = () => {
             name: "Lemongrass Herbal Tea",
             description:
               "Refreshingly citrusy and naturally soothing, our Lemongrass Herbal Tea is a perfect blend of flavor and wellness. Made from carefully selected, sun-dried lemongrass leaves, this caffeine-free infusion offers a delightful balance of light, lemony zest with a hint of natural sweetness.",
-            image: "",
+            image: "/images/lemongrasstea.jpg",
             nutritionalFacts: [
               "",
             ],
@@ -375,7 +388,7 @@ const BuyGreens = () => {
             name: "Mint Herbal Tea",
             description:
               "Cool, refreshing, and invigorating, our Mint Herbal Tea is a naturally caffeine-free infusion made from the finest handpicked mint leaves. With its crisp aroma and soothing properties, this tea is perfect for refreshing your senses while promoting digestion and relaxation. Enjoy it hot for a comforting experience or iced for a revitalizing treat.",
-            image: "",
+            image: "/images/minttea.jpg",
             nutritionalFacts: [
               "",
             ],
@@ -394,7 +407,7 @@ const BuyGreens = () => {
             name: "Moringa Herbal Infusion Tea",
             description:
               "Packed with nutrients and earthy goodness, our Moringa Herbal Tea is a powerhouse of wellness in every sip. Made from handpicked, sun-dried moringa leaves, this naturally caffeine-free tea is rich in antioxidants, vitamins, and minerals that support immunity, boost energy, and promote overall well-being. With its smooth, mildly grassy flavor and subtle nuttiness, Moringa tea is a perfect addition to a healthy lifestyle.",
-            image: "",
+            image: "/images/moringatea.jpg",
             nutritionalFacts: [
               "",
             ],
@@ -432,7 +445,7 @@ const BuyGreens = () => {
             name: "Ceylon Cinnamon Tea",
             description:
               "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma",
-            image: "",
+            image: "/images/cinnamontea.jpg",
             nutritionalFacts: [
               "",
             ],
@@ -463,6 +476,10 @@ const BuyGreens = () => {
     
       setCart([...cart, newItem]);
     };    
+
+    const removeFromCart = (index: number) => {
+      setCart(cart.filter((_, i) => i !== index));
+    };
 
     const getTotalPrice = () => {
       return cart.reduce((total, item) => total + Number(item.selectedPrice.replace("Rs. ", "").trim()), 0);
@@ -538,7 +555,7 @@ const BuyGreens = () => {
                     <img src={product.image} alt={product.name} className="product-image" />
                     <h2>{product.name}</h2>
                     <p>{product.description}</p>
-
+                    <p><strong>Add to Cart</strong></p>
                     {product.noStock ? (
                       <button className="no-stock-btn" disabled>Not Available</button>
                     ) : product.id === 14 ? (
@@ -578,30 +595,38 @@ const BuyGreens = () => {
     
             <br />
             <div ref={cartRef} className="cart">
-              <h2>Your Cart</h2>
-              {cart.length > 0 ? (
-                  <div>
-                      <ul>
-                          {cart.map((item, index) => (
-                              <li key={index}>
-                                  {item.name} - {item.selectedWeight} - {item.selectedPrice}
-                              </li>
-                          ))}
-                      </ul>
-                      <h4>Total Price: Rs. {getTotalPrice()}</h4>
-                      {/* Clear Cart Button */}
-                      <button className="clear-cart-btn" onClick={clearCart}>
-                          Clear Cart
-                      </button>
-                  </div>
-              ) : (
-                  <p>Your cart is empty.</p>
-              )}
+            <h2>Your Cart</h2>
+            {cart.length > 0 ? (
+              <div>
+                <ul className="cart-list">
+                  {cart.map((item, index) => (
+                    <li key={index} className="cart-item">
+                      <span className="cart-name">{item.name}</span>
+                      <span className="cart-weight">{item.selectedWeight}</span>
+                      <span className="cart-price">{item.selectedPrice}</span>
+                      <span 
+                        className="cart-remove" 
+                        onClick={() => removeFromCart(index)}
+                      >
+                        🗑️
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <h4>Total Price: Rs. {getTotalPrice()}</h4>
+                <button className="clear-cart-btn" onClick={clearCart}>
+                  Clear Cart
+                </button>
+              </div>
+            ) : (
+              <p>Your cart is empty.</p>
+            )}
           </div>
+
     
             <br></br>
             <div className="checkout-form">
-                <h2>Checkout</h2>
+                <h2>Checkout & Submit</h2>
                 <input
                     type="text"
                     value={name}
@@ -630,7 +655,7 @@ const BuyGreens = () => {
                     placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages / Request Subscription packages)"
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <button onClick={handleCheckout}>Checkout</button>
+                <button onClick={handleCheckout}>Submit</button>
             </div>
         </div>
     );
