@@ -421,27 +421,27 @@ const BuyGreens = () => {
             ],
             noStock: true,
           },
+          // {
+          //   id: 18,
+          //   name: "Lotus Herbal Infusion Tea",
+          //   description:
+          //     "Lotus, Elegant and soothing, our Lotus Herbal Tea is a delicate infusion crafted from carefully selected lotus leaves and flowers. This naturally caffeine-free tea offers a light, floral aroma with a hint of earthiness, creating a truly calming experience. Rich in antioxidants and known for its detoxifying properties, lotus tea supports relaxation, digestion, and overall well-being. Enjoy it as a warm, tranquil brew or a refreshing iced tea.",
+          //   image: "",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
           {
             id: 18,
-            name: "Lotus Herbal Infusion Tea",
-            description:
-              "Lotus, Elegant and soothing, our Lotus Herbal Tea is a delicate infusion crafted from carefully selected lotus leaves and flowers. This naturally caffeine-free tea offers a light, floral aroma with a hint of earthiness, creating a truly calming experience. Rich in antioxidants and known for its detoxifying properties, lotus tea supports relaxation, digestion, and overall well-being. Enjoy it as a warm, tranquil brew or a refreshing iced tea.",
-            image: "",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "50g", price: "" },
-              { weight: "100g", price: "" },
-            ],
-            noStock: true,
-          },
-          {
-            id: 19,
             name: "Ceylon Cinnamon Tea",
             description:
               "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma",
