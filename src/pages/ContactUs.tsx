@@ -1,5 +1,5 @@
 import "../styles/ContactUs.css";
-import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt  } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
@@ -21,10 +21,11 @@ const ContactUs = () => {
             <br></br>
             <a href="mailto:ceyplanta@gmail.com">ceyplanta@gmail.com</a>
           </div>
+          <br></br>
           <div className="contact-item">
-            {/* <FaEnvelope className="road-icon" /> */}
+            <FaMapMarkerAlt className="text-red-600" />
             <br></br>
-            <a>66A 1/1, Hirana Road, Panadura</a>
+            <span>No 235, Galle Rd, Thalpitiya South, Wadduwa</span>
           </div>
         </div>
 
