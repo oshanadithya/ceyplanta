@@ -2,7 +2,7 @@ const routes = [
     "/",
     "/services-products",
     "/buy-greens",
-    "/cart",
+    "/offers",
     "/contact-us",
     "/about-us"
   ];

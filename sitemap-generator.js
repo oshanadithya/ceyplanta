@@ -11,12 +11,12 @@ const sitemap = new SitemapStream({ hostname: 'https://www.ceyplanta.com' });
 
 // Define your routes manually or dynamically
 const routes = [
-  '/',
-  '/services-products',
-  '/buy-greens',
-  '/cart',
-  '/contact-us',
-  '/about-us'
+  "/",
+  "/services-products",
+  "/buy-greens",
+  "/offers",
+  "/contact-us",
+  "/about-us"
 ];
 
 routes.forEach(route => {
