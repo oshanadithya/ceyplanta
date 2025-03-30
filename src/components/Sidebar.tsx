@@ -28,11 +28,11 @@ const Sidebar = () => {
         
         <ul className="sidebar-menu">
           <li><Link to="/" onClick={() => setIsOpen(false)}>🏠 Home</Link></li>
-          <li><Link to="/services-products" onClick={() => setIsOpen(false)}>🛒 Products</Link></li>
+          <li><Link to="/services-products" onClick={() => setIsOpen(false)}>🛒 Services </Link></li>
           <li><Link to="/buy-greens" onClick={() => setIsOpen(false)}>🥬 Buy Greens</Link></li>
           <li><Link to="/offers" onClick={() => setIsOpen(false)}>🏷️ Offers & Discounts</Link></li>
           <li><Link to="/about-us" onClick={() => setIsOpen(false)}>ℹ️ About Us</Link></li>
-          <li><Link to="/contact-us" onClick={() => setIsOpen(false)}>📞 Contact Us</Link></li>
+          <li><Link to="/contact-us" onClick={() => setIsOpen(false)}>📞 Contact</Link></li>
         </ul>
       </div>
     </>

@@ -63,8 +63,8 @@ const Home: React.FC = () => {
         </div>
         <h1>Welcome to Greens</h1><p><b>by Ceyplanta</b></p>
         <p>
-          We offer variety of products and services. We provide nutritious
-          green products like Microgreens, Green tea, Cinnamon and Herbal plants.
+          We offer variety of products and services, including nutritious
+          green products like Microgreens, Green tea, Cinnamon, Herbs, Herbal Teas and Fruit Leathers.
         </p>
         <button className="order-now-button" onClick={() => navigate('/buy-greens')}>
           Order Now
@@ -101,16 +101,12 @@ const Home: React.FC = () => {
           Our Nildola Estate, located in the lush hills, is where we grow our premium green tea leaves,
           herbs, and other plants. Come and explore the beauty of nature and witness sustainable farming practices.
         </p>
-        <img src={estate} alt="Nildola Estate" className="estate-image" />
-        {/* <iframe
-          src="https://www.google.com/maps/place/Nildola+Estate/@6.5897311,80.2007427,224a,35y,358.13h,2.24t/data=!3m1!1e3!4m6!3m5!1s0x3ae3c919c24315ab:0xc15fa364bd39ce2d!8m2!3d6.5896022!4d80.2006088!16s%2Fg%2F11vq9j_mqz?entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D"
-          width="600"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe> */}
+        {/* <img src={estate} alt="Nildola Estate" className="estate-image" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.4599722193348!2d80.1980338757051!3d6.589607522390115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3c919c24315ab%3A0xc15fa364bd39ce2d!2sNildola%20Estate!5e0!3m2!1sen!2slk!4v1743340509119!5m2!1sen!2slk"/> */}
+        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.4599722193348!2d80.1980338757051!3d6.589607522390115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3c919c24315ab%3A0xc15fa364bd39ce2d!2sNildola%20Estate!5e0!3m2!1sen!2slk!4v1743340509119!5m2!1sen!2slk" 
+          target="_blank" 
+          rel="noopener noreferrer">
+          <img src={estate} alt="Nildola Estate" className="estate-image" />
+        </a>
       </section>
 
 
