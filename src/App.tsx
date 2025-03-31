@@ -9,6 +9,7 @@ import DiscountPage from './pages/OffersAndDiscounts';
 import './App.css'
 // import OpeningSoon from "./pages/OpenSoon";
 import Footer from './components/Footer';
+// 
 
 function App() {
 
