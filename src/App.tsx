@@ -4,11 +4,11 @@ import Home from './pages/Home';
 import ServicesProducts from './pages/ServicesProducts';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
-import Footer from './components/Footer';
 import BuyGreens from "./pages/BuyGreens";
-// import CartPage from './pages/Cart';
 import DiscountPage from './pages/OffersAndDiscounts';
 import './App.css'
+// import OpeningSoon from "./pages/OpenSoon";
+import Footer from './components/Footer';
 
 function App() {
 
@@ -25,10 +25,12 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/about-us" element={<AboutUs />} />
           </Routes>
+          {/* <OpeningSoon /> */}
         </div>
         <Footer />
       </div>
     </Router>
+
   )
 }
 
