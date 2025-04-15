@@ -560,7 +560,7 @@ const BuyGreens = () => {
             <h1>Buy Greens</h1>
             <br></br>
             <div className="search-container">
-              <span className="search-icon">🔍</span>
+              {/* <span className="search-icon">🔍</span> */}
               <input
                 type="text"
                 placeholder="Search for your greens..."
@@ -571,28 +571,6 @@ const BuyGreens = () => {
             </div>
             <br></br>
             <div ref={prodRef} className="product-grid">
-                {/* {products.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.name} className="product-image" />
-                    <h2>{product.name}</h2>
-                    <p>{product.description}</p>
-                    <p><strong>Add to Cart</strong></p>
-                    {product.noStock ? (
-                      <button className="no-stock-btn" disabled>Not Available</button>
-                    ) : product.id === 14 ? (
-                      <button> Request in Additional Details </button>
-                    ) : (
-                      product.weightOptions.map((option) => (
-                        <button
-                          key={option.weight}
-                          onClick={() => addToCart(product, option)}
-                        >
-                          {option.weight} - {option.price}
-                        </button>
-                      ))
-                    )}
-                  </div>
-                ))} */}
                 {products
                   .filter((product) =>
                     product.name.toLowerCase().includes(searchTerm.toLowerCase())

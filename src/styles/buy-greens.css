@@ -152,6 +152,15 @@ body {
     padding: 12px 20px;
     font-size: 1.1em;
   }
+
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
 }
 
 .subscription-packages {
@@ -218,7 +227,7 @@ body {
 
 .prod-icon-btn {
   position: fixed;  /* Ensures the button stays in place when scrolling */
-  top: 800px;        /* Adjusts the distance from the top of the screen */
+  top: 750px;        /* Adjusts the distance from the top of the screen */
   right: 20px;      /* Adjusts the distance from the right edge */
   background-color: #fff;
   border: 2px solid #000;
@@ -236,10 +245,13 @@ body {
 }
 
 .search-container {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--input-bg-light);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-light);
 }
 
 .search-icon {
@@ -261,6 +273,7 @@ body {
   background-color: #f9f9f9;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: 0.3s ease;
+  flex: 1;
 }
 
 .search-bar:focus {
