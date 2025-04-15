@@ -683,7 +683,7 @@ const BuyGreens = () => {
                 <button onClick={handleCheckout}>Submit</button>
             </div>
             <button className="prod-icon-btn" onClick={handleScrollToProduct}>
-                ^
+            🥬
             </button>
         </div>
     );
