@@ -216,6 +216,61 @@ body {
   background-color: #f0f0f0;  /* Light background on hover */
 }
 
+.prod-icon-btn {
+  position: fixed;  /* Ensures the button stays in place when scrolling */
+  top: 800px;        /* Adjusts the distance from the top of the screen */
+  right: 20px;      /* Adjusts the distance from the right edge */
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;     /* Ensures the button is above other elements */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.prod-icon-btn:hover {
+  background-color: #f0f0f0; 
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #888;
+  pointer-events: none;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 12px 20px 12px 40px;
+  font-size: 16px;
+  border: 2px solid #4CAF50;
+  border-radius: 30px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #2e7d32;
+  outline: none;
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
+}
+
+
+
 /* Product grid for responsive design */
 .product-grid {
   display: grid;

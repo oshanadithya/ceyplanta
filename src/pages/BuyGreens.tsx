@@ -462,10 +462,16 @@ const BuyGreens = () => {
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
+    
+    const prodRef = useRef<HTMLDivElement | null>(null);
 
     const handleScrollToCart = () => {
       cartRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+    };
+
+    const handleScrollToProduct = () => {
+      prodRef.current?.scrollIntoView({ behavior: 'smooth' })
+    };
 
     const addToCart = (product: { id?: number; name: any; description?: string; image?: string; nutritionalFacts?: string[]; benefits?: string[]; price?: string; weightOptions?: { weight: string; price: string; }[]; selectedPrice?: string | undefined; noStock?: boolean; }, option?: { weight: string; price: string }) => {
       const newItem = {
@@ -541,16 +547,31 @@ const BuyGreens = () => {
     const clearCart = () => {
       setCart([]); // Assuming `setCart` is your state updater for the cart
     };
+
+    const [searchTerm, setSearchTerm] = useState('');
     
     return (
         <div className="buy-greens-page">
           {/* Cart Icon */}
-          <button className="cart-icon-btn" onClick={handleScrollToCart}>
-                🛒 {/* You can replace this with any cart icon */}
+            <button className="cart-icon-btn" onClick={handleScrollToCart}>
+                🛒
             </button>
+            
             <h1>Buy Greens</h1>
-            <div className="product-grid">
-                {products.map((product) => (
+            <br></br>
+            <div className="search-container">
+              <span className="search-icon">🔍</span>
+              <input
+                type="text"
+                placeholder="Search for your greens..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-bar"
+              />
+            </div>
+            <br></br>
+            <div ref={prodRef} className="product-grid">
+                {/* {products.map((product) => (
                   <div key={product.id} className="product-card">
                     <img src={product.image} alt={product.name} className="product-image" />
                     <h2>{product.name}</h2>
@@ -571,6 +592,32 @@ const BuyGreens = () => {
                       ))
                     )}
                   </div>
+                ))} */}
+                {products
+                  .filter((product) =>
+                    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+                  )
+                  .map((product) => (
+                    <div key={product.id} className="product-card">
+                      <img src={product.image} alt={product.name} className="product-image" />
+                      <h2>{product.name}</h2>
+                      <p>{product.description}</p>
+                      <p><strong>Add to Cart</strong></p>
+                      {product.noStock ? (
+                        <button className="no-stock-btn" disabled>Not Available</button>
+                      ) : product.id === 14 ? (
+                        <button> Request in Additional Details </button>
+                      ) : (
+                        product.weightOptions.map((option) => (
+                          <button
+                            key={option.weight}
+                            onClick={() => addToCart(product, option)}
+                          >
+                            {option.weight} - {option.price}
+                          </button>
+                        ))
+                      )}
+                    </div>
                 ))}
             </div>
 
@@ -657,6 +704,9 @@ const BuyGreens = () => {
                 />
                 <button onClick={handleCheckout}>Submit</button>
             </div>
+            <button className="prod-icon-btn" onClick={handleScrollToProduct}>
+                ^
+            </button>
         </div>
     );
 };
