@@ -25,6 +25,11 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.buy-greens-page {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+
 .checkout-form input,
 .checkout-form textarea {
   padding: 10px;
@@ -322,3 +327,14 @@ body {
 }
 
 /*  */
+/* Smooth Fade-In Effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
