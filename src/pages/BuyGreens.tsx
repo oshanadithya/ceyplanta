@@ -583,7 +583,8 @@ const BuyGreens = () => {
             Cart:
             ${cartItems}
         `;
-
+        // 🔽 Generate and download PDF after order success
+        generateAndDownloadPDF();
         // Send email using EmailJS
         sendEmailToAdmin(checkoutMessage);
     };
@@ -602,9 +603,9 @@ const BuyGreens = () => {
             cartItems: messageContent, // Pass cart items
         })
         .then(() => {
-            alert('Your order has been placed successful. You will be contact soon by our team, Thank You!');
-            // 🔽 Generate and download PDF after order success
-            generateAndDownloadPDF();
+          
+          
+          alert('Your order has been placed successful. You will be contact soon by our team, Thank You!');
             // Reset form and cart
             setName('');
             setEmail('');
