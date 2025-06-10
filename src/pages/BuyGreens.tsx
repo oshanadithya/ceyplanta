@@ -35,7 +35,7 @@ const BuyGreens = () => {
             id: 1,
             name: "Radish",
             description: "Spicy and crisp, perfect for salads.",
-            image: "/images/redraddish.jpg",
+            image: "/images/raddish.png",
             nutritionalFacts: [
               "High in Vitamin C",
               "Rich in Antioxidants",
@@ -61,7 +61,7 @@ const BuyGreens = () => {
             id: 2,
             name: "Kangkung",
             description: "Nutrient-rich, ideal for stir-fries.",
-            image: "/images/kangkung.jpg",
+            image: "/images/kangkung.png",
             nutritionalFacts: [
               "Rich in Iron",
               "High in Fiber",
@@ -86,7 +86,7 @@ const BuyGreens = () => {
             id: 3,
             name: "Beetroot",
             description: "Sweet and earthy, great for juices and salads.",
-            image: "/images/beetroot.jpg",
+            image: "/images/beetroot.png",
             nutritionalFacts: [
               "Rich in Folate",
               "Good Source of Nitrates",
@@ -113,7 +113,7 @@ const BuyGreens = () => {
             name: "Amaranth",
             description:
               "bright green color and have a mild, slightly nutty flavor with a delicate crunch.",
-            image: "/images/g-amaranth.jpg",
+            image: "/images/g-amaranth.png",
             nutritionalFacts: [
               "High in Vitamins A, C, and K",
               "Rich in Iron",
@@ -139,7 +139,7 @@ const BuyGreens = () => {
             name: "Red Amaranth",
             description:
               "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
-            image: "/images/amaranth.jpg",
+            image: "/images/amaranth.png",
             nutritionalFacts: [
               "High in Vitamins folate (Betalains), potassium, and magnesium",
               "Rich in antioxidants",
@@ -191,7 +191,7 @@ const BuyGreens = () => {
             name: "Cabbage",
             description:
               "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.",
-            image: "/images/cabbage.jpg",
+            image: "/images/cabbage.png",
             nutritionalFacts: [
               "Rich in Vitamin C",
               "High in Fiber",
@@ -217,7 +217,7 @@ const BuyGreens = () => {
             name: "Kale",
             description:
               "Highly nutritious and rich in fiber, perfect for smoothies and sautés.",
-            image: "/images/kale.jpg",
+            image: "/images/kale.png",
             nutritionalFacts: [
               "High in Vitamin A, C, and K",
               "Rich in Fiber",
@@ -243,7 +243,7 @@ const BuyGreens = () => {
             name: "Basil",
             description:
               "Aromatic and flavorful, essential for pesto and Italian dishes.",
-            image: "/images/basil.jpg",
+            image: "/images/basil2.png",
             nutritionalFacts: [
               "Rich in Vitamin K",
               "Contains Manganese",
@@ -269,7 +269,7 @@ const BuyGreens = () => {
             name: "Coriander",
             description:
               "Fresh and citrusy, widely used in curries, salads, and garnishes.",
-            image: "/images/coriander.jpg",
+            image: "/images/cilantro.png",
             nutritionalFacts: [
               "High in Vitamin A, C, and K",
               "Rich in Potassium",
@@ -292,30 +292,38 @@ const BuyGreens = () => {
           },
           {
             id: 11,
-            name: "Premium Ceylon Green Tea ",
+            name: "Mix Amaranth Pack",
             description:
-              "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
-            image: "/images/greentea.jpg",
+              "Mix Amaranth microgreen meal includes Green and Red Amaranth",
+            image: "/images/mix-amaranth.jpg",
             nutritionalFacts: [
-              "Contains Antioxidants",
+              "",
             ],
             benefits: [
-              "Detoxifies Heavy Metals",
-              "Aids Digestion",
-              "Lowers Blood Sugar",
-              "Supports Skin Health",
+              "",
             ],
-            price: "800",
+            price: "600",
             weightOptions: [
-              { weight: "20g", price: "Rs. 250" },
-              { weight: "50g", price: "Rs. 400" },
-              { weight: "100g", price: "Rs. 650" },
-              { weight: "200g", price: "Rs. 1280" },
+              { weight: "50g", price: "Rs. 530" },
+              { weight: "100g", price: "Rs. 980" },
+              { weight: "200g", price: "Rs. 1900" },
             ],
-            noStock: true,
+            noStock: false,
           },
           {
             id: 12,
+            name: "Customized Mix Microgreen Pack",
+            description:
+              "Mix your favourite microgreens for your highly nutritional meal plan",
+            image: "/images/Microgreen-mix.png",
+            nutritionalFacts: [""],
+            benefits: [""],
+            price: "",
+            weightOptions: [{ weight: "Request", price: "" },], // Removed weight options
+            noStock: false,
+          },
+          {
+            id: 13,
             name: "Premium Ceylon Cinnamon",
             description:
               "High-quality Ceylon cinnamon for cooking and health benefits.",
@@ -338,36 +346,28 @@ const BuyGreens = () => {
             noStock: false,
           },
           {
-            id: 13,
-            name: "Mix Amaranth Pack",
+            id: 14,
+            name: "Premium Ceylon Green Tea ",
             description:
-              "Mix Amaranth microgreen meal includes Green and Red Amaranth",
-            image: "/images/mix-amaranth.jpg",
+              "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
+            image: "/images/greentea.jpg",
             nutritionalFacts: [
-              "",
+              "Contains Antioxidants",
             ],
             benefits: [
-              "",
+              "Detoxifies Heavy Metals",
+              "Aids Digestion",
+              "Lowers Blood Sugar",
+              "Supports Skin Health",
             ],
-            price: "600",
+            price: "800",
             weightOptions: [
-              { weight: "50g", price: "Rs. 530" },
-              { weight: "100g", price: "Rs. 980" },
-              { weight: "200g", price: "Rs. 1900" },
+              { weight: "20g", price: "Rs. 250" },
+              { weight: "50g", price: "Rs. 400" },
+              { weight: "100g", price: "Rs. 650" },
+              { weight: "200g", price: "Rs. 1280" },
             ],
-            noStock: false,
-          },
-          {
-            id: 14,
-            name: "Customized Mix Microgreen Pack",
-            description:
-              "Mix your favourite microgreens for your highly nutritional meal plan",
-            image: "/images/Microgreen-mix.png",
-            nutritionalFacts: [""],
-            benefits: [""],
-            price: "",
-            weightOptions: [], // Removed weight options
-            noStock: false,
+            noStock: true,
           },
           {
             id: 15,
@@ -426,25 +426,25 @@ const BuyGreens = () => {
             ],
             noStock: true,
           },
-          // {
-          //   id: 18,
-          //   name: "Lotus Herbal Infusion Tea",
-          //   description:
-          //     "Lotus, Elegant and soothing, our Lotus Herbal Tea is a delicate infusion crafted from carefully selected lotus leaves and flowers. This naturally caffeine-free tea offers a light, floral aroma with a hint of earthiness, creating a truly calming experience. Rich in antioxidants and known for its detoxifying properties, lotus tea supports relaxation, digestion, and overall well-being. Enjoy it as a warm, tranquil brew or a refreshing iced tea.",
-          //   image: "",
-          //   nutritionalFacts: [
-          //     "",
-          //   ],
-          //   benefits: [
-          //     "",
-          //   ],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
+          /* {
+            id: 18,
+            name: "Lotus Herbal Infusion Tea",
+            description:
+              "Lotus, Elegant and soothing, our Lotus Herbal Tea is a delicate infusion crafted from carefully selected lotus leaves and flowers. This naturally caffeine-free tea offers a light, floral aroma with a hint of earthiness, creating a truly calming experience. Rich in antioxidants and known for its detoxifying properties, lotus tea supports relaxation, digestion, and overall well-being. Enjoy it as a warm, tranquil brew or a refreshing iced tea.",
+            image: "",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "50g", price: "" },
+              { weight: "100g", price: "" },
+            ],
+            noStock: true,
+          }, */
           {
             id: 18,
             name: "Ceylon Cinnamon Tea",
@@ -463,7 +463,134 @@ const BuyGreens = () => {
               { weight: "100g", price: "" },
             ],
             noStock: true,
+          },
+          
+          // {
+          //   id: 22,
+          //   name: "Capsicum (Bell Peppers)",
+          //   description: "Seeds for vibrant and colorful bell pepper varieties.",
+          //   image: "/images/seeds/capsicum.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 23,
+          //   name: "Tomatoes",
+          //   description: "Premium seeds for juicy and flavorful tomatoes.",
+          //   image: "/images/seeds/tomatoes.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 24,
+          //   name: "Beans",
+          //   description: "Beans seeds suitable for both home gardens and farms.",
+          //   image: "/images/seeds/beans.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 25,
+          //   name: "Cabbage",
+          //   description: "High-yield cabbage seeds for optimal cultivation.",
+          //   image: "/images/seeds/cabbage.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 26,
+          //   name: "Carrot",
+          //   description: "Carrot seeds for sweet, crunchy, and nutritious roots.",
+          //   image: "/images/seeds/carrot.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 27,
+          //   name: "Bitter Gourd",
+          //   description: "Seeds for growing healthy and medicinal bitter gourd.",
+          //   image: "/images/seeds/bittergourd.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 28,
+          //   name: "Snake Gourd",
+          //   description: "Grow long and tasty snake gourd with these seeds.",
+          //   image: "/images/seeds/snakegourd.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          // {
+          //   id: 29,
+          //   name: "Potato Seeds",
+          //   description: "Certified potato seed tubers for high-yield crops.",
+          //   image: "/images/seeds/potato.jpg",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "1kg", price: "" },
+          //     { weight: "2kg", price: "" },
+          //   ],
+          //   noStock: true,
+          // },
+          {
+            id: 30,
+            name: "Plantation Seeds",
+            description: "Request for any kind of agricultural seeds from below.",
+            image: "/images/seeds.jpg",
+            nutritionalFacts: [""],
+            benefits: [""],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
           }
+          
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -657,7 +784,7 @@ const BuyGreens = () => {
                       <p>{product.description}</p>
                       <p><strong>Add to Cart</strong></p>
                       {product.noStock ? (
-                        <button className="no-stock-btn" disabled>Not Available</button>
+                        <button className="no-stock-btn" disabled>Coming Soon</button>
                       ) : product.id === 14 ? (
                         <button> Request in Additional Details </button>
                       ) : (
