@@ -292,6 +292,33 @@ const BuyGreens = () => {
           },
           {
             id: 11,
+            name: "Pea Shoots",
+            description:
+              "pea microgreens, are the young, tender leaves and stems of pea plants, harvested when they are still in their early growth stage. They are popular in microgreens and culinary circles for their fresh, delicate texture and sweet, pea-like flavor.",
+            image: "/images/peasprouts.png",
+            nutritionalFacts: [
+              "High in Vitamin A, C, and K",
+              "Rich in Potassium",
+              "Good Source of Folate",
+              "Contains Iron",
+              "Anti-Oxidents"
+            ],
+            benefits: [
+              "Detoxifies Heavy Metals",
+              "Aids Digestion",
+              "Lowers Blood Sugar",
+              "Supports Skin Health",
+            ],
+            price: "700",
+            weightOptions: [
+              { weight: "50g", price: "Rs. 700" },
+              { weight: "100g", price: "Rs. 1350" },
+              { weight: "200g", price: "Rs. 2550" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 12,
             name: "Mix Amaranth Pack",
             description:
               "Mix Amaranth microgreen meal includes Green and Red Amaranth",
@@ -311,7 +338,7 @@ const BuyGreens = () => {
             noStock: false,
           },
           {
-            id: 12,
+            id: 13,
             name: "Customized Mix Microgreen Pack",
             description:
               "Mix your favourite microgreens for your highly nutritional meal plan",
@@ -323,7 +350,7 @@ const BuyGreens = () => {
             noStock: false,
           },
           {
-            id: 13,
+            id: 14,
             name: "Premium Ceylon Cinnamon",
             description:
               "High-quality Ceylon cinnamon for cooking and health benefits.",
@@ -346,7 +373,7 @@ const BuyGreens = () => {
             noStock: false,
           },
           {
-            id: 14,
+            id: 15,
             name: "Premium Ceylon Green Tea ",
             description:
               "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
@@ -370,7 +397,7 @@ const BuyGreens = () => {
             noStock: true,
           },
           {
-            id: 15,
+            id: 16,
             name: "Lemongrass Herbal Tea",
             description:
               "Refreshingly citrusy and naturally soothing, our Lemongrass Herbal Tea is a perfect blend of flavor and wellness. Made from carefully selected, sun-dried lemongrass leaves, this caffeine-free infusion offers a delightful balance of light, lemony zest with a hint of natural sweetness.",
@@ -389,7 +416,7 @@ const BuyGreens = () => {
             noStock: true,
           },
           {
-            id: 16,
+            id: 17,
             name: "Mint Herbal Tea",
             description:
               "Cool, refreshing, and invigorating, our Mint Herbal Tea is a naturally caffeine-free infusion made from the finest handpicked mint leaves. With its crisp aroma and soothing properties, this tea is perfect for refreshing your senses while promoting digestion and relaxation. Enjoy it hot for a comforting experience or iced for a revitalizing treat.",
@@ -408,7 +435,7 @@ const BuyGreens = () => {
             noStock: true,
           },
           {
-            id: 17,
+            id: 18,
             name: "Moringa Herbal Infusion Tea",
             description:
               "Packed with nutrients and earthy goodness, our Moringa Herbal Tea is a powerhouse of wellness in every sip. Made from handpicked, sun-dried moringa leaves, this naturally caffeine-free tea is rich in antioxidants, vitamins, and minerals that support immunity, boost energy, and promote overall well-being. With its smooth, mildly grassy flavor and subtle nuttiness, Moringa tea is a perfect addition to a healthy lifestyle.",
@@ -446,7 +473,7 @@ const BuyGreens = () => {
             noStock: true,
           }, */
           {
-            id: 18,
+            id: 19,
             name: "Ceylon Cinnamon Tea",
             description:
               "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma",
