@@ -69,6 +69,14 @@ const Home: React.FC = () => {
         <button className="order-now-button" onClick={() => navigate('/buy-greens')}>
           Order Now
         </button>
+        <br></br>
+        <a href="/Ceyplanta Product Catalog Booklet.pdf"
+          download
+          className="download-catalog-button"
+          style={{ marginTop: '1rem', display: 'inline-block' }}
+        >
+          Get Our Catalog
+        </a>
       </div>
 
       <section className="featured-products">

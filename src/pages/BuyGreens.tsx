@@ -589,8 +589,33 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
-          }
-          
+          },
+          {
+            id: 31,
+            name: "Mari Gold",
+            description: "Marigold petals are rich in antioxidants, which can help reduce inflammation and protect cells from free radical damage. They also contain compounds that can help stimulate collagen production in the skin, which can reduce the signs of aging.",
+            image: "/images/marigold.png",
+            nutritionalFacts: [""],
+            benefits: ["A source of antioxidants, vitamins, and minerals"],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 32,
+            name: "Butterfly Pea",
+            description: "Butterfly pea flower, a naturally blue edible flower, offers numerous benefits due to its rich antioxidant content and other bioactive compounds.",
+            image: "/images/butterflypea.png",
+            nutritionalFacts: [""],
+            benefits: ["upporting brain health, improving skin and hair health, aiding in weight management, and potentially assisting with blood sugar control and heart health"],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
