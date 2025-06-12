@@ -51,9 +51,9 @@ const BuyGreens = () => {
             ],
             price: "400",
             weightOptions: [
-              { weight: "50g", price: "Rs. 450" },
-              { weight: "100g", price: "Rs. 850" },
-              { weight: "200g", price: "Rs. 1650" },
+              { weight: "50g", price: "Rs. 550" },
+              { weight: "100g", price: "Rs. 1060" },
+              { weight: "200g", price: "Rs. 1980" },
             ],
             noStock: false,
           },
@@ -76,9 +76,9 @@ const BuyGreens = () => {
             ],
             price: "350",
             weightOptions: [
-              { weight: "50g", price: "Rs. 520" },
-              { weight: "100g", price: "Rs. 960" },
-              { weight: "200g", price: "Rs. 1800" },
+              { weight: "50g", price: "Rs. 580" },
+              { weight: "100g", price: "Rs. 1080" },
+              { weight: "200g", price: "Rs. 2100" },
             ],
             noStock: false,
           },
@@ -331,9 +331,9 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "50g", price: "Rs. 530" },
-              { weight: "100g", price: "Rs. 980" },
-              { weight: "200g", price: "Rs. 1900" },
+              { weight: "50g", price: "Rs. 700" },
+              { weight: "100g", price: "Rs. 1380" },
+              { weight: "200g", price: "Rs. 2560" },
             ],
             noStock: false,
           },
@@ -837,8 +837,6 @@ const BuyGreens = () => {
                       <p><strong>Add to Cart</strong></p>
                       {product.noStock ? (
                         <button className="no-stock-btn" disabled>Coming Soon</button>
-                      ) : product.id === 14 ? (
-                        <button> Request in Additional Details </button>
                       ) : (
                         product.weightOptions.map((option) => (
                           <button
