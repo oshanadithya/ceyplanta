@@ -70,12 +70,21 @@ const Home: React.FC = () => {
           Order Now
         </button>
         <br></br>
+        <br></br>
         <a href="/Ceyplanta Product Catalog Booklet.pdf"
           download
           className="download-catalog-button"
           style={{ marginTop: '1rem', display: 'inline-block' }}
         >
-          Get Our Catalog
+          Get Our Catalog 🥦
+        </a>
+        <br></br>
+        <a href="/Ceyplanta Recipe Card.pdf"
+          download
+          className="download-catalog-button"
+          style={{ marginTop: '1rem', display: 'inline-block' }}
+        >
+          Get Recipe Book 🌮
         </a>
       </div>
 

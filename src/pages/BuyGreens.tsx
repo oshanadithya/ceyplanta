@@ -311,9 +311,9 @@ const BuyGreens = () => {
             ],
             price: "700",
             weightOptions: [
-              { weight: "50g", price: "Rs. 700" },
-              { weight: "100g", price: "Rs. 1350" },
-              { weight: "200g", price: "Rs. 2550" },
+              { weight: "50g", price: "Rs. 680" },
+              { weight: "100g", price: "Rs. 1250" },
+              { weight: "200g", price: "Rs. 2460" },
             ],
             noStock: true,
           },
