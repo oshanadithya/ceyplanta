@@ -132,6 +132,20 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      <section className="wellness-gifting">
+        <h2>🎁 Wellness Gifting by Ceyplanta</h2>
+        <p>
+          Celebrate health and sustainability with our beautifully curated gift boxes. Perfect for corporate events, welcome kits, hotel guests, or special occasions. Surprise your loved ones or clients with fresh microgreens, teas, cinnamon, and eco-friendly packaging.
+        </p>
+        <div className="gift-boxes-preview">
+          <div className="gift-box">
+            <img src="/images/Gift Sticker.png" alt="Wellness Gift Box" />
+            <h4>Wellness Gift Box</h4>
+            <p>Includes microgreens, cinnamon, customizable starter kit.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="nildola-estate">
         <h2>🌱 Visit Our Nildola Estate</h2>
         <p>

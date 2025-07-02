@@ -204,8 +204,37 @@ p {
   }
 }
 
+.wellness-gifting {
+  padding: 2rem;
+  background-color: #f9fff9;
+  text-align: center;
+}
+
 /* Responsive Styles for Mobile */
 @media (max-width: 480px) {
+
+  .wellness-gifting {
+    padding: 1rem !important;; 
+  }
+  
+  .wellness-gifting h2 {
+    font-size: 1.4rem;
+  }
+  
+  .wellness-gifting p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .gift-boxes-preview {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gift-box {
+    width: 90% !important;;
+    max-width: 300px !important;;
+  }
   .home {
     padding: 15px;
   }
@@ -306,4 +335,39 @@ p {
   font-weight: 600;
   font-size: 1rem;
   color: #333;
+}
+
+.wellness-gifting {
+  padding: 2rem;
+  background-color: #f9fff9;
+  text-align: center;
+}
+
+.gift-boxes-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.gift-box {
+  width: 250px;
+  border: 1px solid #d2e4d2;
+  border-radius: 16px;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.gift-box:hover {
+  transform: translateY(-4px);
+}
+
+.gift-box img {
+  width: 100%;
+  border-radius: 12px;
+  height: 220px;
+  object-fit: cover;
 }
