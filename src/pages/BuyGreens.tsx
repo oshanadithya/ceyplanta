@@ -643,6 +643,32 @@ const BuyGreens = () => {
             ],
             noStock: false,
           },
+          {
+            id: 33,
+            name: "Dianthus",
+            description: "Dianthus flowers, also known as pinks, are small, frilly blossoms with a clove-like, sweet fragrance. These edible flowers add a mild peppery note and vibrant color to salads, desserts, and drinks.",
+            image: "/images/dianthus.png",
+            nutritionalFacts: [""],
+            benefits: ["Contains antioxidants that may help reduce oxidative stress, Known for soothing digestive issues and supporting gut health, Offers anti-inflammatory and antimicrobial properties"],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 34,
+            name: "Wishbone",
+            description: "Wishbone flowers are delicate, trumpet-shaped blossoms with vibrant purple and blue hues. Though less common in cuisine, they are safe to eat and are sometimes used decoratively in salads and desserts.",
+            image: "/images/wishbone.png",
+            nutritionalFacts: [""],
+            benefits: ["Aesthetic edible garnish rich in phytonutrients, May support eye health due to presence of natural pigments (like anthocyanins), Contains vitamins A and C for skin and immune system support"],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          }
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);

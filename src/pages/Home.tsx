@@ -88,19 +88,39 @@ const Home: React.FC = () => {
         </a>
       </div>
 
+      <section className="microgreens-section">
+        <h2>Our Organic Microgreens</h2>
+        <p>
+        Greens by Ceyplanta offers fresh, locally grown microgreens that pack a punch of flavor, nutrition, and sustainability. Our microgreens are young, nutrient-dense plants harvested at their peak, packed with vitamins, minerals, and antioxidants. We cultivate a wide variety of microgreens, including radish, mustard, kale, and more, providing healthy, eco-friendly options for individuals, restaurants, and businesses. At Greens by Ceyplanta, we believe in promoting healthier eating habits, supporting local agriculture, and providing a sustainable food source that’s perfect for salads, smoothies, sandwiches, and garnishes. Taste the difference with our fresh, hand-picked microgreens—straight from the farm to your table.
+        </p>
+      </section>
+
+      <section className="available-at">
+        <h2>Our Partners</h2>
+        <div className="partners-container">
+        <div className="partner">
+            <img src="/partners/bluewater.jpg" alt="The Blue Water" />
+            <p>The Blue Water</p>
+          </div>
+          <div className="partner">
+            <img src="/partners/fitness_zone.jpg" alt="Fitness Zone" />
+            <p>Fitness Zone</p>
+          </div>
+          
+          <div className="partner">
+            <img src="/partners/detailgallery.jpeg" alt="Detail Gallery" />
+            <p>Detail Gallery</p>
+          </div>
+          {/* Add more partners as needed */}
+        </div>
+      </section>
+
       <section className="featured-products">
         <h2>Featured Products</h2>
         <div className="product-slide">
           <h3>{featuredProducts[currentFeaturedIndex].name}</h3>
           <p>{featuredProducts[currentFeaturedIndex].description}</p>
         </div>
-      </section>
-
-      <section className="microgreens-section">
-        <h2>Our Organic Microgreens</h2>
-        <p>
-        Greens by Ceyplanta offers fresh, locally grown microgreens that pack a punch of flavor, nutrition, and sustainability. Our microgreens are young, nutrient-dense plants harvested at their peak, packed with vitamins, minerals, and antioxidants. We cultivate a wide variety of microgreens, including radish, mustard, kale, and more, providing healthy, eco-friendly options for individuals, restaurants, and businesses. At Greens by Ceyplanta, we believe in promoting healthier eating habits, supporting local agriculture, and providing a sustainable food source that’s perfect for salads, smoothies, sandwiches, and garnishes. Taste the difference with our fresh, hand-picked microgreens—straight from the farm to your table.
-        </p>
       </section>
 
       <section className="microgreens-products">
