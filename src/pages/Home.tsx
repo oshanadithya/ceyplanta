@@ -133,7 +133,7 @@ const Home: React.FC = () => {
       </section>
 
       <section className="wellness-gifting">
-        <h2>🎁 Wellness Gifting by Ceyplanta</h2>
+        <h2 className="wellness-heading">🎁 Wellness Gifting by Ceyplanta</h2>
         <p>
           Celebrate health and sustainability with our beautifully curated gift boxes. Perfect for corporate events, welcome kits, hotel guests, or special occasions. Surprise your loved ones or clients with fresh microgreens, teas, cinnamon, and eco-friendly packaging.
         </p>

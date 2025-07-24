@@ -193,6 +193,10 @@ p {
   transform: scale(1.1);
 }
 
+.wellness-heading {
+  color: #000000; /* Example: a fresh green color */
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -204,21 +208,20 @@ p {
   }
 }
 
-.wellness-gifting {
-  padding: 2rem;
-  background-color: #f9fff9;
-  text-align: center;
-}
-
 /* Responsive Styles for Mobile */
 @media (max-width: 480px) {
 
   .wellness-gifting {
     padding: 1rem !important;; 
   }
+
+  .wellness-heading {
+    color: #2ecc71; /* Example: a fresh green color */
+  }
   
   .wellness-gifting h2 {
     font-size: 1.4rem;
+    color: #333;
   }
   
   .wellness-gifting p {

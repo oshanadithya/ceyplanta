@@ -165,7 +165,7 @@ const BuyGreens = () => {
             name: "Mustard",
             description:
               "Peppery and flavorful, commonly used in salads and Indian cuisine.",
-            image: "/images/mustard.jpg",
+            image: "/images/mustard.png",
             nutritionalFacts: [
               "Rich in Vitamin K",
               "High in Antioxidants",
@@ -191,7 +191,7 @@ const BuyGreens = () => {
             name: "Cabbage",
             description:
               "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.",
-            image: "/images/cabbage.png",
+            image: "/images/cabbage2.png",
             nutritionalFacts: [
               "Rich in Vitamin C",
               "High in Fiber",
@@ -322,7 +322,7 @@ const BuyGreens = () => {
             name: "Mix Amaranth Pack",
             description:
               "Mix Amaranth microgreen meal includes Green and Red Amaranth",
-            image: "/images/mix-amaranth.jpg",
+            image: "/images/mix-amaranth.png",
             nutritionalFacts: [
               "",
             ],
@@ -354,7 +354,7 @@ const BuyGreens = () => {
             name: "Premium Ceylon Cinnamon",
             description:
               "High-quality Ceylon cinnamon for cooking and health benefits.",
-            image: "/images/cinnamon-sticks.jpg",
+            image: "/images/cinnamon-sticks.png",
             nutritionalFacts: [
               "Contains Antioxidants",
             ],
@@ -377,7 +377,7 @@ const BuyGreens = () => {
             name: "Premium Ceylon Green Tea ",
             description:
               "Pure and natural 100% organic hand plucked green tea leaves for a healthy life.",
-            image: "/images/greentea.jpg",
+            image: "/images/greentea.png",
             nutritionalFacts: [
               "Contains Antioxidants",
             ],
@@ -401,7 +401,7 @@ const BuyGreens = () => {
             name: "Lemongrass Herbal Tea",
             description:
               "Refreshingly citrusy and naturally soothing, our Lemongrass Herbal Tea is a perfect blend of flavor and wellness. Made from carefully selected, sun-dried lemongrass leaves, this caffeine-free infusion offers a delightful balance of light, lemony zest with a hint of natural sweetness.",
-            image: "/images/lemongrasstea.jpg",
+            image: "/images/lemongrasstea.png",
             nutritionalFacts: [
               "",
             ],
@@ -420,7 +420,7 @@ const BuyGreens = () => {
             name: "Mint Herbal Tea",
             description:
               "Cool, refreshing, and invigorating, our Mint Herbal Tea is a naturally caffeine-free infusion made from the finest handpicked mint leaves. With its crisp aroma and soothing properties, this tea is perfect for refreshing your senses while promoting digestion and relaxation. Enjoy it hot for a comforting experience or iced for a revitalizing treat.",
-            image: "/images/minttea.jpg",
+            image: "/images/minttea.png",
             nutritionalFacts: [
               "",
             ],
@@ -439,7 +439,7 @@ const BuyGreens = () => {
             name: "Moringa Herbal Infusion Tea",
             description:
               "Packed with nutrients and earthy goodness, our Moringa Herbal Tea is a powerhouse of wellness in every sip. Made from handpicked, sun-dried moringa leaves, this naturally caffeine-free tea is rich in antioxidants, vitamins, and minerals that support immunity, boost energy, and promote overall well-being. With its smooth, mildly grassy flavor and subtle nuttiness, Moringa tea is a perfect addition to a healthy lifestyle.",
-            image: "/images/moringatea.jpg",
+            image: "/images/moringatea.png",
             nutritionalFacts: [
               "",
             ],
@@ -477,7 +477,7 @@ const BuyGreens = () => {
             name: "Ceylon Cinnamon Tea",
             description:
               "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma",
-            image: "/images/cinnamontea.jpg",
+            image: "/images/cinnamontea.png",
             nutritionalFacts: [
               "",
             ],
@@ -608,7 +608,7 @@ const BuyGreens = () => {
             id: 30,
             name: "Plantation Seeds",
             description: "Request for any kind of agricultural seeds from below.",
-            image: "/images/seeds.jpg",
+            image: "/images/seeds.png",
             nutritionalFacts: [""],
             benefits: [""],
             price: "",
