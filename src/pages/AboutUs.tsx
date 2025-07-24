@@ -37,6 +37,34 @@ const ServicesProducts = () => {
           grown naturally for a refreshing and healthy lifestyle.
         </p>
       </section>
+      <section className="gallery">
+        <h2>📸 Gallery</h2>
+        <div className="gallery-grid">
+          <img src="/images/gallery/1.jpeg" alt="Gallery 1" />
+          <img src="/images/gallery/2.jpeg" alt="Gallery 2" />
+          <img src="/images/gallery/3.jpeg" alt="Gallery 3" />
+          <img src="/images/gallery/4.jpeg" alt="Gallery 4" />
+          <img src="/images/gallery/5.jpeg" alt="Gallery 5" />
+          <img src="/images/gallery/6.jpeg" alt="Gallery 6" />
+          <img src="/images/gallery/7.jpeg" alt="Gallery 7" />
+          <img src="/images/gallery/8.jpeg" alt="Gallery 8" />
+          <img src="/images/gallery/9.jpeg" alt="Gallery 9" />
+          <img src="/images/gallery/10.jpeg" alt="Gallery 10" />
+          <img src="/images/gallery/11.jpeg" alt="Gallery 11" />
+          <img src="/images/gallery/12.jpeg" alt="Gallery 12" />
+          <img src="/images/gallery/13.jpeg" alt="Gallery 13" />
+          <img src="/images/gallery/14.jpeg" alt="Gallery 14" />
+          <img src="/images/gallery/15.jpeg" alt="Gallery 15" />
+          <img src="/images/gallery/16.jpeg" alt="Gallery 16" />
+          <img src="/images/gallery/17.jpeg" alt="Gallery 17" />
+          <img src="/images/gallery/18.jpeg" alt="Gallery 18" />
+          <img src="/images/gallery/19.jpeg" alt="Gallery 19" />
+          <img src="/images/gallery/20.jpeg" alt="Gallery 20" />
+          <img src="/images/gallery/21.jpeg" alt="Gallery 21" />
+          <img src="/images/gallery/22.jpeg" alt="Gallery 22" />
+          {/* Add more images as needed */}
+        </div>
+      </section>
     </div>
   );
 };

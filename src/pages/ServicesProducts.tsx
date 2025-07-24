@@ -1,6 +1,6 @@
 import React, { JSX, useState, useRef, useEffect } from "react";
 import "../styles/ServicesProducts.css";
-import { Leaf, Sprout } from "lucide-react";
+import { Leaf, Sprout, Flower, Shrub } from "lucide-react";
 
 // Define the type for a product
 type Product = {
@@ -139,11 +139,13 @@ const ServiceProducts: React.FC = () => {
 
   // Define the products
   const greenProducts: Product[] = [
-    { name: "Microgreens", description: "Fresh microgreens, rich in nutrients.", icon: <Sprout className="text-green-500 w-10 h-10" /> },
-    { name: "Green Tea Leaves", description: "Organic green tea leaves for a refreshing brew.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
+    { name: "Organic Microgreens", description: "Fresh microgreens, rich in nutrients.", icon: <Sprout className="text-green-500 w-10 h-10" /> },
+    { name: "Green Tea Leaves & Tea Related Products", description: "Organic green tea leaves for a refreshing brew.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
     { name: "Herbal Plants", description: "A variety of herbal plants for medicinal and culinary use.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Herbal Teas", description: "A variety of herbal leaves for medicinal and culinary use including hebal plants and flowers.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Cinnamon & Related Products", description: "Pure 100% Handmade Cinnamon in premium quality", icon: <Leaf className="text-green-500 w-10 h-10" /> },
+    { name: "Herbal Teas", description: "A variety of herbal leaves for medicinal and culinary use including hebal plants.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
+    { name: "Cinnamon & Related Products", description: "Pure 100% Handmade Cinnamon in premium quality", icon: <Shrub className="text-green-500 w-10 h-10" /> },
+    { name: "Edible Flowers", description: "Edible Flowers for Garnishes and Decorations", icon: <Flower className="text-green-500 w-10 h-10" /> },
+    { name: "Plantation Seeds", description: "Grow your own plants with us", icon: <Leaf className="text-green-500 w-10 h-10" /> },
   ];
 
   const agroTechProducts: Product[] = [
@@ -215,7 +217,7 @@ const ServiceProducts: React.FC = () => {
                   key={index}
                   product={product}
                   className="product-card green-card"
-                  onLearnMore={handleLearnMore}
+                  // onLearnMore={handleLearnMore}
                   bgColor="lightgreen" // Example value for bgColor
                   hoverBgColor="darkgreen" // Example value for hoverBgColor
                 />

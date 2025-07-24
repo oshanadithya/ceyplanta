@@ -210,7 +210,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "Rs. 1200" },
               { weight: "200g", price: "Rs. 2300" },
             ],
-            noStock: true,
+            noStock: false,
           },
           {
             id: 8,
