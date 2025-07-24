@@ -62,7 +62,6 @@ const ServicesProducts = () => {
           <img src="/images/gallery/20.jpeg" alt="Gallery 20" />
           <img src="/images/gallery/21.jpeg" alt="Gallery 21" />
           <img src="/images/gallery/22.jpeg" alt="Gallery 22" />
-          {/* Add more images as needed */}
         </div>
       </section>
     </div>

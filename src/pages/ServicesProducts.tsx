@@ -28,7 +28,7 @@ type MicrogreenDetail = {
 };
 
 // ProductCard component
-const ProductCard: React.FC<ProductCardProps> = ({ product, bgColor, hoverBgColor, onLearnMore, className }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
   return (
     <div className={`bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 ${className}`}>
       <div className="pcicon flex justify-center mb-4 text-gray-800 dark:text-gray-200" aria-hidden="true">
@@ -36,13 +36,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, bgColor, hoverBgColo
       </div>
       <h3 className="pcname text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{product.name}</h3>
       <p className="text-gray-600 mb-4">{product.description}</p>
-      <button
+      {/* <button
         onClick={() => onLearnMore(product)}
         className={`${bgColor} text-white px-5 py-2 rounded-lg hover:${hoverBgColor} transition`}
         aria-label={`Learn more about ${product.name}`}
       >
         Learn More
-      </button>
+      </button> */}
     </div>
   );
 };
@@ -217,7 +217,7 @@ const ServiceProducts: React.FC = () => {
                   key={index}
                   product={product}
                   className="product-card green-card"
-                  // onLearnMore={handleLearnMore}
+                  onLearnMore={handleLearnMore}
                   bgColor="lightgreen" // Example value for bgColor
                   hoverBgColor="darkgreen" // Example value for hoverBgColor
                 />
