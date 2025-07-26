@@ -118,3 +118,78 @@
     width: 120px; /* Smaller logo on mobile */
   }
 }
+
+.leaf-decor-wrapper {
+  position: relative;
+}
+
+.leaf {
+  position: absolute;
+  width: 80px; /* Adjust size */
+  height: auto;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.leaf.top-left {
+  top: -20px;
+  left: -20px;
+  transform: rotate(-15deg);
+}
+
+.leaf.bottom-right {
+  bottom: -20px;
+  right: -20px;
+  transform: rotate(10deg);
+}
+
+/* Optional: Responsive */
+@media (max-width: 600px) {
+  .leaf {
+    width: 50px;
+  }
+}
+
+
+.leaf-decor-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+  background-color: #fff; /* Optional, for contrast */
+  z-index: 1;
+}
+
+.leaf {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  z-index: 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.leaf.top-left {
+  top: -30px;
+  left: -30px;
+  transform: rotate(-15deg);
+}
+
+.leaf.top-right {
+  top: -30px;
+  right: -30px;
+  transform: rotate(15deg);
+}
+
+.leaf.bottom-left {
+  bottom: -30px;
+  left: -30px;
+  transform: rotate(10deg);
+}
+
+.leaf.bottom-right {
+  bottom: -30px;
+  right: -30px;
+  transform: rotate(-10deg);
+}
