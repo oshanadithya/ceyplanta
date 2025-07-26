@@ -9,11 +9,10 @@ import DiscountPage from './pages/OffersAndDiscounts';
 import './App.css'
 // import OpeningSoon from "./pages/OpenSoon";
 import Footer from './components/Footer';
-import { HelmetProvider } from 'react-helmet-async';
+// 
 
 function App() {
   return (
-    <HelmetProvider>
     <Router>
       <div className="leaf-decor-wrapper">
         {/* Decorative Leaves */}
@@ -38,7 +37,6 @@ function App() {
         </div>
       </div>
     </Router>
-    </HelmetProvider>
   );
 }
 

@@ -2,7 +2,6 @@ import '../styles/Home.css';
 import estate from '../assets/estate1.jpeg';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 
 const microgreensProducts = [
   { name: "Radish", description: "Spicy and crisp, perfect for salads.", image: "/images/raddish.png" },
@@ -23,19 +22,6 @@ const otherProducts = [
 ];
 
 const Home: React.FC = () => {
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Ceyplanta",
-    "url": "https://www.ceyplanta.com",
-    "logo": "https://www.ceyplanta.com/logo.png",
-    "description": "Ceyplanta offers fresh, organic microgreens across Sri Lanka including radish, basil, beetroot, waterspinach, cabbage and more.",
-    "sameAs": [
-      "https://www.facebook.com/61573903899364",
-      "https://www.instagram.com/ceyplanta"
-    ]
-  };
   const navigate = useNavigate();
 
   const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState<number>(0);
@@ -70,15 +56,6 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <>
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
-      <title>Microgreens Sri Lanka | Ceyplanta</title>
-      <meta name="description" content="Buy premium microgreens online in Sri Lanka. Islandwide delivery from Ceyplanta." />
-    </Helmet>
-  
     <div className="home">
       <div className="hero-section">
         <div className="homelogo">
@@ -195,7 +172,6 @@ const Home: React.FC = () => {
 
       
     </div>
-    </>
   );
 };
 
