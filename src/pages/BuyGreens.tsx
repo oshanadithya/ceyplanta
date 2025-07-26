@@ -491,119 +491,6 @@ const BuyGreens = () => {
             ],
             noStock: true,
           },
-          
-          // {
-          //   id: 22,
-          //   name: "Capsicum (Bell Peppers)",
-          //   description: "Seeds for vibrant and colorful bell pepper varieties.",
-          //   image: "/images/seeds/capsicum.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 23,
-          //   name: "Tomatoes",
-          //   description: "Premium seeds for juicy and flavorful tomatoes.",
-          //   image: "/images/seeds/tomatoes.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 24,
-          //   name: "Beans",
-          //   description: "Beans seeds suitable for both home gardens and farms.",
-          //   image: "/images/seeds/beans.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 25,
-          //   name: "Cabbage",
-          //   description: "High-yield cabbage seeds for optimal cultivation.",
-          //   image: "/images/seeds/cabbage.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 26,
-          //   name: "Carrot",
-          //   description: "Carrot seeds for sweet, crunchy, and nutritious roots.",
-          //   image: "/images/seeds/carrot.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 27,
-          //   name: "Bitter Gourd",
-          //   description: "Seeds for growing healthy and medicinal bitter gourd.",
-          //   image: "/images/seeds/bittergourd.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 28,
-          //   name: "Snake Gourd",
-          //   description: "Grow long and tasty snake gourd with these seeds.",
-          //   image: "/images/seeds/snakegourd.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "50g", price: "" },
-          //     { weight: "100g", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
-          // {
-          //   id: 29,
-          //   name: "Potato Seeds",
-          //   description: "Certified potato seed tubers for high-yield crops.",
-          //   image: "/images/seeds/potato.jpg",
-          //   nutritionalFacts: [""],
-          //   benefits: [""],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "1kg", price: "" },
-          //     { weight: "2kg", price: "" },
-          //   ],
-          //   noStock: true,
-          // },
           {
             id: 30,
             name: "Plantation Seeds",
@@ -833,10 +720,10 @@ const BuyGreens = () => {
     return (
         <div className="buy-greens-page">
           {/* Cart Icon */}
-            <button className="cart-icon-btn" onClick={handleScrollToCart}>
-                🛒
-            </button>
-            
+          <button className="cart-icon-btn" onClick={handleScrollToCart}>
+            🛒
+            {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
+          </button>
             <h1>Buy Greens</h1>
             <br></br>
             <div className="search-container">
@@ -861,17 +748,20 @@ const BuyGreens = () => {
                       <h2>{product.name}</h2>
                       <p>{product.description}</p>
                       <p><strong>Add to Cart</strong></p>
+                      
                       {product.noStock ? (
                         <button className="no-stock-btn" disabled>Coming Soon</button>
                       ) : (
-                        product.weightOptions.map((option) => (
-                          <button
-                            key={option.weight}
-                            onClick={() => addToCart(product, option)}
-                          >
-                            {option.weight} - {option.price}
-                          </button>
-                        ))
+                        <div className="button-group">
+                          {product.weightOptions.map((option) => (
+                            <button
+                              key={option.weight}
+                              onClick={() => addToCart(product, option)}
+                            >
+                              {option.weight} - {option.price} 🛒
+                            </button>
+                          ))}
+                        </div>
                       )}
                     </div>
                 ))}
