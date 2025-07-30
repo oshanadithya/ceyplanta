@@ -15,10 +15,6 @@ function App() {
     <Router>
       {/* <div className="leaf-decor-wrapper"> */}
         {/* Decorative Leaves */}
-        <img src="/images/leaf1.png" className="leaf top-left" alt="Leaf Top Left" />
-        <img src="/images/leaf2.png" className="leaf bottom-right" alt="Leaf Bottom Right" />
-        <img src="/images/leaf1.png" className="leaf top-right" alt="Leaf Top Right" />
-        <img src="/images/leaf2.png" className="leaf bottom-left" alt="Leaf Bottom Left" />
 
         <div className="app-container">
           <Sidebar />
