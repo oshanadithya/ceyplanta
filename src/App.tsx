@@ -7,14 +7,13 @@ import AboutUs from './pages/AboutUs';
 import BuyGreens from "./pages/BuyGreens";
 import DiscountPage from './pages/OffersAndDiscounts';
 import './App.css'
-// import OpeningSoon from "./pages/OpenSoon";
 import Footer from './components/Footer';
-// 
+
 
 function App() {
   return (
     <Router>
-      <div className="leaf-decor-wrapper">
+      {/* <div className="leaf-decor-wrapper"> */}
         {/* Decorative Leaves */}
         <img src="/images/leaf1.png" className="leaf top-left" alt="Leaf Top Left" />
         <img src="/images/leaf2.png" className="leaf bottom-right" alt="Leaf Bottom Right" />
@@ -35,7 +34,7 @@ function App() {
           </div>
           <Footer />
         </div>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }
