@@ -95,7 +95,7 @@ const Home: React.FC = () => {
         </p>
       </section>
 
-      <section className="available-at">
+      {/* <section className="available-at">
         <h2>Our Partners</h2>
         <div className="partners-container">
         <div className="partner">
@@ -111,9 +111,8 @@ const Home: React.FC = () => {
             <img src="/partners/detailgallery.jpeg" alt="Detail Gallery" />
             <p>Detail Gallery</p>
           </div>
-          {/* Add more partners as needed */}
         </div>
-      </section>
+      </section> */}
 
       <section className="featured-products">
         <h2>Featured Products</h2>
