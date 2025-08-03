@@ -528,7 +528,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "Request", price: "" },
             ],
-            noStock: false,
+            noStock: true,
           },
           {
             id: 33,
@@ -541,7 +541,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "Request", price: "" },
             ],
-            noStock: false,
+            noStock: true,
           },
           {
             id: 34,
@@ -555,7 +555,151 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
-          }
+          },
+          {
+            id: 35,
+            name: "Malaysian Gotukola",
+            description:
+              "Green leafy herb known for its vibrant round leaves and slightly bitter, earthy taste. Traditionally used in Southeast Asian and Ayurvedic medicine, and in Sri Lankan, Malaysian, and Indian cuisine.",
+            image: "/images/malay_gotukola.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 36,
+            name: "Mung Sprout",
+            description:
+              "These vibrant green microgreens are crunchy, mildly sweet, and packed with nutrients, making them a favorite for healthy meals, salads, stir-fries, and smoothies.",
+            image: "/images/mung.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 37,
+            name: "Micro Kurakkan",
+            description:
+              "Crisp, earthy, and slightly nutty, packed with essential nutrients and ancient grain goodness. As a gluten-free superfood, millet microgreens bring the power of traditional grains into modern healthy diets",
+            image: "/images/millet.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 38,
+            name: "Micro Corn Shoot",
+            description:
+              "Golden-yellow microgreens are grown in darkness (blanched) to enhance their natural sweetness and vibrant color, making them a favorite in fine dining, gourmet dishes, and modern healthy cuisine.",
+            image: "/images/cornshoot.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
+          {
+            id: 39,
+            name: "Impation",
+            description:
+              "Vibrant, shade-loving bloom known for its dazzling colors, soft petals, and long-lasting beauty. Popular in ornamental gardening, bouquets, and edible flower arrangements, Impatiens bring a cheerful burst of color to any setting.",
+            image: "/images/impatient.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 40,
+            name: "Zinnia",
+            description:
+              "Zinnia is a bright, cheerful flower known for its bold colors, daisy-like shape, and long-lasting blooms. Native to Central America and Mexico, Zinnias have become a favorite in gardens and floral arrangements worldwide due to their vibrant beauty, easy care, and symbolic meaning of joy and friendship.",
+            image: "/images/zinnia.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 41,
+            name: "Begonia",
+            description:
+              "Begonia is a stunning ornamental flower prized for both its gorgeous blooms and decorative foliage. With over 1,800 species and hybrids, Begonias are loved for their vibrant colors, unique petal forms, and ability to thrive in shady, humid conditions. They are a favorite in floral displays, potted arrangements, and garden borders",
+            image: "/images/begonia.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: true,
+          },
+          {
+            id: 42,
+            name: "Roses",
+            description:
+              "Rose is one of the most iconic and cherished flowers in the world, celebrated for its timeless beauty, fragrance, and symbolic depth. With thousands of varieties, roses are available in a wide range of colors, sizes, and petal forms, making them perfect for bouquets, gardens, decorations, and even culinary use.",
+            image: "/images/rose.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+          },
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -662,6 +806,16 @@ const BuyGreens = () => {
             return;
         }
 
+        if (!validatePhoneNumber(phone.trim())) {
+          alert('Please enter a valid Sri Lankan mobile number (e.g., 0771234567)');
+          return;
+        }
+    
+        if (cart.length === 0) {
+          alert('Your cart is empty. Please add some products before checkout.');
+          return;
+        }
+
         // Construct the cart items list
         const cartItems = cart.map(item => `${item.name} - ${item.selectedWeight} - Rs. ${item.selectedPrice}`).join('\n');
 
@@ -713,6 +867,12 @@ const BuyGreens = () => {
 
     const clearCart = () => {
       setCart([]); // Assuming `setCart` is your state updater for the cart
+    };
+
+    const validatePhoneNumber = (number: any) => {
+      // Sri Lankan mobile number starting with 07 followed by 8 digits
+      const regex = /^(0)(7[01245678])[0-9]{7}$/;
+      return regex.test(number);
     };
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -818,7 +978,7 @@ const BuyGreens = () => {
 
     
             <br></br>
-            <div className="checkout-form">
+            <form className="checkout-form" onSubmit={handleCheckout} noValidate>
                 <h2>Checkout & Submit</h2>
                 <input
                     type="text"
@@ -835,21 +995,21 @@ const BuyGreens = () => {
                     required
                 />
                 <input
-                  type="number"
+                  type="tel"
                   value={phone}
-                  placeholder="Your Phone Number"
+                  placeholder="Your Phone Number (e.g., 0771234567)"
                   onChange={(e) => setPhone(e.target.value)}
                   required
-                  inputMode="tel" // Optimizes for numeric input on mobile devices
-                  pattern="[0-9]" // Only allows numbers to be entered
-              />
+                  pattern="^(0)(7[01245678])[0-9]{7}$"
+                  title="Enter a valid phone number"
+                />
                 <textarea
                     value={message}
                     placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages / Request Subscription packages)"
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <button onClick={handleCheckout}>Submit</button>
-            </div>
+                <button type="submit">Submit</button>
+              </form>
             <button className="prod-icon-btn" onClick={handleScrollToProduct}>
             🥬
             </button>
