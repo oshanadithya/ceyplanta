@@ -1,7 +1,7 @@
-# Redirect HTTP and non-www to https://www.ceyplanta.com
-http://ceyplanta.com/*     https://www.ceyplanta.com/:splat    301!
-http://www.ceyplanta.com/* https://www.ceyplanta.com/:splat    301!
-https://ceyplanta.com/*    https://www.ceyplanta.com/:splat    301!
+# Redirect HTTP and www to HTTPS non-www primary domain
+http://ceyplanta.com/*      https://ceyplanta.com/:splat     301!
+http://www.ceyplanta.com/*  https://ceyplanta.com/:splat     301!
+https://www.ceyplanta.com/* https://ceyplanta.com/:splat    301!
 
 # SPA fallback routing for React Router
 /*    /index.html   200
