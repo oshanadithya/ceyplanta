@@ -3,5 +3,8 @@ http://ceyplanta.com/*      https://ceyplanta.com/:splat     301!
 http://www.ceyplanta.com/*  https://ceyplanta.com/:splat     301!
 https://www.ceyplanta.com/* https://ceyplanta.com/:splat    301!
 
-# SPA fallback routing for React Router
-/*    /index.html   200
+# Redirect /caf explicitly to root
+/caf    /    301!
+
+# SPA fallback routing for React Router (must be last)
+ /*     /index.html   200
