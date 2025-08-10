@@ -374,3 +374,46 @@ p {
   height: 220px;
   object-fit: cover;
 }
+
+.hero-section {
+  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(245,255,245,0.9));
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.hero-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.download-catalog-button {
+  padding: 0.8rem 1.5rem;
+  background: rgba(39, 174, 96, 0.85);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.download-catalog-button:hover {
+  background: rgba(39, 174, 96, 1);
+  transform: translateY(-3px);
+}
+
+/* Section scroll reveal fade-in */
+section {
+  will-change: transform, opacity;
+}
+
+.microgreens-image {
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.microgreens-image:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}

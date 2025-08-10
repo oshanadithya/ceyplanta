@@ -12,10 +12,12 @@
   "dependencies": {
     "@shadcn/ui": "^0.0.4",
     "emailjs-com": "^3.2.0",
+    "framer-motion": "^12.23.12",
     "jspdf": "^3.0.1",
     "lucide-react": "^0.481.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.3.0",
     "react-slick": "^0.30.3",
