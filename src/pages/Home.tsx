@@ -164,8 +164,6 @@ const Home: React.FC = () => {
             <img src={estate} alt="Nildola Estate" className="estate-image" />
           </a>
         </motion.section>
-
-        {/* Other sections ... with same animation logic */}
       </div>
   );
 };
