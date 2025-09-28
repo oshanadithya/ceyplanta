@@ -51,7 +51,7 @@ const BuyGreens = () => {
             ],
             price: "400",
             weightOptions: [
-              { weight: "50g", price: "Rs. 580" },
+              { weight: "50g", price: "Rs. 600" },
               { weight: "100g", price: "Rs. 1070" },
               { weight: "200g", price: "Rs. 1980" },
             ],
@@ -77,7 +77,7 @@ const BuyGreens = () => {
             price: "350",
             weightOptions: [
               { weight: "50g", price: "Rs. 620" },
-              { weight: "100g", price: "Rs. 1080" },
+              { weight: "100g", price: "Rs. 1120" },
               { weight: "200g", price: "Rs. 2100" },
             ],
             noStock: false,
@@ -102,9 +102,9 @@ const BuyGreens = () => {
             ],
             price: "450",
             weightOptions: [
-              { weight: "50g", price: "Rs. 630" },
-              { weight: "100g", price: "Rs. 1300" },
-              { weight: "200g", price: "Rs. 2400" },
+              { weight: "50g", price: "Rs. 760" },
+              { weight: "100g", price: "Rs. 1400" },
+              { weight: "200g", price: "Rs. 2620" },
             ],
             noStock: false,
           },
@@ -181,8 +181,8 @@ const BuyGreens = () => {
             price: "700",
             weightOptions: [
               { weight: "50g", price: "Rs. 590" },
-              { weight: "100g", price: "Rs. 1060" },
-              { weight: "200g", price: "Rs. 2080" },
+              { weight: "100g", price: "Rs. 860" },
+              { weight: "200g", price: "Rs. 1620" },
             ],
             noStock: false,
           },
@@ -206,7 +206,7 @@ const BuyGreens = () => {
             ],
             price: "650",
             weightOptions: [
-              { weight: "50g", price: "Rs. 650" },
+              { weight: "50g", price: "Rs. 890" },
               { weight: "100g", price: "Rs. 1600" },
               { weight: "200g", price: "Rs. 2730" },
             ],
