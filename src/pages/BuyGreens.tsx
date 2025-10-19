@@ -264,32 +264,32 @@ const BuyGreens = () => {
             ],
             noStock: true,
           },
-          {
-            id: 10,
-            name: "Coriander",
-            description:
-              "Fresh and citrusy, widely used in curries, salads, and garnishes.",
-            image: "/images/cilantro.png",
-            nutritionalFacts: [
-              "High in Vitamin A, C, and K",
-              "Rich in Potassium",
-              "Good Source of Manganese",
-              "Contains Antioxidants",
-            ],
-            benefits: [
-              "Detoxifies Heavy Metals",
-              "Aids Digestion",
-              "Lowers Blood Sugar",
-              "Supports Skin Health",
-            ],
-            price: "700",
-            weightOptions: [
-              { weight: "50g", price: "Rs. 740" },
-              { weight: "100g", price: "Rs. 1520" },
-              { weight: "200g", price: "Rs. 2750" },
-            ],
-            noStock: true,
-          },
+          // {
+          //   id: 10,
+          //   name: "Coriander",
+          //   description:
+          //     "Fresh and citrusy, widely used in curries, salads, and garnishes.",
+          //   image: "/images/cilantro.png",
+          //   nutritionalFacts: [
+          //     "High in Vitamin A, C, and K",
+          //     "Rich in Potassium",
+          //     "Good Source of Manganese",
+          //     "Contains Antioxidants",
+          //   ],
+          //   benefits: [
+          //     "Detoxifies Heavy Metals",
+          //     "Aids Digestion",
+          //     "Lowers Blood Sugar",
+          //     "Supports Skin Health",
+          //   ],
+          //   price: "700",
+          //   weightOptions: [
+          //     { weight: "50g", price: "Rs. 740" },
+          //     { weight: "100g", price: "Rs. 1520" },
+          //     { weight: "200g", price: "Rs. 2750" },
+          //   ],
+          //   noStock: true,
+          // },
           {
             id: 11,
             name: "Pea Shoots",
