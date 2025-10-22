@@ -15,6 +15,7 @@ const BuyGreens = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("All");
     type Product = {
         id: number;
         name: string;
@@ -26,6 +27,7 @@ const BuyGreens = () => {
         weightOptions: { weight: string; price: string }[];
         selectedPrice?: string;  // Add this line to make selectedPrice optional
         noStock: boolean;
+        category: string;
     };
 
 
@@ -56,6 +58,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 1980" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 2,
@@ -81,6 +84,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2100" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 3,
@@ -107,6 +111,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2980" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 4,
@@ -133,6 +138,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2880" },
             ],
             noStock: true,
+            category: "Microgreens",
           },
           {
             id: 5,
@@ -159,6 +165,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 3360" },
             ],
             noStock: true,
+            category: "Microgreens",
           },
           {
             id: 6,
@@ -185,6 +192,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 1620" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 7,
@@ -211,6 +219,7 @@ const BuyGreens = () => {
               // { weight: "200g", price: "Rs. 6550" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 8,
@@ -237,6 +246,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2900" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 9,
@@ -263,6 +273,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2100" },
             ],
             noStock: true,
+            category: "Microgreens",
           },
           // {
           //   id: 10,
@@ -289,6 +300,7 @@ const BuyGreens = () => {
           //     { weight: "200g", price: "Rs. 2750" },
           //   ],
           //   noStock: true,
+          //   category: "Microgreens",
           // },
           {
             id: 11,
@@ -316,6 +328,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 3160" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 12,
@@ -336,6 +349,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2560" },
             ],
             noStock: true,
+            category: "Microgreens",
           },
           {
             id: 13,
@@ -348,6 +362,7 @@ const BuyGreens = () => {
             price: "",
             weightOptions: [{ weight: "Request", price: "" },], // Removed weight options
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 14,
@@ -371,6 +386,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2150" },
             ],
             noStock: false,
+            category: "Herbs & Teas",
           },
           {
             id: 15,
@@ -395,6 +411,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 1280" },
             ],
             noStock: true,
+            category: "Herbs & Teas",
           },
           {
             id: 16,
@@ -414,6 +431,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "" },
             ],
             noStock: true,
+            category: "Herbs & Teas",
           },
           {
             id: 17,
@@ -433,6 +451,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "" },
             ],
             noStock: true,
+            category: "Herbs & Teas",
           },
           {
             id: 18,
@@ -452,6 +471,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "" },
             ],
             noStock: true,
+            category: "Herbs & Teas",
           },
           /* {
             id: 18,
@@ -490,6 +510,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "" },
             ],
             noStock: true,
+            category: "Herbs & Teas",
           },
           {
             id: 30,
@@ -503,6 +524,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Herbs & Teas",
           },
           {
             id: 31,
@@ -516,6 +538,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Edible Flowers",
           },
           {
             id: 32,
@@ -529,6 +552,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: true,
+            category: "Edible Flowers",
           },
           {
             id: 33,
@@ -542,6 +566,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: true,
+            category: "Edible Flowers",
           },
           {
             id: 34,
@@ -555,6 +580,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Edible Flowers",
           },
           {
             id: 35,
@@ -573,6 +599,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Herbs & Teas",
           },
           {
             id: 36,
@@ -591,6 +618,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 37,
@@ -609,6 +637,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 38,
@@ -627,9 +656,29 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Microgreens",
           },
           {
             id: 39,
+            name: "Fenugreek",
+            description:
+              "Young fenugreek plants harvested shortly after sprouting, known for their mildly bitter, slightly maple-like flavor, and crisp texture",
+            image: "/images/fenugreek.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Microgreens",
+          },
+          {
+            id: 40,
             name: "Impation",
             description:
               "Vibrant, shade-loving bloom known for its dazzling colors, soft petals, and long-lasting beauty. Popular in ornamental gardening, bouquets, and edible flower arrangements, Impatiens bring a cheerful burst of color to any setting.",
@@ -645,9 +694,10 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: true,
+            category: "Edible Flowers",
           },
           {
-            id: 40,
+            id: 41,
             name: "Zinnia",
             description:
               "Zinnia is a bright, cheerful flower known for its bold colors, daisy-like shape, and long-lasting blooms. Native to Central America and Mexico, Zinnias have become a favorite in gardens and floral arrangements worldwide due to their vibrant beauty, easy care, and symbolic meaning of joy and friendship.",
@@ -663,9 +713,10 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: true,
+            category: "Edible Flowers",
           },
           {
-            id: 41,
+            id: 42,
             name: "Begonia",
             description:
               "Begonia is a stunning ornamental flower prized for both its gorgeous blooms and decorative foliage. With over 1,800 species and hybrids, Begonias are loved for their vibrant colors, unique petal forms, and ability to thrive in shady, humid conditions. They are a favorite in floral displays, potted arrangements, and garden borders",
@@ -681,9 +732,10 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: true,
+            category: "Edible Flowers",
           },
           {
-            id: 42,
+            id: 43,
             name: "Roses",
             description:
               "Rose is one of the most iconic and cherished flowers in the world, celebrated for its timeless beauty, fragrance, and symbolic depth. With thousands of varieties, roses are available in a wide range of colors, sizes, and petal forms, making them perfect for bouquets, gardens, decorations, and even culinary use.",
@@ -699,6 +751,7 @@ const BuyGreens = () => {
               { weight: "Request", price: "" },
             ],
             noStock: false,
+            category: "Edible Flowers",
           },
     ]);
 
@@ -859,7 +912,7 @@ const BuyGreens = () => {
             setMessage('');
             setCart([]);
         })
-        .catch((error) => {
+        .catch((error: any) => {
             console.error('Error placing order!:', error);
             alert('There was an error placing your order. Please try again later!');
         });
@@ -876,6 +929,13 @@ const BuyGreens = () => {
     };
 
     const [searchTerm, setSearchTerm] = useState('');
+
+    // ✅ Filter products by category
+    const filteredProducts = products.filter((product) => {
+      const matchCategory = selectedCategory === "All" || product.category === selectedCategory;
+      const matchSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchCategory && matchSearch;
+    });
     
     return (
         <div className="buy-greens-page">
@@ -886,6 +946,43 @@ const BuyGreens = () => {
           </button>
             <h1>Buy Greens</h1>
             <br></br>
+
+            {/* ✅ Category Buttons */}
+            <div className="category-buttons">
+              <button
+                className={selectedCategory === "All" ? "active" : ""}
+                onClick={() => setSelectedCategory("All")}
+              >
+                🌿 All
+              </button>
+              <button
+                className={selectedCategory === "Microgreens" ? "active" : ""}
+                onClick={() => setSelectedCategory("Microgreens")}
+              >
+                🌱 Microgreens
+              </button>
+              <button
+                className={selectedCategory === "Salads" ? "active" : ""}
+                onClick={() => setSelectedCategory("Salads")}
+              >
+                🥗 Salads
+              </button>
+              <button
+                className={selectedCategory === "Herbs & Teas" ? "active" : ""}
+                onClick={() => setSelectedCategory("Herbs & Teas")}
+              >
+                🍃 Herbs & Teas
+              </button>
+              <button
+                className={selectedCategory === "Edible Flowers" ? "active" : ""}
+                onClick={() => setSelectedCategory("Edible Flowers")}
+              >
+                🌸 Edible Flowers
+              </button>
+            </div>
+
+            <br />
+
             <div className="search-container">
               {/* <span className="search-icon">🔍</span> */}
               <input
@@ -897,7 +994,7 @@ const BuyGreens = () => {
               />
             </div>
             <br></br>
-            <div ref={prodRef} className="product-grid">
+            {/* <div ref={prodRef} className="product-grid">
                 {products
                   .filter((product) =>
                     product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -925,6 +1022,36 @@ const BuyGreens = () => {
                       )}
                     </div>
                 ))}
+            </div> */}
+            {/* ✅ Filtered Products */}
+            <div ref={prodRef} className="product-grid">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <div key={product.id} className="product-card">
+                    <img src={product.image} alt={product.name} className="product-image" />
+                    <h2>{product.name}</h2>
+                    <p>{product.description}</p>
+                    <p><strong>Add to Cart</strong></p>
+
+                    {product.noStock ? (
+                      <button className="no-stock-btn" disabled>Coming Soon</button>
+                    ) : (
+                      <div className="button-group">
+                        {product.weightOptions.map((option) => (
+                          <button
+                            key={option.weight}
+                            onClick={() => addToCart(product, option)}
+                          >
+                            {option.weight} - {option.price} 🛒
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <p>No products found for this category.</p>
+              )}
             </div>
 
             <br></br>
