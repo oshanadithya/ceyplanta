@@ -240,6 +240,35 @@ body {
   box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
 }
 
+.coupon-section {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.coupon-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.apply-coupon-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.coupon-message {
+  margin-top: 6px;
+  font-size: 0.9rem;
+}
+
 /* Smooth Fade-In Effect */
 @keyframes fadeIn {
   from {

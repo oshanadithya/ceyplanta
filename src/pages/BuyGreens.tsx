@@ -16,6 +16,17 @@ const BuyGreens = () => {
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
+    // 💰 Discount coupon states
+    const [couponCode, setCouponCode] = useState("");
+    const [discount, setDiscount] = useState(0);
+    const [couponMessage, setCouponMessage] = useState("");
+
+    // ✅ Example valid coupons
+    const validCoupons: Record<string, number> = {
+      "CEY5": 5,    // 5% off
+      "CEY10": 10,  // 10% off
+    };
+
     type Product = {
         id: number;
         name: string;
@@ -275,33 +286,6 @@ const BuyGreens = () => {
             noStock: true,
             category: "Microgreens",
           },
-          // {
-          //   id: 10,
-          //   name: "Coriander",
-          //   description:
-          //     "Fresh and citrusy, widely used in curries, salads, and garnishes.",
-          //   image: "/images/cilantro.png",
-          //   nutritionalFacts: [
-          //     "High in Vitamin A, C, and K",
-          //     "Rich in Potassium",
-          //     "Good Source of Manganese",
-          //     "Contains Antioxidants",
-          //   ],
-          //   benefits: [
-          //     "Detoxifies Heavy Metals",
-          //     "Aids Digestion",
-          //     "Lowers Blood Sugar",
-          //     "Supports Skin Health",
-          //   ],
-          //   price: "700",
-          //   weightOptions: [
-          //     { weight: "50g", price: "Rs. 740" },
-          //     { weight: "100g", price: "Rs. 1520" },
-          //     { weight: "200g", price: "Rs. 2750" },
-          //   ],
-          //   noStock: true,
-          //   category: "Microgreens",
-          // },
           {
             id: 11,
             name: "Pea Shoots",
@@ -583,25 +567,6 @@ const BuyGreens = () => {
             category: "Edible Flowers",
           },
           {
-            id: 35,
-            name: "Malaysian Gotukola",
-            description:
-              "Green leafy herb known for its vibrant round leaves and slightly bitter, earthy taste. Traditionally used in Southeast Asian and Ayurvedic medicine, and in Sri Lankan, Malaysian, and Indian cuisine.",
-            image: "/images/malay_gotukola.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "600",
-            weightOptions: [
-              { weight: "Request", price: "" },
-            ],
-            noStock: false,
-            category: "Herbs & Teas",
-          },
-          {
             id: 36,
             name: "Mung Sprout",
             description:
@@ -753,6 +718,66 @@ const BuyGreens = () => {
             noStock: false,
             category: "Edible Flowers",
           },
+          {
+            id: 44,
+            name: "Crispy Potato Microgreens Salad",
+            description:
+              "Mustard Microgreens, Radish Microgreens, Chrispy Potatoes, Boiled chickpeas, Sliced red onion, Cherry tomatoes, Lemon juice, Lemon juice, Crushed garlic, Salt & Pepper, Olive Oil, Tofu Cream, Special Dressing.    Each per person meal contains around 350g +/- " ,
+            image: "/images/crispypotato.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Per Person", price: "Rs. 1,210" },
+              { weight: "Two Person", price: "Rs. 2,050" }
+            ],
+            noStock: false,
+            category: "Salads",
+          },
+          {
+            id: 45,
+            name: "Beet & Radish Microgreens Salad",
+            description:
+              "Beetroot Microgreens, Radish Microgreens, Grated Carrots, Apple Slices, Pomegranate Seeds, Sunflower or Pumpkins Seeds, Honey, Lemon juice, Salt & Pepper, Olive Oil, Special Dressing.   Each per person meal contains around 350g +/- " ,
+            image: "/images/pome.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Per Person", price: "Rs. 1,260" },
+              { weight: "Two Person", price: "Rs. 2,150" }
+            ],
+            noStock: false,
+            category: "Salads",
+          },
+          {
+            id: 46,
+            name: "Zesty Avocado Salad",
+            description:
+              "Mustard Microgreens, Radish Microgreens, Avocado Cubes, Cherry Tomatoes, Cucumber Slices, Lemon Juice, Onion Slices, Chilli, Salt & Pepper, Olive Oil, Sunflower or Pumpkins Seeds, Special Dressing.   Each per person meal contains around 350g +/- " ,
+            image: "/images/zesty.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Per Person", price: "Rs. 1,180" },
+              { weight: "Two Person", price: "Rs. 1,990" }
+            ],
+            noStock: false,
+            category: "Salads",
+          },
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -782,7 +807,28 @@ const BuyGreens = () => {
     };
 
     const getTotalPrice = () => {
-      return cart.reduce((total, item) => total + Number(item.selectedPrice.replace("Rs. ", "").trim()), 0);
+      return cart.reduce((total, item) => {
+        // Remove "Rs.", spaces, and commas before converting
+        const cleanPrice = item.selectedPrice
+          .replace("Rs.", "")
+          .replace(",", "")
+          .replace(/\s/g, "")
+          .trim();
+        const numericPrice = parseFloat(cleanPrice) || 0;
+        return total + numericPrice;
+      }, 0);
+    };
+
+    const applyCoupon = () => {
+      const code = couponCode.trim().toUpperCase();
+    
+      if (validCoupons[code]) {
+        setDiscount(validCoupons[code]);
+        setCouponMessage(`🎉 Coupon applied! You got ${validCoupons[code]}% off.`);
+      } else {
+        setDiscount(0);
+        setCouponMessage("❌ Invalid coupon code. Please try again.");
+      }
     };
 
     
@@ -840,7 +886,12 @@ const BuyGreens = () => {
       // Total Price
       doc.setFontSize(12);
       doc.setFont('helvetica', 'bold');
-      doc.text(`Total Amount: Rs. ${getTotalPrice()}`, 14, y + 10);
+      // doc.text(`Total Amount: Rs. ${getTotalPrice()}`, 14, y + 10);
+      doc.text(`Subtotal: Rs. ${getTotalPrice()}`, 14, y + 10);
+      if (discount > 0) {
+        doc.text(`Discount (${discount}%): - Rs. ${((getTotalPrice() * discount) / 100).toFixed(4)}`, 14, y + 16);
+      }
+      doc.text(`Total: Rs. ${(getTotalPrice() - (getTotalPrice() * discount) / 100).toFixed(4)}`, 14, y + 24);
 
       // Footer
       doc.setFontSize(10);
@@ -994,35 +1045,6 @@ const BuyGreens = () => {
               />
             </div>
             <br></br>
-            {/* <div ref={prodRef} className="product-grid">
-                {products
-                  .filter((product) =>
-                    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-                  )
-                  .map((product) => (
-                    <div key={product.id} className="product-card">
-                      <img src={product.image} alt={product.name} className="product-image" />
-                      <h2>{product.name}</h2>
-                      <p>{product.description}</p>
-                      <p><strong>Add to Cart</strong></p>
-                      
-                      {product.noStock ? (
-                        <button className="no-stock-btn" disabled>Coming Soon</button>
-                      ) : (
-                        <div className="button-group">
-                          {product.weightOptions.map((option) => (
-                            <button
-                              key={option.weight}
-                              onClick={() => addToCart(product, option)}
-                            >
-                              {option.weight} - {option.price} 🛒
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                ))}
-            </div> */}
             {/* ✅ Filtered Products */}
             <div ref={prodRef} className="product-grid">
               {filteredProducts.length > 0 ? (
@@ -1093,7 +1115,16 @@ const BuyGreens = () => {
                     </li>
                   ))}
                 </ul>
-                <h4>Total Price: Rs. {getTotalPrice()}</h4>
+                
+                <h4>Subtotal: Rs. {getTotalPrice().toLocaleString()}</h4>
+                {discount > 0 && (
+                  <h4>
+                    Discount ({discount}%): - Rs. {((getTotalPrice() * discount) / 100).toLocaleString()}
+                  </h4>
+                )}
+                <h3>
+                  Total: Rs. {(getTotalPrice() - (getTotalPrice() * discount) / 100).toLocaleString()}
+                </h3>
                 <button className="clear-cart-btn" onClick={clearCart}>
                   Clear Cart
                 </button>
@@ -1101,6 +1132,20 @@ const BuyGreens = () => {
             ) : (
               <p>Your cart is empty.</p>
             )}
+
+            <div className="coupon-section">
+              <input
+                type="text"
+                placeholder="Enter coupon code"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value)}
+                className="coupon-input"
+              />
+              <button type="button" onClick={applyCoupon} className="apply-coupon-btn">
+                Apply
+              </button>
+              {couponMessage && <p className="coupon-message">{couponMessage}</p>}
+            </div>
           </div>
 
     
