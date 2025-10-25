@@ -2,13 +2,12 @@ import { useState, useRef  } from "react";
 import "../styles/buy-greens.css"; // Add styles for this page
 import emailjs from 'emailjs-com';
 import jsPDF from 'jspdf';
-// import { getBase64Logo } from '../utils/base64Logo';
+import logo from "../assets/logo_3.png";
 
 
 const BuyGreens = () => {
     // Initialize EmailJS with your user ID
     emailjs.init('_BVjspFpxrJqFVQpM');
-    // Replace this with your base64 logo string
     
     const [cart, setCart] = useState<{ name: string; selectedWeight: string; selectedPrice: string }[]>([]);
     const [name, setName] = useState("");
@@ -21,7 +20,7 @@ const BuyGreens = () => {
     const [discount, setDiscount] = useState(0);
     const [couponMessage, setCouponMessage] = useState("");
 
-    // ✅ Example valid coupons
+    // ✅ Valid coupons
     const validCoupons: Record<string, number> = {
       "CEY5": 5,    // 5% off
       "CEY10": 10,  // 10% off
@@ -36,7 +35,7 @@ const BuyGreens = () => {
         benefits: string[];
         price: string;
         weightOptions: { weight: string; price: string }[];
-        selectedPrice?: string;  // Add this line to make selectedPrice optional
+        selectedPrice?: string;  // selectedPrice optional
         noStock: boolean;
         category: string;
     };
@@ -124,60 +123,6 @@ const BuyGreens = () => {
             noStock: false,
             category: "Microgreens",
           },
-          // {
-          //   id: 4,
-          //   name: "Amaranth",
-          //   description:
-          //     "bright green color and have a mild, slightly nutty flavor with a delicate crunch.",
-          //   image: "/images/g-amaranth.png",
-          //   nutritionalFacts: [
-          //     "High in Vitamins A, C, and K",
-          //     "Rich in Iron",
-          //     "Good Source of Protein",
-          //     "Contains Calcium",
-          //   ],
-          //   benefits: [
-          //     "Supports Vision",
-          //     "Boosts Immunity",
-          //     "Strengthens Bones",
-          //     "Promotes Healthy Skin",
-          //   ],
-          //   price: "500",
-          //   weightOptions: [
-          //     { weight: "50g", price: "Rs. 690" },
-          //     { weight: "100g", price: "Rs. 1400" },
-          //     { weight: "200g", price: "Rs. 2880" },
-          //   ],
-          //   noStock: true,
-          //   category: "Microgreens",
-          // },
-          // {
-          //   id: 5,
-          //   name: "Red Amaranth",
-          //   description:
-          //     "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
-          //   image: "/images/amaranth.png",
-          //   nutritionalFacts: [
-          //     "High in Vitamins folate (Betalains), potassium, and magnesium",
-          //     "Rich in antioxidants",
-          //     "Good Source of Protein",
-          //     "Contains Calcium",
-          //   ],
-          //   benefits: [
-          //     "Supports Vision",
-          //     "Boosts Immunity",
-          //     "Strengthens Bones",
-          //     "Promotes Healthy Skin",
-          //   ],
-          //   price: "500",
-          //   weightOptions: [
-          //     { weight: "50g", price: "Rs. 790" },
-          //     { weight: "100g", price: "Rs. 1680" },
-          //     { weight: "200g", price: "Rs. 3360" },
-          //   ],
-          //   noStock: true,
-          //   category: "Microgreens",
-          // },
           {
             id: 6,
             name: "Mustard",
@@ -226,8 +171,6 @@ const BuyGreens = () => {
             price: "650",
             weightOptions: [
               { weight: "50g", price: "Rs. 2100" },
-              // { weight: "100g", price: "Rs. 3300" },
-              // { weight: "200g", price: "Rs. 6550" },
             ],
             noStock: false,
             category: "Microgreens",
@@ -837,6 +780,7 @@ const BuyGreens = () => {
     
       // === HEADER ===
       // doc.addImage(logoBase64, "PNG", 14, 10, 28, 28);
+      doc.addImage(logo, "PNG", 14, 10, 28, 28); // ✅ Logo added
       doc.setFont("helvetica", "bold");
       doc.setFontSize(16);
       doc.text("Ceyplanta", 50, 18);
@@ -949,8 +893,8 @@ const BuyGreens = () => {
       doc.save("invoice.pdf");
     };
 
-    const handleCheckout = () => {
-        
+    const handleCheckout = (e: React.FormEvent) => {
+      e.preventDefault(); // ✅ Prevent page reload
         // Check if all required fields are filled
         if (!name || !email || !phone ) {
             alert('Please fill out all the required fields!');
@@ -990,14 +934,15 @@ const BuyGreens = () => {
         // EmailJS service and template IDs
         const serviceID = 'service_18vf6wc'; // Replace with your service ID
         const templateID = 'template_xcb8ynu'; // Replace with your template ID
-
+        console.log('Sending email with:', { name, email, phone, messageContent });  
         // Send email using EmailJS
         emailjs.send(serviceID, templateID, {
-            name,
-            email,
-            phone,
-            message,
-            cartItems: messageContent, // Pass cart items
+          name,
+          email,
+          phone,
+          time: new Date().toLocaleString(), // adds the local time automatically
+          cartItems: messageContent, // your formatted cart items
+          message: message || "No additional message provided.",
         })
         .then(() => {
           
