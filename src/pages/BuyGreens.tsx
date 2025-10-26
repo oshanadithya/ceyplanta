@@ -24,6 +24,7 @@ const BuyGreens = () => {
     const validCoupons: Record<string, number> = {
       "CEY5": 5,    // 5% off
       "CEY10": 10,  // 10% off
+      "CEYH15": 15,  // 15% off for hotels
     };
 
     type Product = {
