@@ -79,7 +79,7 @@ const Home: React.FC = () => {
           </motion.div>     
           <p><b>by Ceyplanta</b></p>
           <p>
-            Nutritious organic microgreens, Edible Flowers, herbs, premium salad packs & wellness gifting – fresh from our farm to your hands.
+            Nutritious Organic Microgreens, Edible Flowers, Herbs & Spices, Premium Salad Packs, Wellness gifting & Many more Upcoming Products – fresh from our farm to your hands.
           </p>
           <motion.button
             className="order-now-button"

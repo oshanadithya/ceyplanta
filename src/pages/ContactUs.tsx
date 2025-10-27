@@ -1,6 +1,5 @@
 import "../styles/ContactUs.css";
-import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-// FaMapMarkerAlt 
+import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
@@ -12,23 +11,35 @@ const ContactUs = () => {
         {/* Contact Details */}
         <div className="contact-details">
           <div className="contact-item">
-            <FaPhoneAlt className="contact-icon" />
-            <br></br>
+            <FaPhoneAlt className="contact-icon" style={{ color: "#25D366" }}/>
+            <br />
             <a href="tel:+94702342433">+94 70 234 2433</a>
           </div>
-          <br></br>
+          <br />
           <div className="contact-item">
-            <FaEnvelope className="contact-icon" />
-            <br></br>
+            <FaEnvelope className="contact-icon" style={{ color: "#25D366" }} />
+            <br />
             <a href="mailto:ceyplanta@gmail.com">ceyplanta@gmail.com</a>
           </div>
-          <br></br>
+          <br />
           <div className="contact-item">
-            <FaMapMarkerAlt className="text-red-600" />
-            <br></br>
-            <span>No 235, Galle Rd, Thalpitiya South, Wadduwa</span>
+            <FaMapMarkerAlt className="contact-icon" style={{ color: "#25D366" }} />
+            <br />
+            <a>No 235, Galle Rd, Thalpitiya South, Wadduwa</a>
           </div>
-          <br></br>
+          <br />
+          <div className="contact-item">
+            <FaWhatsapp className="contact-icon" style={{ color: "#25D366" }} />
+            <br />
+            <a
+              href="https://wa.me/94702342433?text=Hello%20Ceyplanta!"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Chat on WhatsApp
+            </a>
+          </div>
+          <br />
           <div className="map-container mb-4">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.6865978259807!2d79.92260282850302!3d6.678309531585808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24f14e0e9d451%3A0x97e0fcaba4d9ff0b!2sCeyplanta!5e0!3m2!1sen!2slk!4v1743340285926!5m2!1sen!2slk"
@@ -42,22 +53,24 @@ const ContactUs = () => {
           </div>
         </div>
 
-        
-
         {/* Social Media */}
         <div className="social-media">
-          <a href="https://web.facebook.com/profile.php?id=61573903899364" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             className="social-button facebook">
+          <a
+            href="https://web.facebook.com/profile.php?id=61573903899364"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-button facebook"
+          >
             <FaFacebookF className="social-icon" />
             Facebook
           </a>
-          
-          <a href="https://www.instagram.com/ceyplanta" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             className="social-button instagram">
+
+          <a
+            href="https://www.instagram.com/ceyplanta"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-button instagram"
+          >
             <FaInstagram className="social-icon" />
             Instagram
           </a>
