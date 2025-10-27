@@ -776,12 +776,11 @@ const BuyGreens = () => {
     };
 
     
-    const generateAndDownloadPDF = () => {
+    const generateAndDownloadPDF = (orderNo: string) => {
       const doc = new jsPDF();
     
       // === HEADER ===
-      // doc.addImage(logoBase64, "PNG", 14, 10, 28, 28);
-      doc.addImage(logo, "PNG", 14, 10, 28, 28); // ✅ Logo added
+      doc.addImage(logo, "PNG", 14, 10, 28, 28);
       doc.setFont("helvetica", "bold");
       doc.setFontSize(16);
       doc.text("Ceyplanta", 50, 18);
@@ -791,17 +790,13 @@ const BuyGreens = () => {
       doc.text("No 235, Galle Rd, Thalpitiya South, Wadduwa", 50, 24);
       doc.text("+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com", 50, 30);
     
-      // Divider
       doc.line(14, 42, 196, 42);
     
-      // === TITLE ===
       doc.setFont("helvetica", "bold");
       doc.setFontSize(14);
       doc.text("Order Invoice", 14, 50);
     
-      // === DATE & ORDER INFO ===
       const today = new Date().toLocaleDateString();
-      const orderNo = `CEYD-${Math.floor(Math.random() * 90000) + 10000}`;
       doc.setFont("helvetica", "normal");
       doc.setFontSize(11);
       doc.text(`Date: ${today}`, 14, 60);
@@ -895,40 +890,61 @@ const BuyGreens = () => {
     };
 
     const handleCheckout = (e: React.FormEvent) => {
-      e.preventDefault(); // ✅ Prevent page reload
-        // Check if all required fields are filled
-        if (!name || !email || !phone ) {
-            alert('Please fill out all the required fields!');
-            return;
-        }
-
-        if (!validatePhoneNumber(phone.trim())) {
-          alert('Please enter a valid Sri Lankan mobile number (e.g., 0771234567)');
-          return;
-        }
+      e.preventDefault();
     
-        if (cart.length === 0) {
-          alert('Your cart is empty. Please add some products before checkout.');
-          return;
-        }
-
-        // Construct the cart items list
-        const cartItems = cart.map(item => `${item.name} - ${item.selectedWeight} - Rs. ${item.selectedPrice}`).join('\n');
-
-        // Create the email content
-        const checkoutMessage = `
-            Name: ${name}
-            Email: ${email}
-            Phone: ${phone}
-            Message: ${message}
-            
-            Cart:
-            ${cartItems}
-        `;
-        // 🔽 Generate and download PDF after order success
-        generateAndDownloadPDF();
-        // Send email using EmailJS
-        sendEmailToAdmin(checkoutMessage);
+      if (!name || !email || !phone) {
+        alert('Please fill out all the required fields!');
+        return;
+      }
+    
+      if (!validatePhoneNumber(phone.trim())) {
+        alert('Please enter a valid Sri Lankan mobile number (e.g., 0771234567)');
+        return;
+      }
+    
+      if (cart.length === 0) {
+        alert('Your cart is empty. Please add some products before checkout.');
+        return;
+      }
+    
+      // ✅ Generate ONE order number to use everywhere
+      const orderNumber = `CEYD-${Math.floor(Math.random() * 90000) + 10000}`;
+    
+      const cartItems = cart.map(
+        (item) => `${item.name} - ${item.selectedWeight} - Rs. ${item.selectedPrice}`
+      ).join('\n');
+    
+      const grossTotal = getTotalPrice();
+      const discountAmount = (grossTotal * discount) / 100;
+      const netTotal = grossTotal - discountAmount;
+    
+      const checkoutMessage = `
+        🧾 Order Confirmation - ${orderNumber}
+    
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Message: ${message || "N/A"}
+        
+        ----------------------------
+        🛒 Cart Items
+        ----------------------------
+        ${cartItems}
+    
+        ----------------------------
+        💰 Order Summary
+        ----------------------------
+        Gross Total: Rs. ${grossTotal.toLocaleString()}
+        Discount: ${discount}% (- Rs. ${discountAmount.toLocaleString()})
+        Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
+    
+        ----------------------------
+        📅 Date: ${new Date().toLocaleString()}
+      `;
+    
+      // ✅ Pass the SAME order number to PDF & Email
+      generateAndDownloadPDF(orderNumber);
+      sendEmailToAdmin(checkoutMessage);
     };
 
     const sendEmailToAdmin = (messageContent: any) => {
