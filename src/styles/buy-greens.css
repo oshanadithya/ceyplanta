@@ -1,31 +1,3 @@
-:root {
-  --primary-bg-light: #ffffff;
-  --primary-bg-dark: #121212;
-  --primary-text-light: #000000;
-  --primary-text-dark: #ffffff;
-  --button-bg-light: #4CAF50;
-  --button-bg-dark: #1A73E8;
-  --button-text-light: #ffffff;
-  --button-text-dark: #ffffff;
-  --cart-bg-light: #f1f1f1;
-  --cart-bg-dark: #333333;
-  --border-color-light: #dcdcdc;
-  --border-color-dark: #444444;
-  --product-card-bg-light: #f9f9f9;
-  --product-card-bg-dark: #2c2c2c;
-  --input-bg-light: #f9f9f9;
-  --input-bg-dark: #333333;
-  --text-color: #000; /* default text color */
-}
-
-h2 {
-  color: var(--text-color);
-}
-
-[data-theme='dark'] {
-  --text-color: #fff; /* dark mode text color */
-}
-
 body {
   background-color: var(--primary-bg-light);
   color: var(--primary-text-light);
@@ -34,6 +6,16 @@ body {
 
 .buy-greens-page {
   animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Force cart text to black */
+.cart-list,
+.cart-list * {
+  color: black !important;
+}
+
+h3, h4 {
+  color: black !important;
 }
 
 /* Checkout Form */
