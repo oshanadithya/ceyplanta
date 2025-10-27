@@ -56,8 +56,8 @@ const Home: React.FC = () => {
               src="/logo_3.png"
               alt="Ceyplanta Logo"
               className="home-logo"
-              initial={{ rotate: -5, scale: 0.8 }}
-              animate={{ rotate: 0, scale: 1 }}
+              initial={{ rotate: -5, scale: 2 }}
+              animate={{ rotate: 0, scale: 2.8 }}
               transition={{ type: 'spring', stiffness: 80 }}
             />
           </div>

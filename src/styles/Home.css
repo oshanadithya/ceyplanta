@@ -173,7 +173,7 @@ body {
   position: absolute;
   width: 200px; /* adjust as needed */
   height: auto;
-  opacity: 0.9;
+  opacity: 1.0;
   z-index: 1;
   pointer-events: none; /* prevents blocking clicks */
   transition: transform 0.4s ease;
@@ -211,11 +211,22 @@ body {
 /* Responsive tweaks */
 @media (max-width: 600px) {
   .corner-flower {
-    width: 80px;
+    width: 60px;
     opacity: 0.7;
   }
+  .corner-flower.left {
+    top: -5px;      /* adjust for mobile */
+    left: -5px;
+  }
+  .corner-flower.left2 {
+    top: 0px;       /* closer spacing */
+    left: 35px;
+  }
+  .corner-flower.left3 {
+    top: 35px;      /* reduce gap */
+    left: -5px;
+  }
 }
-
 
 
 /* Logo */

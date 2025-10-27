@@ -15,6 +15,15 @@
   --product-card-bg-dark: #2c2c2c;
   --input-bg-light: #f9f9f9;
   --input-bg-dark: #333333;
+  --text-color: #000; /* default text color */
+}
+
+h2 {
+  color: var(--text-color);
+}
+
+[data-theme='dark'] {
+  --text-color: #fff; /* dark mode text color */
 }
 
 body {
@@ -380,6 +389,10 @@ body {
     margin: 8px 0;
     font-size: 1em;
     padding: 10px;
+  }
+
+  .product-card h2 {
+    color: #000;
   }
 
   .checkout-form {
