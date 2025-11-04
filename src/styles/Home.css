@@ -86,6 +86,38 @@ body {
   margin-top: 2rem;
 }
 
+.footer-brand-section {
+  text-align: center;
+  padding: 40px 0 20px 0;
+  background-color: #f8f8f8; /* optional: to separate visually from footer */
+}
+
+.footer-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.company-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+.contact-info a {
+  color: #555;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.contact-info a:hover {
+  color: #4CAF50;
+  text-decoration: underline;
+}
+
+
 .microgreen-item {
   width: 180px;
   text-align: center;

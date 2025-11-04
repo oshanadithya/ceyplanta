@@ -184,6 +184,25 @@ const Home: React.FC = () => {
             <img src="/images/es4.jpeg" alt="Nildola Estate view 4" />
           </div>
         </motion.section>
+
+        {/* Company Info Section (Above Footer) */}
+        <motion.section
+          className="footer-brand-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img
+            src="/logo_3.png"
+            alt="Ceyplanta Logo"
+            className="footer-logo"
+          />
+          <h4 className="company-name">Ceyplanta (Pvt) Ltd</h4>
+          <p className="contact-info">
+            <a href="mailto:ceyplanta@gmail.com">ceyplanta@gmail.com</a><br />
+            <a href="tel:+94702342433">+94 70 234 2433</a>
+          </p>
+</motion.section>
       </div>
   );
 };
