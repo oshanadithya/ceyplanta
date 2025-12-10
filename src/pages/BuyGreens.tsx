@@ -153,7 +153,7 @@ const BuyGreens = () => {
           },
           {
             id: 7,
-            name: "Cabbage",
+            name: "Purple Cabbage",
             description:
               "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.",
             image: "/images/cabbage2.png",
@@ -171,9 +171,34 @@ const BuyGreens = () => {
             ],
             price: "650",
             weightOptions: [
+              { weight: "50g", price: "Rs. 2400" },
+            ],
+            noStock: false,
+            category: "Microgreens",
+          },
+          {
+            id: 47,
+            name: "Cabbage",
+            description:
+              "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.",
+            image: "/images/cabbagemicrogreen.png",
+            nutritionalFacts: [
+              "Rich in Vitamin C",
+              "High in Fiber",
+              "Contains Sulfur Compounds",
+              "Good Source of Folate",
+            ],
+            benefits: [
+              "Supports Gut Health",
+              "Reduces Inflammation",
+              "Strengthens Immunity",
+              "Aids in Detoxification",
+            ],
+            price: "650",
+            weightOptions: [
               { weight: "50g", price: "Rs. 2100" },
             ],
-            noStock: true,
+            noStock: false,
             category: "Microgreens",
           },
           {
