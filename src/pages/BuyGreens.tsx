@@ -814,7 +814,7 @@ const BuyGreens = () => {
       doc.setFontSize(10);
       doc.setFont("helvetica", "normal");
       doc.text("No 235, Galle Rd, Thalpitiya South, Wadduwa", 50, 24);
-      doc.text("+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com", 50, 30);
+      doc.text("+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com | BR Code: PV 00349478", 50, 30);
     
       doc.line(14, 42, 196, 42);
     
@@ -850,7 +850,7 @@ const BuyGreens = () => {
       doc.text("Delivery Details:", 14, y);
       doc.setFont("helvetica", "normal");
       y += 8;
-      doc.text(`Address – ${message || "N/A"} Delivery charges may change according to distance`, 14, y);
+      doc.text(`Address – ${message || "N/A"} Delivery charges may change accordingly`, 14, y);
     
       // === TOTAL SECTION ===
       y += 12;
