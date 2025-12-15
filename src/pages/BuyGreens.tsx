@@ -549,7 +549,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "100g", price: "Rs. 300" },
             ],
             noStock: false,
             category: "Microgreens",
@@ -589,7 +589,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "Request", price: "" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Microgreens",
           },
           {
@@ -606,7 +606,8 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "50g", price: "Rs. 480" },
+              { weight: "100g", price: "Rs. 800" },
             ],
             noStock: false,
             category: "Microgreens",
