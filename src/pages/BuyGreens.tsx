@@ -1129,6 +1129,11 @@ const BuyGreens = () => {
                 <p><strong>Request on Additional details</strong></p>
                 {/* <button className="request-button">Request</button> */}
               </div>
+
+              <div className="package3">
+                <h3>Notice</h3>
+                <p>Kindly note that we require 5–10 days’ lead time to prepare your order. We will inform you prior to completion.</p>
+              </div>
             </div>
     
             <br />

@@ -161,7 +161,8 @@ h3, h4 {
 }
 
 .package,
-.package2 {
+.package2,
+.package3 {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -174,6 +175,10 @@ h3, h4 {
 
 .package2 {
   background-color: #a5f3db;
+}
+
+.package3 {
+  background-color: #ff9898;
 }
 
 .package h3,
