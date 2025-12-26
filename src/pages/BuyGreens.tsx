@@ -148,7 +148,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "Rs. 860" },
               { weight: "200g", price: "Rs. 1620" },
             ],
-            noStock: true,
+            noStock: false,
             category: "Microgreens",
           },
           {
