@@ -851,7 +851,7 @@ const BuyGreens = () => {
       doc.text("Delivery Details:", 14, y);
       doc.setFont("helvetica", "normal");
       y += 8;
-      doc.text(`Address – ${message || "N/A"} Delivery charges may change accordingly`, 14, y);
+      doc.text(`Address – ${message || "N/A"} | Delivery charges may change accordingly`, 14, y);
     
       // === TOTAL SECTION ===
       y += 12;
@@ -910,10 +910,10 @@ const BuyGreens = () => {
       // === FOOTER ===
       doc.setFont("helvetica", "italic");
       doc.setFontSize(10);
-      doc.text("This is a system-generated invoice.", 14, 285);
+      doc.text("This is a system-generated invoice.", 14, 295);
     
       // SAVE PDF
-      doc.save("invoice.pdf");
+      doc.save(`invoice ${orderNo}.pdf`);
     };
 
     const handleCheckout = (e: React.FormEvent) => {
