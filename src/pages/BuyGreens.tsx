@@ -898,8 +898,8 @@ const BuyGreens = () => {
       const terms = [
         "This quotation is valid for 15 days from the date of issue. Prices and availability are subject to change after this period.",
         "Bulk Orders: Minimum 400g per microgreen variety or 100 pcs flower.",
-        "No cancellation or refund after confirmation invoice.",
-        "Payment Terms: 50% advance, balance upon delivery (orders > 2kg) or 100% advance (orders < 2kg).",
+        "No cancellation or refund after order placement.",
+        "Payment Terms: Full payment need to be settled within 24hrs of order placement.",
         "Orders must be collected on the confirmed delivery date. Freshness not guaranteed after 2 days.",
       ];
       terms.forEach((t) => {
