@@ -34,11 +34,11 @@ const OffersAndDiscounts = () => {
             <p>Free Delivery for Customer subscribe more than 4 months!</p>
           </div> */}
 
-          <div className="offer-item">
+          {/* <div className="offer-item">
             <FaGift className="offer-icon" />
             <h2>Welcome Offer</h2>
             <p>First-time customers get 10% off their first purchase.</p>
-          </div>
+          </div> */}
 
           <div className="offer-item">
             <FaGift className="offer-icon" />
