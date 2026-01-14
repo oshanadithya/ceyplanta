@@ -690,11 +690,11 @@ const BuyGreens = () => {
             category: "Edible Flowers",
           },
           {
-            id: 43,
+            id: 48,
             name: "Chrysanthemum",
             description:
               "Chrysanthemum flowers are rich in phenolic compounds and exhibit strong properties including antioxidant, antimicrobial, anti-inflammatory, anticancer, anti-allergic, anti-obesity, immune regulation, hepatoprotective, and nephroprotective activities, and charming look making them really good for bouquets, gardens, decorations, and even culinary use.",
-            image: "/images/rose.png",
+            image: "/images/Chrysanthemum.png",
             nutritionalFacts: [
               "",
             ],
