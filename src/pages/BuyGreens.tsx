@@ -488,7 +488,7 @@ const BuyGreens = () => {
             benefits: ["A source of antioxidants, vitamins, and minerals"],
             price: "",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "100pcs", price: "Rs. 1700" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -530,7 +530,7 @@ const BuyGreens = () => {
             benefits: ["Aesthetic edible garnish rich in phytonutrients, May support eye health due to presence of natural pigments (like anthocyanins), Contains vitamins A and C for skin and immune system support"],
             price: "",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "100pcs", price: "Rs. 1400" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -684,7 +684,26 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "10pcs", price: "Rs. 2600" },
+            ],
+            noStock: false,
+            category: "Edible Flowers",
+          },
+          {
+            id: 43,
+            name: "Chrysanthemum",
+            description:
+              "Chrysanthemum flowers are rich in phenolic compounds and exhibit strong properties including antioxidant, antimicrobial, anti-inflammatory, anticancer, anti-allergic, anti-obesity, immune regulation, hepatoprotective, and nephroprotective activities, and charming look making them really good for bouquets, gardens, decorations, and even culinary use.",
+            image: "/images/rose.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              { weight: "10pcs", price: "Rs. 1000" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -841,7 +860,7 @@ const BuyGreens = () => {
       doc.setFont("helvetica", "normal");
       let y = 108;
       cart.forEach((item, index) => {
-        doc.text(`${index + 1}. ${item.name} (${item.selectedWeight}) – Rs. ${item.selectedPrice}`, 14, y);
+        doc.text(`${index + 1}. ${item.name} (${item.selectedWeight}) – ${item.selectedPrice}`, 14, y);
         y += 8;
       });
     
