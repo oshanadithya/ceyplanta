@@ -285,10 +285,10 @@ const BuyGreens = () => {
           },
           {
             id: 12,
-            name: "Mix Amaranth Pack",
+            name: "Red Amaranth",
             description:
-              "Mix Amaranth microgreen meal includes Green and Red Amaranth",
-            image: "/images/mix-amaranth.png",
+              "Red Amaranth microgreens are vibrant, nutritious shoots known for their deep red stems and leaves, offering a mild, slightly earthy, spinach-like flavor and adding striking color to dishes. They are rich in vitamins (C, E, K) and minerals (iron, calcium, potassium).",
+            image: "/images/amaranth.png",
             nutritionalFacts: [
               "",
             ],
@@ -297,23 +297,25 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "50g", price: "Rs. 730" },
-              { weight: "100g", price: "Rs. 1480" },
-              { weight: "200g", price: "Rs. 2560" },
+              { weight: "50g", price: "Rs. 1030" },
+              { weight: "100g", price: "Rs. 2010" },
+              { weight: "200g", price: "Rs. 4000" },
             ],
-            noStock: true,
+            noStock: false,
             category: "Microgreens",
           },
           {
             id: 13,
-            name: "Customized Mix Microgreen Pack",
+            name: "Mix Microgreen Pack",
             description:
-              "Mix your favourite microgreens for your highly nutritional meal plan",
+              "Mix your favourite microgreens for your highly nutritional meal plan. Includes Beetroot, Kale, Radish, Red Amaranth",
             image: "/images/Microgreen-mix.png",
             nutritionalFacts: [""],
             benefits: [""],
             price: "",
-            weightOptions: [{ weight: "Request", price: "" },], // Removed weight options
+            weightOptions: [
+              { weight: "50g", price: "Rs. 800" },
+            ], // Removed weight options
             noStock: false,
             category: "Microgreens",
           },
