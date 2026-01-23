@@ -897,7 +897,7 @@ const BuyGreens = () => {
       y += 8;
       doc.text("Account Name - Ceyplanta Pvt Ltd", 14, y);
       y += 6;
-      doc.text("Account Number - ", 14, y);
+      doc.text("Account Number - 002010576887", 14, y);
       y += 6;
       doc.text("Bank - Hatton National Bank", 14, y);
     
