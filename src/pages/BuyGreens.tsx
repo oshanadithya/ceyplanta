@@ -895,11 +895,11 @@ const BuyGreens = () => {
       doc.text("Bank Details", 14, y);
       doc.setFont("helvetica", "normal");
       y += 8;
-      doc.text("Account Name - Ceyplanta", 14, y);
+      doc.text("Account Name - Ceyplanta Pvt Ltd", 14, y);
       y += 6;
-      doc.text("Account Number - 200170091420", 14, y);
+      doc.text("Account Number - ", 14, y);
       y += 6;
-      doc.text("Bank - Nations Trust Bank", 14, y);
+      doc.text("Bank - Hatton National Bank", 14, y);
     
       // === THANK YOU MESSAGE ===
       y += 14;
@@ -933,7 +933,8 @@ const BuyGreens = () => {
       // === FOOTER ===
       doc.setFont("helvetica", "italic");
       doc.setFontSize(10);
-      doc.text("This is a system-generated invoice.", 14, 295);
+      y += 6;
+      doc.text("This is a system-generated invoice.", 14, y);
     
       // SAVE PDF
       doc.save(`invoice ${orderNo}.pdf`);
