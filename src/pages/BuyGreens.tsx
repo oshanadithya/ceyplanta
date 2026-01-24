@@ -1,7 +1,7 @@
 import { useState, useRef  } from "react";
 import "../styles/buy-greens.css"; // Add styles for this page
 import emailjs from 'emailjs-com';
-import jsPDF from 'jspdf';
+import { jsPDF, GState  } from 'jspdf';
 import logo from "../assets/logo_3.png";
 
 
@@ -828,6 +828,29 @@ const BuyGreens = () => {
     
     const generateAndDownloadPDF = (orderNo: string) => {
       const doc = new jsPDF();
+
+      // === WATERMARK LOGO (CENTER) ===
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+
+      // Watermark size
+      const watermarkWidth = 120;
+      const watermarkHeight = 120;
+
+      // Center position
+      const x = (pageWidth - watermarkWidth) / 2;
+      const a = (pageHeight - watermarkHeight) / 2;
+
+      // Set transparency (0 = fully transparent, 1 = fully visible)
+      const gState = new GState({ opacity: 0.08 });
+      doc.setGState(gState);
+
+      // Add image (PNG or JPG)
+      doc.addImage(logo, "PNG", x, a, watermarkWidth, watermarkHeight);
+
+      // Reset opacity back to normal
+      doc.setGState(new GState({ opacity: 1 }));  
+
     
       // === HEADER ===
       doc.addImage(logo, "PNG", 14, 10, 28, 28);
