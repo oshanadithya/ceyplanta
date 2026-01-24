@@ -842,7 +842,7 @@ const BuyGreens = () => {
       const a = (pageHeight - watermarkHeight) / 2;
 
       // Set transparency (0 = fully transparent, 1 = fully visible)
-      const gState = new GState({ opacity: 0.08 });
+      const gState = new GState({ opacity: 0.8 });
       doc.setGState(gState);
 
       // Add image (PNG or JPG)
