@@ -1,6 +1,6 @@
 import React, { JSX, useState, useRef, useEffect } from "react";
 import "../styles/ServicesProducts.css";
-import { Leaf, Sprout, Flower, Shrub } from "lucide-react";
+import { Settings, Factory, Wrench, Tractor, Boxes, Droplets } from "lucide-react";
 
 // Define the type for a product
 type Product = {
@@ -26,6 +26,7 @@ type MicrogreenDetail = {
   nutritionalFacts: string[];
   benefits: string[];
 };
+
 
 // ProductCard component
 const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
@@ -137,34 +138,43 @@ const ServiceProducts: React.FC = () => {
     ],
   };
 
-  // Define the products
-  const greenProducts: Product[] = [
-    { name: "Organic Microgreens", description: "Fresh microgreens, rich in nutrients.", icon: <Sprout className="text-green-500 w-10 h-10" /> },
-    { name: "Green Tea Leaves & Tea Related Products", description: "Organic green tea leaves for a refreshing brew.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Herbal Plants", description: "A variety of herbal plants for medicinal and culinary use.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Herbal Teas", description: "A variety of herbal leaves for medicinal and culinary use including hebal plants.", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-    { name: "Cinnamon & Related Products", description: "Pure 100% Handmade Cinnamon in premium quality", icon: <Shrub className="text-green-500 w-10 h-10" /> },
-    { name: "Edible Flowers", description: "Edible Flowers for Garnishes and Decorations", icon: <Flower className="text-green-500 w-10 h-10" /> },
-    { name: "Plantation Seeds", description: "Grow your own plants with us", icon: <Leaf className="text-green-500 w-10 h-10" /> },
-  ];
-
   const agroTechProducts: Product[] = [
     // { name: "Automated Irrigation Systems", description: "Smart irrigation solutions for efficient farming.", icon: <Droplet className="text-blue-500 w-10 h-10" /> },
   ];
 
-  // const microgreensDetails = {
-  //   Microgreens: [
-  //     { "name": "Radish", "description": "Spicy and crisp, perfect for salads.", "image": "/images/redraddish.jpg" },
-  //     { "name": "Kangkung", "description": "Nutrient-rich, ideal for stir-fries.", "image": "/images/kangkung.jpg" },
-  //     { "name": "Beetroot", "description": "Sweet and earthy, great for juices and salads.", "image": "/images/beetroot.jpg" },
-      // { "name": "Amaranth", "description": "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.", "image": "/images/amaranth.jpg" },
-      // { "name": "Mustard", "description": "Peppery and flavorful, commonly used in salads and Indian cuisine.", "image": "/images/mustard.jpg" },
-      // { "name": "Cabbage", "description": "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.", "image": "/images/cabbage.jpg" },
-      // { "name": "Kale", "description": "Highly nutritious and rich in fiber, perfect for smoothies and sautés.", "image": "/images/kale.jpg" },
-      // { "name": "Basil", "description": "Aromatic and flavorful, essential for pesto and Italian dishes.", "image": "/images/basil.jpg" },
-      // { "name": "Coriander", "description": "Fresh and citrusy, widely used in curries, salads, and garnishes.", "image": "/images/coriander.jpg" }
-  //   ],
-  // };
+   // ✅ ADD: Other Products & Services
+  const otherProductsAndServices: Product[] = [
+    {
+      name: "Agriculture Materials & Machines (Local + Imported)",
+      description: "Supply of agriculture-related materials and machinery from local and international sources.",
+      icon: <Tractor className="text-green-500 w-10 h-10" />,
+    },
+    {
+      name: "Industrial Materials & Machines (Local + Imported)",
+      description: "Industrial-grade materials and machinery sourcing and supply.",
+      icon: <Factory className="text-green-500 w-10 h-10" />,
+    },
+    {
+      name: "Problem-Solution Services",
+      description: "We analyze your requirement and provide the best solution with the right products/services.",
+      icon: <Wrench className="text-green-500 w-10 h-10" />,
+    },
+    {
+      name: "Automated Systems (Including Irrigation)",
+      description: "Automation solutions including water irrigation systems for efficient operations.",
+      icon: <Droplets className="text-green-500 w-10 h-10" />,
+    },
+    {
+      name: "Agriculture & Crops Related Materials",
+      description: "Inputs and materials related to crops and farming operations.",
+      icon: <Boxes className="text-green-500 w-10 h-10" />,
+    },
+    {
+      name: "Farm-to-Factory Supply",
+      description: "Agri and related product/material supply chain from farms to factories.",
+      icon: <Settings className="text-green-500 w-10 h-10" />,
+    },
+  ];
 
   // Handle Learn More click
   const handleLearnMore = (product: Product) => {
@@ -186,13 +196,12 @@ const ServiceProducts: React.FC = () => {
 
   return (
     <div className="services-products">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">Our Products</h1>
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">Other Products &amp; Services</h1>
 
         {/* Product Section with Adjusted Columns */}
         <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left: AgroTech Products */}
           <div className="w-full">
-            {/* <h2 className="agrotech-heading">AgroTech by Ceyplanta</h2> */}
             <div className="grid-container">
               {agroTechProducts.map((product, index) => (
                 <ProductCard
@@ -210,16 +219,15 @@ const ServiceProducts: React.FC = () => {
           <br></br>
           {/* Right: Green Products */}
           <div className="w-full mt-12">
-            <h2 className="green-heading">Greens by Ceyplanta</h2>
             <div className="grid-container">
-              {greenProducts.map((product, index) => (
+              {otherProductsAndServices.map((product, index) => (
                 <ProductCard
                   key={index}
                   product={product}
                   className="product-card green-card"
                   onLearnMore={handleLearnMore}
-                  bgColor="lightgreen" // Example value for bgColor
-                  hoverBgColor="darkgreen" // Example value for hoverBgColor
+                  bgColor="lightgreen"
+                  hoverBgColor="darkgreen"
                 />
               ))}
             </div>
