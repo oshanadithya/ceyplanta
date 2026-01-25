@@ -17,15 +17,18 @@ const ContactUs = () => {
           </div>
           <br />
           <div className="contact-item">
-            <FaEnvelope className="contact-icon" style={{ color: "#25D366" }} />
+            <FaEnvelope className="contact-icon" style={{ color: "#f73e3eff" }} />
             <br />
             <a href="mailto:ceyplanta@gmail.com">ceyplanta@gmail.com</a>
           </div>
           <br />
           <div className="contact-item">
-            <FaMapMarkerAlt className="contact-icon" style={{ color: "#25D366" }} />
+            <FaMapMarkerAlt className="contact-icon" style={{ color: "#49a7ffff" }} />
             <br />
-            <a>No 235, Galle Rd, Thalpitiya South, Wadduwa</a>
+            <a>Branch 01. | No 235, Galle Rd, Thalpitiya South, Wadduwa, Sri Lanka</a>
+            <br />
+            <br />
+            <a>Branch 02. | Nidola Estate, Kudadola Estate Road, Thannahena, Bulathsinhala, Sri Lanka</a>
           </div>
           <br />
           <div className="contact-item">
@@ -36,13 +39,13 @@ const ContactUs = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Chat on WhatsApp
+              Inquiries on WhatsApp 
             </a>
           </div>
           <br />
           <div className="map-container mb-4">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.6865978259807!2d79.92260282850302!3d6.678309531585808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24f14e0e9d451%3A0x97e0fcaba4d9ff0b!2sCeyplanta!5e0!3m2!1sen!2slk!4v1743340285926!5m2!1sen!2slk"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.4600149399776!2d80.19573788388861!3d6.589602176396931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3c919c24315ab%3A0xc15fa364bd39ce2d!2sNildola%20Estate!5e0!3m2!1sen!2slk!4v1769361753832!5m2!1sen!2slk"
               width="100%"
               height="400"
               style={{ border: 0 }}

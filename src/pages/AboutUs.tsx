@@ -1,42 +1,78 @@
-import '../styles/ServicesProducts.css';
+import "../styles/ServicesProducts.css";
 
 const ServicesProducts = () => {
   return (
-    <div className="services-products">
+    <div className="services">
+      {/* ABOUT US */}
       <section className="about-us">
         <h2>🌍 About Ceyplanta</h2>
         <p>
-          At Ceyplanta, we are dedicated to sustainable agriculture and eco-friendly solutions. 
-          Our mission is to provide high-quality, naturally grown products while integrating technology 
-          to optimize cultivation and distribution. Based in Sri Lanka, we focus on homegrown microgreens, 
-          premium tea, Cinnamon, Herbs, Herbal Teas, Fruit Leathers and AI-powered smart irrigation to support healthier lifestyles and greener communities.
+          At Ceyplanta, we build sustainable agriculture and eco-friendly solutions that connect
+          farms, factories, and everyday customers. Based in Sri Lanka, our mission is to deliver
+          high-quality, naturally grown products while using smart technology to optimize cultivation,
+          automation, and distribution.
+        </p>
+
+        <p>
+          We are best known for our fresh <b>organic microgreens</b>, <b>edible flowers</b>, <b>premium tea leaves</b>,
+          <b> cinnamon</b>, <b>herbs</b>, <b>herbal teas</b>, <b>salad packs</b>, and seasonal eco-friendly wellness gifting.
+          Alongside our greens, we also provide <b>farm-to-factory agri supply solutions</b> and <b>problem-solution services</b>
+          for agriculture and industrial needs.
+        </p>
+
+        <p>
+          Our extended services include sourcing and supplying <b>local & imported agriculture materials and machinery</b>,
+          <b> industrial materials and machines</b>, and <b>automated systems</b> (including smart <b>water irrigation</b>)
+          designed to save water, reduce operating costs, and improve productivity.
         </p>
       </section>
-      <h2>🌿 Our Services & Products</h2>
+
+      {/* SERVICES */}
       <section className="services">
-        <h2>🌱 Sustainable Solutions for Your Green Space</h2>
+        <h2>🌱 Sustainable Solutions for Farms, Homes & Businesses</h2>
         <p>
-          We provide AI-powered automated irrigation systems that optimize water usage, ensuring your plants 
-          thrive with minimal effort. Whether you’re a home gardener or a commercial grower, our smart irrigation 
-          technology helps you save water, reduce costs, and boost plant health.
+          We provide automated systems—including smart irrigation solutions—to optimize water usage and improve
+          crop performance. Whether you're a home gardener, estate owner, greenhouse operator, or commercial grower,
+          our systems help you save water, reduce labor, and keep plants healthy with consistent irrigation.
         </p>
+
         <p>
-          Our eco-friendly delivery service ensures that all our fresh produce reaches you in peak condition—
+          Beyond automation, we support customers with <b>problem-solution services</b>: tell us your challenge or goal,
+          and we propose the best solution by combining the right products, materials, and trusted partners.
+        </p>
+
+        <p>
+          We also offer sourcing and supply of <b>local & imported</b> materials and machines for both
+          <b> agriculture</b> and <b>industry</b>, including <b>farm-to-factory supply</b> coordination where needed.
+        </p>
+
+        <p>
+          Our eco-friendly delivery and handling practices ensure that fresh items reach you in peak condition—
           preserving taste, nutrients, and quality.
         </p>
       </section>
 
+      {/* PRODUCTS */}
       <section className="products">
-        <h2>🍃 Pure & Natural Green Offerings</h2>
+        <h2>🍃 Pure, Natural & Reliable Offerings</h2>
         <p>
-          Experience the goodness of highly nutritious homemade microgreens, cultivated with love and care. 
-          These power-packed greens are perfect for healthy meals, providing a boost of vitamins, minerals, and antioxidants.
+          Enjoy the goodness of highly nutritious organic microgreens, cultivated with care.
+          These power-packed greens are perfect for healthy meals, providing a boost of vitamins,
+          minerals, and antioxidants.
         </p>
+
         <p>
-          From our lush tea plantation in Bulathsinhala, we bring you premium green tea leaves and herbal plants—
-          grown naturally for a refreshing and healthy lifestyle.
+          From our lush plantation in Bulathsinhala, we bring you premium tea leaves, cinnamon, herbs,
+          and herbal products—grown naturally for a refreshing and healthy lifestyle.
+        </p>
+
+        <p>
+          We continuously expand our range with new farm and eco-friendly products, and we also support
+          B2B supply needs through our agriculture and industrial material sourcing services.
         </p>
       </section>
+
+      {/* GALLERY */}
       <section className="gallery">
         <h2>📸 Gallery</h2>
         <div className="gallery-grid">
