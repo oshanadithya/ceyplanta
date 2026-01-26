@@ -1,6 +1,6 @@
 import React, { JSX, useState, useRef, useEffect } from "react";
 import "../styles/ServicesProducts.css";
-import { Settings, Factory, Wrench, Tractor, Boxes, Droplets } from "lucide-react";
+import { Factory, Wrench, Boxes, Droplets } from "lucide-react";
 
 // Define the type for a product
 type Product = {
@@ -145,11 +145,6 @@ const ServiceProducts: React.FC = () => {
    // ✅ ADD: Other Products & Services
   const otherProductsAndServices: Product[] = [
     {
-      name: "Agriculture Materials & Machines (Local + Imported)",
-      description: "Supply of agriculture-related materials and machinery from local and international sources.",
-      icon: <Tractor className="text-green-500 w-10 h-10" />,
-    },
-    {
       name: "Industrial Materials & Machines (Local + Imported)",
       description: "Industrial-grade materials and machinery sourcing and supply.",
       icon: <Factory className="text-green-500 w-10 h-10" />,
@@ -168,11 +163,6 @@ const ServiceProducts: React.FC = () => {
       name: "Agriculture & Crops Related Materials",
       description: "Inputs and materials related to crops and farming operations.",
       icon: <Boxes className="text-green-500 w-10 h-10" />,
-    },
-    {
-      name: "Farm-to-Factory Supply",
-      description: "Agri and related product/material supply chain from farms to factories.",
-      icon: <Settings className="text-green-500 w-10 h-10" />,
     },
   ];
 
