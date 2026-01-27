@@ -3,7 +3,7 @@ import "../styles/buy-greens.css"; // Add styles for this page
 import emailjs from 'emailjs-com';
 import { jsPDF, GState  } from 'jspdf';
 import logo from "../assets/logo_3.png";
-
+import autoTable from "jspdf-autotable";
 
 const BuyGreens = () => {
     // Initialize EmailJS with your user ID
@@ -827,120 +827,211 @@ const BuyGreens = () => {
 
     
     const generateAndDownloadPDF = (orderNo: string) => {
-      const doc = new jsPDF();
+      const doc = new jsPDF({ unit: "mm", format: "a4" });
 
-      // === WATERMARK LOGO (CENTER) ===
       const pageWidth = doc.internal.pageSize.getWidth();
       const pageHeight = doc.internal.pageSize.getHeight();
 
-      // Watermark size
+      const marginLeft = 14;
+      const marginRight = 14;
+      // const marginTop = 10;
+      const marginBottom = 12;
+
       const watermarkWidth = 120;
       const watermarkHeight = 120;
 
-      // Center position
-      const x = (pageWidth - watermarkWidth) / 2;
-      const a = (pageHeight - watermarkHeight) / 2;
+      const drawWatermark = () => {
+        const x = (pageWidth - watermarkWidth) / 2;
+        const y = (pageHeight - watermarkHeight) / 2;
 
-      // Set transparency (0 = fully transparent, 1 = fully visible)
-      const gState = new GState({ opacity: 0.2 });
-      doc.setGState(gState);
+        doc.setGState(new GState({ opacity: 0.15 }));
+        doc.addImage(logo, "PNG", x, y, watermarkWidth, watermarkHeight);
+        doc.setGState(new GState({ opacity: 1 }));
+      };
 
-      // Add image (PNG or JPG)
-      doc.addImage(logo, "PNG", x, a, watermarkWidth, watermarkHeight);
+      const forceNewPage = () => {
+        doc.addPage();
+        drawHeader(true);
+        drawFooter();
+        y = 60;
+      };                          
 
-      // Reset opacity back to normal
-      doc.setGState(new GState({ opacity: 1 }));  
+      const drawHeader = (continued = false) => {
+        drawWatermark();
 
-    
-      // === HEADER ===
-      doc.addImage(logo, "PNG", 14, 10, 28, 28);
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(16);
-      doc.text("Ceyplanta", 50, 18);
-    
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "normal");
-      doc.text("No 235, Galle Rd, Thalpitiya South, Wadduwa", 50, 24);
-      doc.text("+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com | BR Code: PV 00349478", 50, 30);
-    
-      doc.line(14, 42, 196, 42);
-    
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(14);
-      doc.text("Order Invoice", 14, 50);
-    
+        doc.addImage(logo, "PNG", marginLeft, 10, 28, 28);
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(16);
+        doc.text("Ceyplanta", 50, 18);
+
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "normal");
+        doc.text("No 235, Galle Rd, Thalpitiya South, Wadduwa", 50, 24);
+        doc.text(
+          "+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com | BR Code: PV 00349478",
+          50,
+          30
+        );
+
+        doc.line(marginLeft, 42, pageWidth - marginRight, 42);
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(14);
+        doc.text(continued ? "Invoice" : "Invoice", marginLeft, 50);
+      };
+
+      const drawFooter = () => {
+        doc.setFont("helvetica", "italic");
+        doc.setFontSize(9);
+        doc.text("This is a system-generated invoice.", marginLeft, pageHeight - 8);
+      };
+
+      drawHeader(false);
+      drawFooter();
+
+      let y = 60;
+      const lineH = 5;
+
+      const ensureSpace = (need: number) => {
+        if (y + need > pageHeight - marginBottom - 10) {
+          doc.addPage();
+          drawHeader(true);
+          drawFooter();
+          y = 60;
+        }
+      };
+
+      const writeWrapped = (text: string, fontSize = 10, fontStyle: "normal" | "bold" | "italic" = "normal") => {
+        doc.setFont("helvetica", fontStyle);
+        doc.setFontSize(fontSize);
+        const lines = doc.splitTextToSize(text, pageWidth - marginLeft - marginRight);
+        lines.forEach((ln: string) => {
+          ensureSpace(lineH);
+          doc.text(ln, marginLeft, y);
+          y += lineH;
+        });
+      };
+
+      // Date / Order
       const today = new Date().toLocaleDateString();
       doc.setFont("helvetica", "normal");
       doc.setFontSize(11);
-      doc.text(`Date: ${today}`, 14, 60);
-      doc.text(`Order No: ${orderNo}`, 100, 60);
-    
-      // === CUSTOMER INFO ===
-      doc.text(`Name: ${name}`, 14, 70);
-      doc.text(`Email: ${email}`, 14, 76);
-      doc.text(`Phone: ${phone}`, 14, 82);
-      doc.text(`Message: ${message || "N/A"}`, 14, 88);
-    
-      // === ORDER ITEMS ===
+      doc.text(`Date: ${today}`, marginLeft, y);
+      doc.text(`Order No: ${orderNo}`, 100, y);
+      y += 10;
+
+      // Customer info (wrap message)
+      doc.setFontSize(11);
+      doc.text(`Name: ${name}`, marginLeft, y); y += 6;
+      doc.text(`Email: ${email}`, marginLeft, y); y += 6;
+      doc.text(`Phone: ${phone}`, marginLeft, y); y += 6;
+
+      // writeWrapped(`Message: ${message || "N/A"}`, 11, "normal");
+      y += 10;
+
+      // Items label
       doc.setFont("helvetica", "bold");
-      doc.text("Order Items:", 14, 100);
-      doc.setFont("helvetica", "normal");
-      let y = 108;
-      cart.forEach((item, index) => {
-        doc.text(`${index + 1}. ${item.name} (${item.selectedWeight}) – ${item.selectedPrice}`, 14, y);
-        y += 8;
+      doc.setFontSize(11);
+      ensureSpace(11);
+      doc.text("Order Items:", marginLeft, y);
+      y += 16;
+
+      // Items table (auto page breaks)
+      autoTable(doc, {
+        startY: y,
+        margin: { left: marginLeft, right: marginRight },
+        head: [["#", "Item", "Weight", "Price"]],
+        body: cart.map((it, i) => [String(i + 1), it.name, it.selectedWeight, it.selectedPrice]),
+        styles: {
+          font: "helvetica",
+          fontSize: 10,
+          cellPadding: 2,
+          overflow: "linebreak",
+        },
+        headStyles: { fontStyle: "bold" },
+        columnStyles: {
+          0: { cellWidth: 10 },
+          1: { cellWidth: 92 },
+          2: { cellWidth: 28 },
+          3: { cellWidth: 30 },
+        },
+        didDrawPage: () => {
+          drawHeader(true);
+          drawFooter();
+        },
       });
-    
-      // === DELIVERY DETAILS ===
-      y += 6;
+
+      // After table
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      y = (doc as any).lastAutoTable.finalY + 8;
+
+      // Delivery
       doc.setFont("helvetica", "bold");
-      doc.text("Delivery Details:", 14, y);
-      doc.setFont("helvetica", "normal");
-      y += 8;
-      doc.text(`Address – ${message || "N/A"} | Delivery charges may change accordingly`, 14, y);
-    
-      // === TOTAL SECTION ===
-      y += 12;
-      doc.setFont("helvetica", "bold");
-      doc.text("Total Rates:", 14, y);
-      y += 8;
-      doc.setFont("helvetica", "normal");
-      doc.text(`Gross Total – Rs. ${getTotalPrice()}`, 14, y);
+      doc.setFontSize(11);
+      ensureSpace(20);
+      doc.text("Delivery Details:", marginLeft, y);
       y += 6;
-      doc.text(`Discount – ${discount}%`, 14, y);
-      y += 6;
-      const netTotal = getTotalPrice() - (getTotalPrice() * discount) / 100;
-      doc.text(`Net Total – Rs. ${netTotal.toFixed(2)} + Delivery Charges `, 14, y);
-    
-      // === BANK DETAILS ===
-      y += 14;
-      doc.setFont("helvetica", "bold");
-      doc.text("Bank Details", 14, y);
-      doc.setFont("helvetica", "normal");
-      y += 8;
-      doc.text("Account Name - Ceyplanta Pvt Ltd", 14, y);
-      y += 6;
-      doc.text("Account Number - 002010576887", 14, y);
-      y += 6;
-      doc.text("Bank - Hatton National Bank", 14, y);
-    
-      // === THANK YOU MESSAGE ===
-      y += 14;
-      doc.setFont("helvetica", "italic");
-      doc.text(
-        "Thank you for your order! We look forward to supplying you with premium organic microgreens & edible flowers grown with care at Ceyplanta.",
-        14,
-        y,
-        { maxWidth: 180 }
+
+      writeWrapped(
+        `Address & Additional Details – ${message || "N/A"}`,
+        10,
+        "normal"
       );
-    
-      // === TERMS & CONDITIONS ===
-      y += 14;
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(7);
-      doc.text("Terms & Conditions", 14, y);
       doc.setFont("helvetica", "normal");
-      y += 8;
+      doc.setFontSize(10);
+      doc.text("Delivery charges may change accordingly to the distance", marginLeft, y);
+      y += 6;
+
+      forceNewPage();
+      // Totals
+      const gross = getTotalPrice();
+      const netTotal = gross - (gross * discount) / 100;
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      ensureSpace(16);
+      doc.text("Total Rates:", marginLeft, y);
+      y += 6;
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      ensureSpace(6); doc.text(`Gross Total – Rs. ${gross.toFixed(2)}`, marginLeft, y); y += 5;
+      ensureSpace(6); doc.text(`Discount – ${discount}%`, marginLeft, y); y += 5;
+      ensureSpace(6); doc.text(`Net Total – Rs. ${netTotal.toFixed(2)} + Delivery Charges`, marginLeft, y); y += 8;
+
+      // Bank
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(11);
+      ensureSpace(20);
+      doc.text("Bank Details", marginLeft, y);
+      y += 6;
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      ensureSpace(6); doc.text("Account Name - Ceyplanta Pvt Ltd", marginLeft, y); y += 5;
+      ensureSpace(6); doc.text("Account Number - 002010576887", marginLeft, y); y += 5;
+      ensureSpace(6); doc.text("Bank - Hatton National Bank", marginLeft, y); y += 8;
+
+      ensureSpace(8);
+      // Thank you (wrapped)
+      writeWrapped(
+        "Thank you for your order! We look forward to supplying you with premium organic microgreens & edible flowers grown with care at Ceyplanta.",
+        10,
+        "italic"
+      );
+      y += 4;
+
+      // Terms
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      ensureSpace(40);
+      doc.text("Terms & Conditions", marginLeft, y);
+      y += 6;
+
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+
       const terms = [
         "This quotation is valid for 15 days from the date of issue. Prices and availability are subject to change after this period.",
         "Bulk Orders: Minimum 400g per microgreen variety or 100 pcs flower.",
@@ -948,18 +1039,11 @@ const BuyGreens = () => {
         "Payment Terms: Full payment is required within 2 days of order placement. Order preparation will begin only after payment confirmation.",
         "Orders must be collected on the confirmed delivery date. Freshness not guaranteed after 2 days of delivery date.",
       ];
+
       terms.forEach((t) => {
-        doc.text(`- ${t}`, 14, y);
-        y += 6;
+        writeWrapped(`• ${t}`, 9, "normal");
       });
-    
-      // === FOOTER ===
-      doc.setFont("helvetica", "italic");
-      doc.setFontSize(10);
-      y += 6;
-      doc.text("This is a system-generated invoice.", 14, y);
-    
-      // SAVE PDF
+
       doc.save(`invoice ${orderNo}.pdf`);
     };
 
