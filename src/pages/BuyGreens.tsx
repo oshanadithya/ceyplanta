@@ -343,7 +343,7 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 2150" },
             ],
             noStock: false,
-            category: "Herbs & Teas",
+            category: "Herbs & Salad Greens",
           },
           {
             id: 15,
@@ -368,68 +368,68 @@ const BuyGreens = () => {
               { weight: "200g", price: "Rs. 1280" },
             ],
             noStock: true,
-            category: "Herbs & Teas",
+            category: "Teas",
           },
-          {
-            id: 16,
-            name: "Lemongrass Herbal Tea",
-            description:
-              "Refreshingly citrusy and naturally soothing, our Lemongrass Herbal Tea is a perfect blend of flavor and wellness. Made from carefully selected, sun-dried lemongrass leaves, this caffeine-free infusion offers a delightful balance of light, lemony zest with a hint of natural sweetness.",
-            image: "/images/lemongrasstea.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "50g", price: "" },
-              { weight: "100g", price: "" },
-            ],
-            noStock: true,
-            category: "Herbs & Teas",
-          },
-          {
-            id: 17,
-            name: "Mint Herbal Tea",
-            description:
-              "Cool, refreshing, and invigorating, our Mint Herbal Tea is a naturally caffeine-free infusion made from the finest handpicked mint leaves. With its crisp aroma and soothing properties, this tea is perfect for refreshing your senses while promoting digestion and relaxation. Enjoy it hot for a comforting experience or iced for a revitalizing treat.",
-            image: "/images/minttea.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "50g", price: "" },
-              { weight: "100g", price: "" },
-            ],
-            noStock: true,
-            category: "Herbs & Teas",
-          },
-          {
-            id: 18,
-            name: "Moringa Herbal Infusion Tea",
-            description:
-              "Packed with nutrients and earthy goodness, our Moringa Herbal Tea is a powerhouse of wellness in every sip. Made from handpicked, sun-dried moringa leaves, this naturally caffeine-free tea is rich in antioxidants, vitamins, and minerals that support immunity, boost energy, and promote overall well-being. With its smooth, mildly grassy flavor and subtle nuttiness, Moringa tea is a perfect addition to a healthy lifestyle.",
-            image: "/images/moringatea.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "50g", price: "" },
-              { weight: "100g", price: "" },
-            ],
-            noStock: true,
-            category: "Herbs & Teas",
-          },
+          // {
+          //   id: 16,
+          //   name: "Lemongrass Herbal Tea",
+          //   description:
+          //     "Refreshingly citrusy and naturally soothing, our Lemongrass Herbal Tea is a perfect blend of flavor and wellness. Made from carefully selected, sun-dried lemongrass leaves, this caffeine-free infusion offers a delightful balance of light, lemony zest with a hint of natural sweetness.",
+          //   image: "/images/lemongrasstea.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          //   category: "Herbs & Teas",
+          // },
+          // {
+          //   id: 17,
+          //   name: "Mint Herbal Tea",
+          //   description:
+          //     "Cool, refreshing, and invigorating, our Mint Herbal Tea is a naturally caffeine-free infusion made from the finest handpicked mint leaves. With its crisp aroma and soothing properties, this tea is perfect for refreshing your senses while promoting digestion and relaxation. Enjoy it hot for a comforting experience or iced for a revitalizing treat.",
+          //   image: "/images/minttea.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          //   category: "Herbs & Teas",
+          // },
+          // {
+          //   id: 18,
+          //   name: "Moringa Herbal Infusion Tea",
+          //   description:
+          //     "Packed with nutrients and earthy goodness, our Moringa Herbal Tea is a powerhouse of wellness in every sip. Made from handpicked, sun-dried moringa leaves, this naturally caffeine-free tea is rich in antioxidants, vitamins, and minerals that support immunity, boost energy, and promote overall well-being. With its smooth, mildly grassy flavor and subtle nuttiness, Moringa tea is a perfect addition to a healthy lifestyle.",
+          //   image: "/images/moringatea.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "50g", price: "" },
+          //     { weight: "100g", price: "" },
+          //   ],
+          //   noStock: true,
+          //   category: "Herbs & Teas",
+          // },
           /* {
             id: 18,
             name: "Lotus Herbal Infusion Tea",
@@ -467,22 +467,22 @@ const BuyGreens = () => {
               { weight: "100g", price: "" },
             ],
             noStock: true,
-            category: "Herbs & Teas",
+            category: "Teas",
           },
-          {
-            id: 30,
-            name: "Plantation Seeds",
-            description: "Request for any kind of agricultural seeds from below.",
-            image: "/images/seeds.png",
-            nutritionalFacts: [""],
-            benefits: [""],
-            price: "",
-            weightOptions: [
-              { weight: "Request", price: "" },
-            ],
-            noStock: false,
-            category: "Herbs & Teas",
-          },
+          // {
+          //   id: 30,
+          //   name: "Plantation Seeds",
+          //   description: "Request for any kind of agricultural seeds from below.",
+          //   image: "/images/seeds.png",
+          //   nutritionalFacts: [""],
+          //   benefits: [""],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "Request", price: "" },
+          //   ],
+          //   noStock: false,
+          //   category: "Herbs & Teas",
+          // },
           {
             id: 31,
             name: "Mari Gold",
@@ -772,6 +772,66 @@ const BuyGreens = () => {
             noStock: false,
             category: "Salads",
           },
+          {
+            id: 50,
+            name: "Mint Leaves (Minchi)",
+            description:
+              "Popular Aromatic perennial herbs from the Mentha genus used fresh or dried to add a cool, refreshing flavor to foods, beverages, and teas. They are rich in antioxidants, commonly used to improve digestion, soothe stomach pain, and reduce symptoms of IBS and colds. " ,
+            image: "/images/mint.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "100g", price: "Rs. 180" },
+              { weight: "200g", price: "Rs. 350" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          {
+            id: 51,
+            name: "Gotukola",
+            description:
+              "Gotukola is a highly nutritious, widely consumed leafy green in Sri Lanka, revered for both its culinary, especially in sambol, and medicinal properties. Known as a, herb of longevity, it is rich in iron, used in traditional medicine to enhance memory, improve skin health, and boost immunity, cultivated primarily in wet zones." ,
+            image: "/images/gotukola.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "100g", price: "Rs. 110" },
+              { weight: "200g", price: "Rs. 215" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          // {
+          //   id: 52,
+          //   name: "Salad",
+          //   description:
+          //     " " ,
+          //   image: "/images/gotukola.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "100g", price: "Rs. 110" },
+          //     { weight: "200g", price: "Rs. 215" },
+          //   ],
+          //   noStock: false,
+          //   category: "Herbs & Salad Greens",
+          // },
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -1186,16 +1246,22 @@ const BuyGreens = () => {
                 🥗 Salads
               </button>
               <button
-                className={selectedCategory === "Herbs & Teas" ? "active" : ""}
-                onClick={() => setSelectedCategory("Herbs & Teas")}
+                className={selectedCategory === "Herbs & Salad Greens" ? "active" : ""}
+                onClick={() => setSelectedCategory("Herbs & Salad Greens")}
               >
-                🍃 Herbs & Teas
+                🍃 Herbs & Salad Greens
               </button>
               <button
                 className={selectedCategory === "Edible Flowers" ? "active" : ""}
                 onClick={() => setSelectedCategory("Edible Flowers")}
               >
                 🌸 Edible Flowers
+              </button>
+              <button
+                className={selectedCategory === "" ? "active" : ""}
+                onClick={() => setSelectedCategory("Teas")}
+              >
+                ☕ Teas
               </button>
             </div>
 

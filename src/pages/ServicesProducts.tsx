@@ -2,260 +2,225 @@ import React, { JSX, useState, useRef, useEffect } from "react";
 import "../styles/ServicesProducts.css";
 import { Factory, Wrench, Boxes, Droplets } from "lucide-react";
 
-// Define the type for a product
+/* ================= TYPES ================= */
+
 type Product = {
   name: string;
   description: string;
   icon: JSX.Element;
 };
 
-// Define the type for the ProductCard props
 type ProductCardProps = {
   product: Product;
-  bgColor: string;
-  hoverBgColor: string;
   onLearnMore: (product: Product) => void;
-  className?: string; // Add className as an optional property
+  className?: string;
 };
 
-// Define the type for Microgreen Details
-type MicrogreenDetail = {
+// type MicrogreenDetail = {
+//   name: string;
+//   description: string;
+//   image: string;
+//   nutritionalFacts: string[];
+//   benefits: string[];
+// };
+
+type StockItem = {
   name: string;
-  description: string;
-  image: string;
-  nutritionalFacts: string[];
-  benefits: string[];
+  spec?: string;
+  inStock: boolean;
 };
 
+/* ================= STOCK DATA ================= */
 
-// ProductCard component
-const ProductCard: React.FC<ProductCardProps> = ({ product, className }) => {
+const stockByCategory: Record<string, StockItem[]> = {
+  "Agriculture & Crops Related Materials": [
+    // { name: "Drippers", spec: "2–8 LPH", inStock: true },
+    // { name: "Mini Valves", inStock: true },
+    // { name: "Connectors", inStock: true },
+    // { name: "Punch Tools", inStock: true },
+    // { name: "Micro Tubes", inStock: true },
+    // { name: "Cocopeat Blocks", inStock: true },
+    // { name: "Seedling Trays", inStock: true },
+    // { name: "Hand Tools", inStock: true },
+  ],
+};
+
+/* ================= PRODUCT CARD ================= */
+
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  onLearnMore,
+  className,
+}) => {
   return (
-    <div className={`bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 ${className}`}>
-      <div className="pcicon flex justify-center mb-4 text-gray-800 dark:text-gray-200" aria-hidden="true">
+    <button
+      type="button"
+      onClick={() => onLearnMore(product)}
+      className={`bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-center transition-transform transform hover:scale-105 w-full ${className}`}
+    >
+      <div className="flex justify-center mb-4 text-gray-800">
         {product.icon}
       </div>
-      <h3 className="pcname text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{product.name}</h3>
-      <p className="text-gray-600 mb-4">{product.description}</p>
-      {/* <button
-        onClick={() => onLearnMore(product)}
-        className={`${bgColor} text-white px-5 py-2 rounded-lg hover:${hoverBgColor} transition`}
-        aria-label={`Learn more about ${product.name}`}
-      >
-        Learn More
-      </button> */}
-    </div>
+      <h3 className="text-xl font-semibold text-gray-800 mb-2">
+        {product.name}
+      </h3>
+      <p className="text-gray-600">{product.description}</p>
+    </button>
   );
 };
 
-// Main ServiceProducts component
+/* ================= MAIN COMPONENT ================= */
+
 const ServiceProducts: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  // const [selectedMicrogreen, setSelectedMicrogreen] = useState<MicrogreenDetail | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to the modal when it's opened
   useEffect(() => {
     if (isModalOpen && modalRef.current) {
-      modalRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      modalRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [isModalOpen]);
 
-  // Microgreens Data
-  const microgreensDetails: Record<string, MicrogreenDetail[]> = {
-    Microgreens: [
-      {
-        name: "Radish",
-        description: "Spicy and crisp, perfect for salads.",
-        image: "/images/redraddish.jpg",
-        nutritionalFacts: ["High in Vitamin C ", "Rich in Antioxidants ", "Low in Calories ", "Contains Potassium ", "Good Source of Fiber "],
-        benefits: ["Boosts Immunity ", "Improves Digestion ", "Good for Heart Health ", "Supports Skin Health "],
-      },
-      {
-        name: "Kangkung",
-        description: "Nutrient-rich, ideal for stir-fries.",
-        image: "/images/kangkung.jpg",
-        nutritionalFacts: ["Rich in Iron ", "High in Fiber ", "Contains Vitamin A ", "Good Source of Calcium "],
-        benefits: ["Prevents Anemia ", "Aids Digestion ", "Supports Eye Health ", "Strengthens Bones "],
-      },
-      {
-        name: "Beetroot",
-        description: "Sweet and earthy, great for juices and salads.",
-        image: "/images/beetroot.jpg",
-        nutritionalFacts: ["Rich in Folate ", "Good Source of Nitrates ", "High in Fiber ", "Contains Iron ", "Rich in Antioxidants "],
-        benefits: ["Boosts Stamina ", "Lowers Blood Pressure ", "Supports Brain Function ", "Promotes Detoxification "],
-      },
-      {
-        name: "Amaranth",
-        description: "Bright green color and have a mild, slightly nutty flavor with a delicate crunch.",
-        image: "/images/g-amaranth.jpg",
-        nutritionalFacts: ["High in Vitamins A, C, and K ", "Rich in Iron ", "Good Source of Protein ", "Contains Calcium "],
-        benefits: ["Supports Vision ", "Boosts Immunity ", "Strengthens Bones ", "Promotes Healthy Skin "],
-      },
-      {
-        name: "Red Amaranth",
-        description: "Vibrant and nutritious, packed with antioxidants and great in soups or stir-fries.",
-        image: "/images/amaranth.jpg",
-        nutritionalFacts: ["High in Vitamins folate (Betalains), potassium, and magnesium", "Rich in antioxidants", "Good Source of Protein", "Contains Calcium "],
-        benefits: ["Anti-inflammatory Properties", "Boosts Immunity ", "Strengthens Bones ", "Supports Heart Health"],
-      },
-      {
-        name: "Mustard",
-        description: "Peppery and flavorful, commonly used in salads and Indian cuisine.",
-        image: "/images/mustard.jpg",
-        nutritionalFacts: ["Rich in Vitamin K ", "High in Antioxidants ", "Contains Fiber ", "Good Source of Magnesium "],
-        benefits: ["Aids Digestion ", "Supports Heart Health ", "Boosts Metabolism ", "Has Anti-Inflammatory Properties "],
-      },
-      {
-        name: "Cabbage",
-        description: "Crunchy and versatile, great for salads, stir-fries, and fermented dishes.",
-        image: "/images/cabbage.jpg",
-        nutritionalFacts: ["Rich in Vitamin C ", "High in Fiber ", "Contains Sulfur Compounds ", "Good Source of Folate "],
-        benefits: ["Supports Gut Health ", "Reduces Inflammation ", "Strengthens Immunity ", "Aids in Detoxification "],
-      },
-      {
-        name: "Kale",
-        description: "Highly nutritious and rich in fiber, perfect for smoothies and sautés.",
-        image: "/images/kale.jpg",
-        nutritionalFacts: ["High in Vitamin A, C, and K ", "Rich in Fiber ", "Contains Omega-3 Fatty Acids ", "Good Source of Calcium "],
-        benefits: ["Enhances Brain Function ", "Supports Heart Health ", "Promotes Healthy Skin ", "Strengthens Bones "],
-      },
-      {
-        name: "Basil",
-        description: "Aromatic and flavorful, essential for pesto and Italian dishes.",
-        image: "/images/basil.jpg",
-        nutritionalFacts: ["Rich in Vitamin K ", "Contains Manganese ", "Good Source of Magnesium ", "High in Antioxidants "],
-        benefits: ["Reduces Stress ", "Supports Liver Health ", "Fights Infections ", "Aids Digestion "],
-      },
-      {
-        name: "Coriander",
-        description: "Fresh and citrusy, widely used in curries, salads, and garnishes.",
-        image: "/images/coriander.jpg",
-        nutritionalFacts: ["High in Vitamin A, C, and K ", "Rich in Potassium ", "Good Source of Manganese ", "Contains Antioxidants "],
-        benefits: ["Detoxifies Heavy Metals ", "Aids Digestion ", "Lowers Blood Sugar ", "Supports Skin Health "],
-      },
-    ],
-  };
+  /* ================= PRODUCTS ================= */
 
-  const agroTechProducts: Product[] = [
-    // { name: "Automated Irrigation Systems", description: "Smart irrigation solutions for efficient farming.", icon: <Droplet className="text-blue-500 w-10 h-10" /> },
-  ];
-
-   // ✅ ADD: Other Products & Services
   const otherProductsAndServices: Product[] = [
     {
       name: "Industrial Materials & Machines (Local + Imported)",
-      description: "Industrial-grade materials and machinery sourcing and supply.",
-      icon: <Factory className="text-green-500 w-10 h-10" />,
+      description:
+        "Industrial-grade materials and machinery sourcing and supply.",
+      icon: <Factory className="text-green-600 w-10 h-10" />,
     },
     {
       name: "Problem-Solution Services",
-      description: "We analyze your requirement and provide the best solution with the right products/services.",
-      icon: <Wrench className="text-green-500 w-10 h-10" />,
+      description:
+        "We analyze your requirement and provide the best solution.",
+      icon: <Wrench className="text-green-600 w-10 h-10" />,
     },
     {
       name: "Automated Systems (Including Irrigation)",
-      description: "Automation solutions including water irrigation systems for efficient operations.",
-      icon: <Droplets className="text-green-500 w-10 h-10" />,
+      description:
+        "Automation solutions including water irrigation systems.",
+      icon: <Droplets className="text-green-600 w-10 h-10" />,
     },
     {
       name: "Agriculture & Crops Related Materials",
-      description: "Inputs and materials related to crops and farming operations.",
-      icon: <Boxes className="text-green-500 w-10 h-10" />,
+      description:
+        "Inputs and materials related to crops and farming operations.",
+      icon: <Boxes className="text-green-600 w-10 h-10" />,
     },
   ];
 
-  // Handle Learn More click
   const handleLearnMore = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
 
-  // Handle Microgreen Click
-  // const handleMicrogreenClick = (microgreen: MicrogreenDetail) => {
-  //   setSelectedMicrogreen(microgreen);
-  // };
-
-  // Close Modal
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProduct(null);
-    // setSelectedMicrogreen(null);
   };
+
+  const stockItems = selectedProduct
+    ? stockByCategory[selectedProduct.name]
+    : undefined;
+
+  /* ================= RENDER ================= */
 
   return (
     <div className="services-products">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">Other Products &amp; Services</h1>
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
+        Other Products & Services
+      </h1>
 
-        {/* Product Section with Adjusted Columns */}
-        <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Left: AgroTech Products */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+
+        {/* Left: AgroTech Products */}
           <div className="w-full">
             <div className="grid-container">
-              {agroTechProducts.map((product, index) => (
-                <ProductCard
-                  key={index}
-                  product={product}
-                  className="product-card agrotech-card"
-                  onLearnMore={handleLearnMore}
-                  bgColor="lightgreen" // Example value for bgColor
-                  hoverBgColor="darkgreen" // Example value for hoverBgColor
-                />
-              ))}
-            </div>
-          </div>
-          <br></br>
-          <br></br>
-          {/* Right: Green Products */}
-          <div className="w-full mt-12">
-            <div className="grid-container">
               {otherProductsAndServices.map((product, index) => (
-                <ProductCard
-                  key={index}
-                  product={product}
-                  className="product-card green-card"
-                  onLearnMore={handleLearnMore}
-                  bgColor="lightgreen"
-                  hoverBgColor="darkgreen"
-                />
-              ))}
+              <ProductCard
+                key={index}
+                product={product}
+                onLearnMore={handleLearnMore}
+                className="product-card green-card"
+              />
+            ))}                   
             </div>
           </div>
-        </section>
+      </section>
 
-        {/* Modal for product details */}
-        {isModalOpen && selectedProduct && (
-          <div ref={modalRef} className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
-            <div className="bg-white rounded-lg p-6 max-w-lg w-full">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">{selectedProduct.name}</h2>
-              {selectedProduct.name === "Microgreens" && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {microgreensDetails[selectedProduct.name].map((item, index) => (
-                    <div key={index} className="flex flex-col items-center text-center">
-                      <img src={item.image} alt={item.name} />
-                      <br></br>
-                      <strong className="text-lg">{item.name}</strong>
-                      <p className="text-gray-600">{item.description}</p>
-                      <p className="text-gray-600">{item.nutritionalFacts}</p>
-                      <p className="text-gray-600">{item.benefits}</p>
-                      <br></br>
-                    </div>
+      {/* ================= MODAL ================= */}
+
+      {isModalOpen && selectedProduct && (
+        <div
+          ref={modalRef}
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50"
+        >
+          <div className="bg-white rounded-lg p-6 max-w-lg w-full">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              {selectedProduct.name}
+            </h2>
+
+            {/* STOCK LIST */}
+            {stockItems ? (
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">
+                  Available Items in Stock
+                </h3>
+
+                <ul className="space-y-2">
+                  {stockItems.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="
+                        flex justify-between items-center
+                        border border-gray-300 dark:border-gray-700
+                        rounded-md p-3
+                        bg-gray-50 dark:bg-gray-800
+                      "
+                    >
+                      <span className="font-medium text-gray-900 dark:text-gray-100">
+                        {item.name}
+                        {item.spec && (
+                          <span className="text-sm text-gray-600 dark:text-gray-300">
+                            {" "}
+                            ({item.spec})
+                          </span>
+                        )}
+                      </span>
+
+                      <span
+                        className={`text-sm font-semibold ${
+                          item.inStock
+                            ? "text-green-700 dark:text-green-400"
+                            : "text-red-700 dark:text-red-400"
+                        }`}
+                      >
+                        {item.inStock ? "In Stock" : "Out of Stock"}
+                      </span>
+                    </li>
                   ))}
-                </div>
-              )}
-              <button
-                onClick={closeModal}
-                className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                Close
-              </button>
-            </div>
+                </ul>
+              </div>
+            ) : (
+              <p className="text-gray-700 dark:text-gray-300">
+                Detailed information will be provided on request.
+              </p>
+            )}
+
+            <button
+              onClick={closeModal}
+              className="mt-6 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
+            >
+              Close
+            </button>
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };
-
 
 export default ServiceProducts;
