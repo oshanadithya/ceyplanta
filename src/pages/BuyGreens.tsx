@@ -451,7 +451,7 @@ const BuyGreens = () => {
           }, */
           {
             id: 19,
-            name: "Ceylon Cinnamon Tea",
+            name: "Premium Ceylon Cinnamon Tea",
             description:
               "Infused togeth using hand manufactured ceylon cinnamon and tea for the best taste and aroma",
             image: "/images/cinnamontea.png",
@@ -812,26 +812,63 @@ const BuyGreens = () => {
             noStock: false,
             category: "Herbs & Salad Greens",
           },
-          // {
-          //   id: 52,
-          //   name: "Salad",
-          //   description:
-          //     " " ,
-          //   image: "/images/gotukola.png",
-          //   nutritionalFacts: [
-          //     "",
-          //   ],
-          //   benefits: [
-          //     "",
-          //   ],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "100g", price: "Rs. 110" },
-          //     { weight: "200g", price: "Rs. 215" },
-          //   ],
-          //   noStock: false,
-          //   category: "Herbs & Salad Greens",
-          // },
+          {
+            id: 52,
+            name: "Butter Head Lettuce ",
+            description:
+              "A tender, mild-flavored, and succulent leafy green known for its soft, buttery texture and loose, rosette-shaped heads. Excellent for salads, wraps, and sandwiches. " ,
+            image: "/images/ButterheadLettuce.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "Rate" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          {
+            id: 53,
+            name: "Lollo Bionda (Curly Lettuce) ",
+            description:
+              "Italian loose-leaf lettuce known for its bright, light-green, and intensely curly, frilly leaves. It is a mild-flavored, crunchy, and decorative cut-and-come-again variety that does not form a tight heart. It is commonly used in salads for its texture and appearance" ,
+            image: "/images/lollobionda.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "Rate" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          {
+            id: 54,
+            name: "Oak Leaf Lettuce ",
+            description:
+              "A tender, non-heading heirloom lettuce (Lactuca sativa) named for its deeply lobed leaves that resemble white oak leaves. Available in red and green varieties, it is prized for its mild, buttery, sweet flavor, remaining non-bitter even in hot summer, and makes an excellent cut-and-come-again salad green.  " ,
+            image: "/images/Oak Leaf.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "Rate" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -1313,13 +1350,7 @@ const BuyGreens = () => {
             <br></br>
             {/* Subscription Packages */}
             <div className="subscription-packages" >
-              <h2>Subscription Packages</h2>
-              <div className="package">
-                <h3>Weekly Package</h3>
-                <p>Enjoy our services for one week. Delivered once a week. Pay Weekly!</p>
-                <p><strong>Request on Additional details</strong></p>
-                {/* <button className="request-button">Request</button> */}
-              </div>
+              <h2>Subscription</h2>
               <div className="package2">
                 <h3>Monthly Package</h3>
                 <p>Enjoy our services for one month. Delivered weekly for a month. Pay Monthly. Get your customized quotation!</p>
