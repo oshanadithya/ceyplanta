@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com';
 import { jsPDF, GState  } from 'jspdf';
 import logo from "../assets/logo_3.png";
 import autoTable from "jspdf-autotable";
+import "../styles//Packages.css";
 
 const BuyGreens = () => {
     // Initialize EmailJS with your user ID
@@ -19,6 +20,7 @@ const BuyGreens = () => {
     const [couponCode, setCouponCode] = useState("");
     const [discount, setDiscount] = useState(0);
     const [couponMessage, setCouponMessage] = useState("");
+      const [showModal, setShowModal] = useState(false);
 
     // ✅ Valid coupons
     const validCoupons: Record<string, number> = {
@@ -1351,12 +1353,29 @@ const BuyGreens = () => {
             {/* Subscription Packages */}
             <div className="subscription-packages" >
               <h2>Subscription</h2>
-              <div className="package2">
+              <div
+                className="package2 clickable"
+                onClick={() => setShowModal(true)}
+              >
                 <h3>Monthly Package</h3>
-                <p>Enjoy our services for one month. Delivered weekly for a month. Pay Monthly. Get your customized quotation!</p>
-                <p><strong>Request on Additional details</strong></p>
-                {/* <button className="request-button">Request</button> */}
+                <p>
+                  Enjoy our services for one month. Delivered weekly for a month.
+                  Pay Monthly. Get your customized quotation! Mention the Package in Additional Details when checking out!
+                </p>
+                <p><strong>Click to see packages</strong></p>
               </div>
+
+              {showModal && (
+                <div className="modal-overlay" onClick={() => setShowModal(false)}>
+                  <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                    <img
+                      src="/images/monthly-package.png"
+                      alt="Monthly Package Details"
+                    />
+                    <button onClick={() => setShowModal(false)}>Close</button>
+                  </div>
+                </div>
+              )}
 
               <div className="package3">
                 <h3>Notice</h3>
