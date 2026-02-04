@@ -658,25 +658,6 @@ const BuyGreens = () => {
             category: "Edible Flowers",
           },
           {
-            id: 42,
-            name: "Begonia",
-            description:
-              "Begonia is a stunning ornamental flower prized for both its gorgeous blooms and decorative foliage. With over 1,800 species and hybrids, Begonias are loved for their vibrant colors, unique petal forms, and ability to thrive in shady, humid conditions. They are a favorite in floral displays, potted arrangements, and garden borders",
-            image: "/images/begonia.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "600",
-            weightOptions: [
-              { weight: "Request", price: "" },
-            ],
-            noStock: true,
-            category: "Edible Flowers",
-          },
-          {
             id: 43,
             name: "Roses",
             description:
@@ -830,12 +811,12 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "Request", price: "Rate" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Herbs & Salad Greens",
           },
           {
             id: 53,
-            name: "Lollo Bionda (Curly Lettuce) ",
+            name: "Green Curly Lettuce",
             description:
               "Italian loose-leaf lettuce known for its bright, light-green, and intensely curly, frilly leaves. It is a mild-flavored, crunchy, and decorative cut-and-come-again variety that does not form a tight heart. It is commonly used in salads for its texture and appearance" ,
             image: "/images/lollobionda.png",
@@ -854,7 +835,7 @@ const BuyGreens = () => {
           },
           {
             id: 54,
-            name: "Oak Leaf Lettuce ",
+            name: "Red Curly Lettuce ",
             description:
               "A tender, non-heading heirloom lettuce (Lactuca sativa) named for its deeply lobed leaves that resemble white oak leaves. Available in red and green varieties, it is prized for its mild, buttery, sweet flavor, remaining non-bitter even in hot summer, and makes an excellent cut-and-come-again salad green.  " ,
             image: "/images/Oak Leaf.png",
