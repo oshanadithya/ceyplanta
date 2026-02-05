@@ -550,7 +550,7 @@ const BuyGreens = () => {
             benefits: [""],
             price: "",
             weightOptions: [
-              { weight: "100pcs", price: "Rs. 1400" },
+              { weight: "100pcs", price: "Rs. 1650" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -647,7 +647,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "10pcs", price: "Rs. 1600" },
             ],
             noStock: true,
             category: "Edible Flowers",
@@ -666,7 +666,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "Request", price: "" },
+              { weight: "10pcs", price: "Rs. 1800" },
             ],
             noStock: true,
             category: "Edible Flowers",
@@ -1375,6 +1375,7 @@ const BuyGreens = () => {
               <div className="package3">
                 <h3>Notice</h3>
                 <p>Kindly note that we require 5–10 days’ lead time to prepare your order. We will inform you prior to completion.</p>
+                <p>All the prices listed in this page are officially the retail prices. For bulk prices please contact us!</p>
               </div>
             </div>
     
