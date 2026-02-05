@@ -647,7 +647,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "10pcs", price: "Rs. 1600" },
+              { weight: "100pcs", price: "Rs. 1780" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -666,7 +666,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "10pcs", price: "Rs. 1800" },
+              { weight: "10pcs", price: "Rs. 500" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -685,7 +685,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "10pcs", price: "Rs. 2600" },
+              { weight: "10pcs", price: "Rs. 2500" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -704,7 +704,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "10pcs", price: "Rs. 1000" },
+              { weight: "10pcs", price: "Rs. 900" },
             ],
             noStock: false,
             category: "Edible Flowers",
