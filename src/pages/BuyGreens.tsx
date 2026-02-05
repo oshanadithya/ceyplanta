@@ -542,6 +542,20 @@ const BuyGreens = () => {
             category: "Edible Flowers",
           },
           {
+            id: 55,
+            name: "Cosmos",
+            description: "Edible, drought-resistant, and, particularly C. caudatus, used in traditional medicine for antioxidant, anti-inflammatory, and anti-diabetic properties. ",
+            image: "/images/cosmos.png",
+            nutritionalFacts: [""],
+            benefits: [""],
+            price: "",
+            weightOptions: [
+              { weight: "100pcs", price: "Rs. 1400" },
+            ],
+            noStock: false,
+            category: "Edible Flowers",
+          },
+          {
             id: 36,
             name: "Mung Sprout",
             description:
