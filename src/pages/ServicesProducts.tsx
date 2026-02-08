@@ -34,14 +34,6 @@ type StockItem = {
 
 const stockByCategory: Record<string, StockItem[]> = {
   "Agriculture & Crops Related Materials": [
-    // { name: "Drippers", spec: "2–8 LPH", inStock: true },
-    // { name: "Mini Valves", inStock: true },
-    // { name: "Connectors", inStock: true },
-    // { name: "Punch Tools", inStock: true },
-    // { name: "Micro Tubes", inStock: true },
-    // { name: "Cocopeat Blocks", inStock: true },
-    // { name: "Seedling Trays", inStock: true },
-    // { name: "Hand Tools", inStock: true },
   ],
 };
 
@@ -167,7 +159,7 @@ const ServiceProducts: React.FC = () => {
             {stockItems ? (
               <div>
                 <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">
-                  Available Items in Stock
+                  Check on Buy Greens Page for availability.
                 </h3>
 
                 <ul className="space-y-2">

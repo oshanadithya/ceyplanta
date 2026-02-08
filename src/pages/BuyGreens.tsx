@@ -842,7 +842,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "Request", price: "Rate" },
+              { weight: "100g", price: "Rs. 320" },
             ],
             noStock: false,
             category: "Herbs & Salad Greens",
@@ -852,7 +852,7 @@ const BuyGreens = () => {
             name: "Red Curly Lettuce ",
             description:
               "A tender, non-heading heirloom lettuce (Lactuca sativa) named for its deeply lobed leaves that resemble white oak leaves. Available in red and green varieties, it is prized for its mild, buttery, sweet flavor, remaining non-bitter even in hot summer, and makes an excellent cut-and-come-again salad green.  " ,
-            image: "/images/Oak Leaf.png",
+            image: "/images/redlettuce.png",
             nutritionalFacts: [
               "",
             ],
@@ -861,11 +861,206 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "Request", price: "Rate" },
+              { weight: "100g", price: "420" },
             ],
             noStock: false,
             category: "Herbs & Salad Greens",
           },
+          {
+            id: 57,
+            name: "ගම් මිරිස් (Black Pepper)",
+            description:
+              "The King of Spices for Your Garden - High-quality black pepper plants with strong root systems and fast climbing growth. Ideal for home gardens and estates, this perennial spice plant gives long-term harvests and excellent market value. Suitable for grow bags or ground planting with support." ,
+            image: "/images/blackpepper.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "1 Plant", price: "Rs. 190" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
+          {
+            id: 58,
+            name: "අමු මිරිස් (MI 2)",
+            description:
+              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance." ,
+            image: "/images/greenchili.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "1 Plant", price: "Rs. 60" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
+          {
+            id: 59,
+            name: "නයි මිරිස් (MIHP 1)",
+            description:
+              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets." ,
+            image: "/images/Michhy1.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "1 Plant", price: "Rs. 70" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
+          {
+            id: 60,
+            name: "මිරිස් (MiCH HY)",
+            description:
+              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits." ,
+            image: "/images/michhy.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "1 Plant", price: "Rs. 90" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
+          {
+            id: 61,
+            name: "මාළු මිරිස් (Capsicum)",
+            description:
+              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels." ,
+            image: "/images/malumiris.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "1 Plant", price: "Rs. 290" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
+          {
+            id: 62,
+            name: "Cherry Tomatoes",
+            description:
+              "Premium Cherry Tomato Plants for Your Garden - Grow delicious and juicy cherry tomatoes right at home! Our cherry tomato plants are healthy, vigorous, and ready for transplanting — perfect for home gardens, balconies, pots, or raised beds. These plants produce abundant clusters of small, sweet tomatoes that are loved for fresh salads, snacks, and gourmet cooking." ,
+            image: "/images/cherrytom.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "250g", price: "Rs. 490" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          {
+            id: 63,
+            name: "Green Bell Pepper",
+            description:
+              "Crisp, mildly bitter, and grassy-flavored unripe fruits of the Capsicum annuum plant, packed with Vitamin C and fiber. They are highly versatile, often used in salads, sautéed, or stuffed in dishes like Creole holy trinity. Low in calories and,, they provide antioxidants while maturing into sweeter, redder, or yellow varieties over time. " ,
+            image: "/images/greenbp.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "100g", price: "Rs. 350" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          {
+            id: 64,
+            name: "Red Bell Pepper",
+            description:
+              "Sweet, crisp, nutrient-dense fruits (botanically) or vegetables (culinary) that are fully ripened green peppers. They are nutritional powerhouses, particularly high in vitamins C, A, and E, which support immune function, skin, and eye health. Packed with antioxidants like lycopene, they are low-calorie, versatile, and excellent raw, roasted, or in salads. " ,
+            image: "/images/redbp.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "100g", price: "Rs. 590" },
+            ],
+            noStock: false,
+            category: "Herbs & Salad Greens",
+          },
+          // {
+          //   id: 64,
+          //   name: "Yellow Bell Pepper",
+          //   description:
+          //     "" ,
+          //   image: "/images/",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "100g", price: "Rs. 500" },
+          //   ],
+          //   noStock: true,
+          //   category: "Herbs & Salad Greens",
+          // },
+          // {
+          //   id: 64,
+          //   name: "Green Chili",
+          //   description:
+          //     "" ,
+          //   image: "/images/",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "1 Plant", price: "Rs. 120" },
+          //   ],
+          //   noStock: true,
+          //   category: "Herbs & Salad Greens",
+          // },
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
@@ -1283,7 +1478,7 @@ const BuyGreens = () => {
                 className={selectedCategory === "Herbs & Salad Greens" ? "active" : ""}
                 onClick={() => setSelectedCategory("Herbs & Salad Greens")}
               >
-                🍃 Herbs & Salad Greens
+                🍃 Herbs, Fruits & Greens
               </button>
               <button
                 className={selectedCategory === "Edible Flowers" ? "active" : ""}
@@ -1296,6 +1491,12 @@ const BuyGreens = () => {
                 onClick={() => setSelectedCategory("Teas")}
               >
                 ☕ Teas
+              </button>
+              <button
+                className={selectedCategory === "" ? "active" : ""}
+                onClick={() => setSelectedCategory("Nursery")}
+              >
+                🪴 Nursery Plants
               </button>
             </div>
 
