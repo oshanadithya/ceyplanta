@@ -1,49 +1,57 @@
-import { useState, useRef  } from "react";
-import "../styles/buy-greens.css"; // Add styles for this page
-import emailjs from 'emailjs-com';
-import { jsPDF, GState  } from 'jspdf';
+import { useState, useRef } from "react";
+import "../styles/buy-greens.css";
+import emailjs from "emailjs-com";
+import { jsPDF, GState } from "jspdf";
 import logo from "../assets/logo_3.png";
 import autoTable from "jspdf-autotable";
 import "../styles//Packages.css";
 
+type CartItem = {
+  name: string;
+  selectedWeight: string;
+  selectedPrice: string; // e.g. "Rs. 68"
+  quantity: number; // ✅ added
+};
+
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  nutritionalFacts: string[];
+  benefits: string[];
+  price: string;
+  weightOptions: { weight: string; price: string }[];
+  selectedPrice?: string;
+  noStock: boolean;
+  category: string;
+};
+
 const BuyGreens = () => {
-    // Initialize EmailJS with your user ID
-    emailjs.init('_BVjspFpxrJqFVQpM');
-    
-    const [cart, setCart] = useState<{ name: string; selectedWeight: string; selectedPrice: string }[]>([]);
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [message, setMessage] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    // 💰 Discount coupon states
-    const [couponCode, setCouponCode] = useState("");
-    const [discount, setDiscount] = useState(0);
-    const [couponMessage, setCouponMessage] = useState("");
-      const [showModal, setShowModal] = useState(false);
+  // Initialize EmailJS with your user ID
+  emailjs.init("_BVjspFpxrJqFVQpM");
 
-    // ✅ Valid coupons
-    const validCoupons: Record<string, number> = {
-      "CEY5": 5,    // 5% off
-      "CEY10": 10,  // 10% off
-      "CEYH15": 15,  // 15% off for hotels
-    };
+  // ✅ cart now includes quantity
+  const [cart, setCart] = useState<CartItem[]>([]);
 
-    type Product = {
-        id: number;
-        name: string;
-        description: string;
-        image: string;
-        nutritionalFacts: string[];
-        benefits: string[];
-        price: string;
-        weightOptions: { weight: string; price: string }[];
-        selectedPrice?: string;  // selectedPrice optional
-        noStock: boolean;
-        category: string;
-    };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
+  // 💰 Discount coupon states
+  const [couponCode, setCouponCode] = useState("");
+  const [discount, setDiscount] = useState(0);
+  const [couponMessage, setCouponMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
+  // ✅ Valid coupons
+  const validCoupons: Record<string, number> = {
+    CEY5: 5,
+    CEY10: 10,
+    CEYH15: 15,
+  };
 
     const [products] = useState<Product[]>([
         {
@@ -881,7 +889,7 @@ const BuyGreens = () => {
             price: "",
             weightOptions: [
               // { weight: "1 Plant", price: "Rs. 190" },
-              { weight: "1 Plant", price: "Rs. 58" },
+              { weight: "Per Plant", price: "Rs. 58" },
             ],
             noStock: false,
             category: "Nursery",
@@ -900,7 +908,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "1 Plant", price: "Rs. 22" },
+              { weight: "Per Plant", price: "Rs. 22" },
               // { weight: "Request", price: "" },
             ],
             noStock: false,
@@ -920,7 +928,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "1 Plant", price: "Rs. 25" },
+              { weight: "Per Plant", price: "Rs. 25" },
               // { weight: "Request", price: "" },
             ],
             noStock: false,
@@ -940,7 +948,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "1 Plant", price: "Rs. 68" },
+              { weight: "Per Plant", price: "Rs. 68" },
               // { weight: "Request", price: "" },
             ],
             noStock: false,
@@ -960,7 +968,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "1 Plant", price: "Rs. 25" },
+              { weight: "Per Plant", price: "Rs. 25" },
               // { weight: "Request", price: "" },
             ],
             noStock: false,
@@ -982,28 +990,28 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "250g", price: "Rs. 490" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Herbs & Salad Greens",
           },
-          {
-            id: 63,
-            name: "Green Bell Pepper",
-            description:
-              "Crisp, mildly bitter, and grassy-flavored unripe fruits of the Capsicum annuum plant, packed with Vitamin C and fiber. They are highly versatile, often used in salads, sautéed, or stuffed in dishes like Creole holy trinity. Low in calories and,, they provide antioxidants while maturing into sweeter, redder, or yellow varieties over time. " ,
-            image: "/images/greenbp.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "100g", price: "Rs. 350" },
-            ],
-            noStock: false,
-            category: "Herbs & Salad Greens",
-          },
+          // {
+          //   id: 63,
+          //   name: "Green Bell Pepper",
+          //   description:
+          //     "Crisp, mildly bitter, and grassy-flavored unripe fruits of the Capsicum annuum plant, packed with Vitamin C and fiber. They are highly versatile, often used in salads, sautéed, or stuffed in dishes like Creole holy trinity. Low in calories and,, they provide antioxidants while maturing into sweeter, redder, or yellow varieties over time. " ,
+          //   image: "/images/greenbp.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "100g", price: "Rs. 350" },
+          //   ],
+          //   noStock: true,
+          //   category: "Herbs & Salad Greens",
+          // },
           {
             id: 64,
             name: "Red Bell Pepper",
@@ -1064,614 +1072,645 @@ const BuyGreens = () => {
     ]);
 
     const cartRef = useRef<HTMLDivElement | null>(null);
-    
-    const prodRef = useRef<HTMLDivElement | null>(null);
+  const prodRef = useRef<HTMLDivElement | null>(null);
 
-    const handleScrollToCart = () => {
-      cartRef.current?.scrollIntoView({ behavior: 'smooth' });
+  const handleScrollToCart = () => {
+    cartRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScrollToProduct = () => {
+    prodRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // ✅ Nursery quantity per product id
+  const [nurseryQty, setNurseryQty] = useState<Record<number, number>>({});
+
+  const getNurseryQty = (id: number) => nurseryQty[id] ?? 1;
+
+  const setQtySafe = (id: number, val: number) => {
+    const safe = Math.max(1, Math.min(999, Number.isFinite(val) ? val : 1));
+    setNurseryQty((prev) => ({ ...prev, [id]: safe }));
+  };
+
+  const addToCart = (
+    product: Product,
+    option?: { weight: string; price: string },
+    quantity: number = 1
+  ) => {
+    const newItem: CartItem = {
+      name: product.name,
+      selectedWeight: option?.weight ?? "Custom Mix",
+      selectedPrice: option?.price ?? "Requested",
+      quantity,
     };
 
-    const handleScrollToProduct = () => {
-      prodRef.current?.scrollIntoView({ behavior: 'smooth' })
+    setCart((prev) => [...prev, newItem]);
+  };
+
+  const removeFromCart = (index: number) => {
+    setCart((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => {
+      // Remove "Rs.", spaces, and commas before converting
+      const cleanPrice = item.selectedPrice
+        .replace("Rs.", "")
+        .replace(/,/g, "")
+        .replace(/\s/g, "")
+        .trim();
+
+      const numericPrice = parseFloat(cleanPrice) || 0;
+      return total + numericPrice * (item.quantity ?? 1);
+    }, 0);
+  };
+
+  const applyCoupon = () => {
+    const code = couponCode.trim().toUpperCase();
+
+    if (validCoupons[code]) {
+      setDiscount(validCoupons[code]);
+      setCouponMessage(`🎉 Coupon applied! You got ${validCoupons[code]}% off.`);
+    } else {
+      setDiscount(0);
+      setCouponMessage("❌ Invalid coupon code. Please try again.");
+    }
+  };
+
+  const validatePhoneNumber = (number: string) => {
+    // Sri Lankan mobile number starting with 07 followed by 8 digits (total 10)
+    const regex = /^(0)(7[01245678])[0-9]{7}$/;
+    return regex.test(number);
+  };
+
+  // ---------------- PDF (same as yours, but includes Qty column) ----------------
+  const generateAndDownloadPDF = (orderNo: string) => {
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+
+    const marginLeft = 14;
+    const marginRight = 14;
+    const marginBottom = 12;
+
+    const watermarkWidth = 120;
+    const watermarkHeight = 120;
+
+    const drawWatermark = () => {
+      const x = (pageWidth - watermarkWidth) / 2;
+      const y0 = (pageHeight - watermarkHeight) / 2;
+
+      doc.setGState(new GState({ opacity: 0.15 }));
+      doc.addImage(logo, "PNG", x, y0, watermarkWidth, watermarkHeight);
+      doc.setGState(new GState({ opacity: 1 }));
     };
 
-    const addToCart = (product: { id?: number; name: any; description?: string; image?: string; nutritionalFacts?: string[]; benefits?: string[]; price?: string; weightOptions?: { weight: string; price: string; }[]; selectedPrice?: string | undefined; noStock?: boolean; }, option?: { weight: string; price: string }) => {
-      const newItem = {
-        name: product.name,
-        selectedWeight: option?.weight ?? "Custom Mix",
-        selectedPrice: option?.price ?? "Requested",
-      };
-    
-      setCart([...cart, newItem]);
-    };    
+    const drawHeader = (continued = false) => {
+      drawWatermark();
 
-    const removeFromCart = (index: number) => {
-      setCart(cart.filter((_, i) => i !== index));
+      doc.addImage(logo, "PNG", marginLeft, 10, 28, 28);
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(16);
+      doc.text("Ceyplanta", 50, 18);
+
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text("No 235, Galle Rd, Thalpitiya South, Wadduwa", 50, 24);
+      doc.text(
+        "+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com | BR Code: PV 00349478",
+        50,
+        30
+      );
+
+      doc.line(marginLeft, 42, pageWidth - marginRight, 42);
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(14);
+      doc.text(continued ? "Invoice" : "Invoice", marginLeft, 50);
     };
 
-    const getTotalPrice = () => {
-      return cart.reduce((total, item) => {
-        // Remove "Rs.", spaces, and commas before converting
-        const cleanPrice = item.selectedPrice
-          .replace("Rs.", "")
-          .replace(",", "")
-          .replace(/\s/g, "")
-          .trim();
-        const numericPrice = parseFloat(cleanPrice) || 0;
-        return total + numericPrice;
-      }, 0);
+    const drawFooter = () => {
+      doc.setFont("helvetica", "italic");
+      doc.setFontSize(9);
+      doc.text("This is a system-generated invoice.", marginLeft, pageHeight - 8);
     };
 
-    const applyCoupon = () => {
-      const code = couponCode.trim().toUpperCase();
-    
-      if (validCoupons[code]) {
-        setDiscount(validCoupons[code]);
-        setCouponMessage(`🎉 Coupon applied! You got ${validCoupons[code]}% off.`);
-      } else {
-        setDiscount(0);
-        setCouponMessage("❌ Invalid coupon code. Please try again.");
-      }
-    };
+    let y = 60;
+    const lineH = 5;
 
-    
-    const generateAndDownloadPDF = (orderNo: string) => {
-      const doc = new jsPDF({ unit: "mm", format: "a4" });
-
-      const pageWidth = doc.internal.pageSize.getWidth();
-      const pageHeight = doc.internal.pageSize.getHeight();
-
-      const marginLeft = 14;
-      const marginRight = 14;
-      // const marginTop = 10;
-      const marginBottom = 12;
-
-      const watermarkWidth = 120;
-      const watermarkHeight = 120;
-
-      const drawWatermark = () => {
-        const x = (pageWidth - watermarkWidth) / 2;
-        const y = (pageHeight - watermarkHeight) / 2;
-
-        doc.setGState(new GState({ opacity: 0.15 }));
-        doc.addImage(logo, "PNG", x, y, watermarkWidth, watermarkHeight);
-        doc.setGState(new GState({ opacity: 1 }));
-      };
-
-      const forceNewPage = () => {
+    const ensureSpace = (need: number) => {
+      if (y + need > pageHeight - marginBottom - 10) {
         doc.addPage();
         drawHeader(true);
         drawFooter();
         y = 60;
-      };                          
+      }
+    };
 
-      const drawHeader = (continued = false) => {
-        drawWatermark();
+    const writeWrapped = (
+      text: string,
+      fontSize = 10,
+      fontStyle: "normal" | "bold" | "italic" = "normal"
+    ) => {
+      doc.setFont("helvetica", fontStyle);
+      doc.setFontSize(fontSize);
+      const lines = doc.splitTextToSize(text, pageWidth - marginLeft - marginRight);
+      lines.forEach((ln: string) => {
+        ensureSpace(lineH);
+        doc.text(ln, marginLeft, y);
+        y += lineH;
+      });
+    };
 
-        doc.addImage(logo, "PNG", marginLeft, 10, 28, 28);
-
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(16);
-        doc.text("Ceyplanta", 50, 18);
-
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "normal");
-        doc.text("No 235, Galle Rd, Thalpitiya South, Wadduwa", 50, 24);
-        doc.text(
-          "+94 70 234 2433 | ceyplanta@gmail.com | www.ceyplanta.com | BR Code: PV 00349478",
-          50,
-          30
-        );
-
-        doc.line(marginLeft, 42, pageWidth - marginRight, 42);
-
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(14);
-        doc.text(continued ? "Invoice" : "Invoice", marginLeft, 50);
-      };
-
-      const drawFooter = () => {
-        doc.setFont("helvetica", "italic");
-        doc.setFontSize(9);
-        doc.text("This is a system-generated invoice.", marginLeft, pageHeight - 8);
-      };
-
-      drawHeader(false);
+    const forceNewPage = () => {
+      doc.addPage();
+      drawHeader(true);
       drawFooter();
-
-      let y = 60;
-      const lineH = 5;
-
-      const ensureSpace = (need: number) => {
-        if (y + need > pageHeight - marginBottom - 10) {
-          doc.addPage();
-          drawHeader(true);
-          drawFooter();
-          y = 60;
-        }
-      };
-
-      const writeWrapped = (text: string, fontSize = 10, fontStyle: "normal" | "bold" | "italic" = "normal") => {
-        doc.setFont("helvetica", fontStyle);
-        doc.setFontSize(fontSize);
-        const lines = doc.splitTextToSize(text, pageWidth - marginLeft - marginRight);
-        lines.forEach((ln: string) => {
-          ensureSpace(lineH);
-          doc.text(ln, marginLeft, y);
-          y += lineH;
-        });
-      };
-
-      // Date / Order
-      const today = new Date().toLocaleDateString();
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(11);
-      doc.text(`Date: ${today}`, marginLeft, y);
-      doc.text(`Order No: ${orderNo}`, 100, y);
-      y += 10;
-
-      // Customer info (wrap message)
-      doc.setFontSize(11);
-      doc.text(`Name: ${name}`, marginLeft, y); y += 6;
-      doc.text(`Email: ${email}`, marginLeft, y); y += 6;
-      doc.text(`Phone: ${phone}`, marginLeft, y); y += 6;
-
-      // writeWrapped(`Message: ${message || "N/A"}`, 11, "normal");
-      y += 10;
-
-      // Items label
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(11);
-      ensureSpace(11);
-      doc.text("Order Items:", marginLeft, y);
-      y += 16;
-
-      // Items table (auto page breaks)
-      autoTable(doc, {
-        startY: y,
-        margin: { left: marginLeft, right: marginRight },
-        head: [["#", "Item", "Weight", "Price"]],
-        body: cart.map((it, i) => [String(i + 1), it.name, it.selectedWeight, it.selectedPrice]),
-        styles: {
-          font: "helvetica",
-          fontSize: 10,
-          cellPadding: 2,
-          overflow: "linebreak",
-        },
-        headStyles: { fontStyle: "bold" },
-        columnStyles: {
-          0: { cellWidth: 10 },
-          1: { cellWidth: 92 },
-          2: { cellWidth: 28 },
-          3: { cellWidth: 30 },
-        },
-        didDrawPage: () => {
-          drawHeader(true);
-          drawFooter();
-        },
-      });
-
-      // After table
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      y = (doc as any).lastAutoTable.finalY + 8;
-
-      // Delivery
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(11);
-      ensureSpace(20);
-      doc.text("Delivery Details:", marginLeft, y);
-      y += 6;
-
-      writeWrapped(
-        `Address & Additional Details – ${message || "N/A"}`,
-        10,
-        "normal"
-      );
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(10);
-      doc.text("Delivery charges may change accordingly to the distance", marginLeft, y);
-      y += 6;
-
-      forceNewPage();
-      // Totals
-      const gross = getTotalPrice();
-      const netTotal = gross - (gross * discount) / 100;
-
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(11);
-      ensureSpace(16);
-      doc.text("Total Rates:", marginLeft, y);
-      y += 6;
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(10);
-      ensureSpace(6); doc.text(`Gross Total – Rs. ${gross.toFixed(2)}`, marginLeft, y); y += 5;
-      ensureSpace(6); doc.text(`Discount – ${discount}%`, marginLeft, y); y += 5;
-      ensureSpace(6); doc.text(`Net Total – Rs. ${netTotal.toFixed(2)} + Delivery Charges`, marginLeft, y); y += 8;
-
-      // Bank
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(11);
-      ensureSpace(20);
-      doc.text("Bank Details", marginLeft, y);
-      y += 6;
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(10);
-      ensureSpace(6); doc.text("Account Name - Ceyplanta Pvt Ltd", marginLeft, y); y += 5;
-      ensureSpace(6); doc.text("Account Number - 002010576887", marginLeft, y); y += 5;
-      ensureSpace(6); doc.text("Bank - Hatton National Bank", marginLeft, y); y += 8;
-
-      ensureSpace(8);
-      // Thank you (wrapped)
-      writeWrapped(
-        "Thank you for your order! We look forward to supplying you with premium organic microgreens & edible flowers grown with care at Ceyplanta.",
-        10,
-        "italic"
-      );
-      y += 4;
-
-      // Terms
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(9);
-      ensureSpace(40);
-      doc.text("Terms & Conditions", marginLeft, y);
-      y += 6;
-
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(8);
-
-      const terms = [
-        "This quotation is valid for 15 days from the date of issue. Prices and availability are subject to change after this period.",
-        "Bulk Orders: Minimum 400g per microgreen variety or 100 pcs flower.",
-        "No cancellation or refund after order placement.",
-        "Payment Terms: Full payment is required within 2 days of order placement. Order preparation will begin only after payment confirmation.",
-        "Orders must be collected on the confirmed delivery date. Freshness not guaranteed after 2 days of delivery date.",
-      ];
-
-      terms.forEach((t) => {
-        writeWrapped(`• ${t}`, 9, "normal");
-      });
-
-      doc.save(`invoice ${orderNo}.pdf`);
+      y = 60;
     };
 
-    const handleCheckout = (e: React.FormEvent) => {
-      e.preventDefault();
-    
-      if (!name || !email || !phone) {
-        alert('Please fill out all the required fields!');
-        return;
-      }
-    
-      if (!validatePhoneNumber(phone.trim())) {
-        alert('Please enter a valid Sri Lankan mobile number (e.g., 0771234567)');
-        return;
-      }
-    
-      if (cart.length === 0) {
-        alert('Your cart is empty. Please add some products before checkout.');
-        return;
-      }
-    
-      // ✅ Generate ONE order number to use everywhere
-      const orderNumber = `CEYD-${Math.floor(Math.random() * 90000) + 10000}`;
-    
-      const cartItems = cart.map(
-        (item) => `${item.name} - ${item.selectedWeight} - Rs. ${item.selectedPrice}`
-      ).join('\n');
-    
-      const grossTotal = getTotalPrice();
-      const discountAmount = (grossTotal * discount) / 100;
-      const netTotal = grossTotal - discountAmount;
-    
-      const checkoutMessage = `
-        🧾 Order Confirmation - ${orderNumber}
-    
-        Name: ${name}
-        Email: ${email}
-        Phone: ${phone}
-        Message: ${message || "N/A"}
-        
-        ----------------------------
-        🛒 Cart Items
-        ----------------------------
-        ${cartItems}
-    
-        ----------------------------
-        💰 Order Summary
-        ----------------------------
-        Gross Total: Rs. ${grossTotal.toLocaleString()}
-        Discount: ${discount}% (- Rs. ${discountAmount.toLocaleString()})
-        Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
-    
-        ----------------------------
-        📅 Date: ${new Date().toLocaleString()}
-      `;
-    
-      // ✅ Pass the SAME order number to PDF & Email
-      generateAndDownloadPDF(orderNumber);
-      sendEmailToAdmin(checkoutMessage);
-    };
+    drawHeader(false);
+    drawFooter();
 
-    const sendEmailToAdmin = (messageContent: any) => {
-        // EmailJS service and template IDs
-        const serviceID = 'service_18vf6wc'; // Replace with your service ID
-        const templateID = 'template_xcb8ynu'; // Replace with your template ID
-        console.log('Sending email with:', { name, email, phone, messageContent });  
-        // Send email using EmailJS
-        emailjs.send(serviceID, templateID, {
-          name,
-          email,
-          phone,
-          time: new Date().toLocaleString(), // adds the local time automatically
-          cartItems: messageContent, // your formatted cart items
-          message: message || "No additional message provided.",
-        })
-        .then(() => {
-          
-          
-          alert('Your order has been placed successful. You will be contact soon by our team, Thank You!');
-            // Reset form and cart
-            setName('');
-            setEmail('');
-            setPhone('');
-            setMessage('');
-            setCart([]);
-        })
-        .catch((error: any) => {
-            console.error('Error placing order!:', error);
-            alert('There was an error placing your order. Please try again later!');
-        });
-    };
+    // Date / Order
+    const today = new Date().toLocaleDateString();
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text(`Date: ${today}`, marginLeft, y);
+    doc.text(`Order No: ${orderNo}`, 100, y);
+    y += 10;
 
-    const clearCart = () => {
-      setCart([]); // Assuming `setCart` is your state updater for the cart
-    };
+    // Customer info
+    doc.setFontSize(11);
+    doc.text(`Name: ${name}`, marginLeft, y);
+    y += 6;
+    doc.text(`Email: ${email}`, marginLeft, y);
+    y += 6;
+    doc.text(`Phone: ${phone}`, marginLeft, y);
+    y += 10;
 
-    const validatePhoneNumber = (number: any) => {
-      // Sri Lankan mobile number starting with 07 followed by 8 digits
-      const regex = /^(0)(7[01245678])[0-9]{7}$/;
-      return regex.test(number);
-    };
+    // Items label
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    ensureSpace(11);
+    doc.text("Order Items:", marginLeft, y);
+    y += 8;
 
-    const [searchTerm, setSearchTerm] = useState('');
-
-    // ✅ Filter products by category
-    const filteredProducts = products.filter((product) => {
-      const matchCategory = selectedCategory === "All" || product.category === selectedCategory;
-      const matchSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchCategory && matchSearch;
+    // ✅ Items table includes Qty
+    autoTable(doc, {
+      startY: y,
+      margin: { left: marginLeft, right: marginRight },
+      head: [["#", "Item", "Weight", "Qty", "Price (Unit)"]],
+      body: cart.map((it, i) => [
+        String(i + 1),
+        it.name,
+        it.selectedWeight,
+        String(it.quantity ?? 1),
+        it.selectedPrice,
+      ]),
+      styles: {
+        font: "helvetica",
+        fontSize: 10,
+        cellPadding: 2,
+        overflow: "linebreak",
+      },
+      headStyles: { fontStyle: "bold" },
+      columnStyles: {
+        0: { cellWidth: 10 },
+        1: { cellWidth: 78 },
+        2: { cellWidth: 26 },
+        3: { cellWidth: 14 },
+        4: { cellWidth: 30 },
+      },
+      didDrawPage: () => {
+        drawHeader(true);
+        drawFooter();
+      },
     });
-    
-    return (
-        <div className="buy-greens-page">
-          {/* Cart Icon */}
-          <button className="cart-icon-btn" onClick={handleScrollToCart}>
-            🛒
-            {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
-          </button>
-            <h1>Buy Greens</h1>
-            <br></br>
 
-            {/* ✅ Category Buttons */}
-            <div className="category-buttons">
-              <button
-                className={selectedCategory === "All" ? "active" : ""}
-                onClick={() => setSelectedCategory("All")}
-              >
-                🌿 All
-              </button>
-              <button
-                className={selectedCategory === "Microgreens" ? "active" : ""}
-                onClick={() => setSelectedCategory("Microgreens")}
-              >
-                🌱 Microgreens
-              </button>
-              <button
-                className={selectedCategory === "Salads" ? "active" : ""}
-                onClick={() => setSelectedCategory("Salads")}
-              >
-                🥗 Salads
-              </button>
-              <button
-                className={selectedCategory === "Herbs & Salad Greens" ? "active" : ""}
-                onClick={() => setSelectedCategory("Herbs & Salad Greens")}
-              >
-                🍃 Herbs, Fruits & Greens
-              </button>
-              <button
-                className={selectedCategory === "Edible Flowers" ? "active" : ""}
-                onClick={() => setSelectedCategory("Edible Flowers")}
-              >
-                🌸 Edible Flowers
-              </button>
-              <button
-                className={selectedCategory === "" ? "active" : ""}
-                onClick={() => setSelectedCategory("Teas")}
-              >
-                ☕ Teas
-              </button>
-              <button
-                className={selectedCategory === "" ? "active" : ""}
-                onClick={() => setSelectedCategory("Nursery")}
-              >
-                🪴 Nursery Plants
-              </button>
-            </div>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    y = (doc as any).lastAutoTable.finalY + 8;
 
-            <br />
+    // Delivery
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    ensureSpace(20);
+    doc.text("Delivery Details:", marginLeft, y);
+    y += 6;
 
-            <div className="search-container">
-              {/* <span className="search-icon">🔍</span> */}
-              <input
-                type="text"
-                placeholder="Search for your greens..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-bar"
-              />
-            </div>
-            <br></br>
-            {/* ✅ Filtered Products */}
-            <div ref={prodRef} className="product-grid">
-              {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.name} className="product-image" />
-                    <h2>{product.name}</h2>
-                    <p>{product.description}</p>
-                    <p><strong>Add to Cart</strong></p>
+    writeWrapped(`Address & Additional Details – ${message || "N/A"}`, 10, "normal");
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text("Delivery charges may change accordingly to the distance", marginLeft, y);
+    y += 6;
 
-                    {product.noStock ? (
-                      <button className="no-stock-btn" disabled>Coming Soon</button>
-                    ) : (
-                      <div className="button-group">
-                        {product.weightOptions.map((option) => (
-                          <button
-                            key={option.weight}
-                            onClick={() => addToCart(product, option)}
-                          >
-                            {option.weight} - {option.price} 🛒
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))
+    forceNewPage();
+
+    // Totals
+    const gross = getTotalPrice();
+    const netTotal = gross - (gross * discount) / 100;
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    ensureSpace(16);
+    doc.text("Total Rates:", marginLeft, y);
+    y += 6;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    ensureSpace(6);
+    doc.text(`Gross Total – Rs. ${gross.toFixed(2)}`, marginLeft, y);
+    y += 5;
+    ensureSpace(6);
+    doc.text(`Discount – ${discount}%`, marginLeft, y);
+    y += 5;
+    ensureSpace(6);
+    doc.text(`Net Total – Rs. ${netTotal.toFixed(2)} + Delivery Charges`, marginLeft, y);
+    y += 8;
+
+    // Bank
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    ensureSpace(20);
+    doc.text("Bank Details", marginLeft, y);
+    y += 6;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    ensureSpace(6);
+    doc.text("Account Name - Ceyplanta Pvt Ltd", marginLeft, y);
+    y += 5;
+    ensureSpace(6);
+    doc.text("Account Number - 002010576887", marginLeft, y);
+    y += 5;
+    ensureSpace(6);
+    doc.text("Bank - Hatton National Bank", marginLeft, y);
+    y += 8;
+
+    ensureSpace(8);
+    writeWrapped(
+      "Thank you for your order! We look forward to supplying you with premium organic microgreens & edible flowers grown with care at Ceyplanta.",
+      10,
+      "italic"
+    );
+
+    doc.save(`invoice ${orderNo}.pdf`);
+  };
+
+  // ---------------- Checkout / Email ----------------
+  const sendEmailToAdmin = (messageContent: string) => {
+    const serviceID = "service_18vf6wc";
+    const templateID = "template_xcb8ynu";
+
+    emailjs
+      .send(serviceID, templateID, {
+        name,
+        email,
+        phone,
+        time: new Date().toLocaleString(),
+        cartItems: messageContent,
+        message: message || "No additional message provided.",
+      })
+      .then(() => {
+        alert(
+          "Your order has been placed successful. You will be contact soon by our team, Thank You!"
+        );
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setCart([]);
+        setNurseryQty({});
+      })
+      .catch((error: any) => {
+        console.error("Error placing order!:", error);
+        alert("There was an error placing your order. Please try again later!");
+      });
+  };
+
+  const handleCheckout = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!name || !email || !phone) {
+      alert("Please fill out all the required fields!");
+      return;
+    }
+
+    if (!validatePhoneNumber(phone.trim())) {
+      alert("Please enter a valid Sri Lankan mobile number (e.g., 0771234567)");
+      return;
+    }
+
+    if (cart.length === 0) {
+      alert("Your cart is empty. Please add some products before checkout.");
+      return;
+    }
+
+    const orderNumber = `CEYD-${Math.floor(Math.random() * 90000) + 10000}`;
+
+    // ✅ include quantity, and do NOT double-add "Rs."
+    const cartItems = cart
+      .map(
+        (item) =>
+          `${item.name} - ${item.selectedWeight} - Qty: ${item.quantity ?? 1} - ${item.selectedPrice}`
+      )
+      .join("\n");
+
+    const grossTotal = getTotalPrice();
+    const discountAmount = (grossTotal * discount) / 100;
+    const netTotal = grossTotal - discountAmount;
+
+    const checkoutMessage = `
+🧾 Order Confirmation - ${orderNumber}
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message || "N/A"}
+
+----------------------------
+🛒 Cart Items
+----------------------------
+${cartItems}
+
+----------------------------
+💰 Order Summary
+----------------------------
+Gross Total: Rs. ${grossTotal.toLocaleString()}
+Discount: ${discount}% (- Rs. ${discountAmount.toLocaleString()})
+Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
+
+----------------------------
+📅 Date: ${new Date().toLocaleString()}
+`;
+
+    generateAndDownloadPDF(orderNumber);
+    sendEmailToAdmin(checkoutMessage);
+  };
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredProducts = products.filter((product) => {
+    const matchCategory = selectedCategory === "All" || product.category === selectedCategory;
+    const matchSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchCategory && matchSearch;
+  });
+
+  // ---------------- UI ----------------
+  return (
+    <div className="buy-greens-page">
+      {/* Cart Icon */}
+      <button className="cart-icon-btn" onClick={handleScrollToCart}>
+        🛒
+        {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
+      </button>
+
+      <h1>Buy Greens</h1>
+      <br />
+
+      {/* ✅ Category Buttons */}
+      <div className="category-buttons">
+        <button className={selectedCategory === "All" ? "active" : ""} onClick={() => setSelectedCategory("All")}>
+          🌿 All
+        </button>
+        <button
+          className={selectedCategory === "Microgreens" ? "active" : ""}
+          onClick={() => setSelectedCategory("Microgreens")}
+        >
+          🌱 Microgreens
+        </button>
+        <button className={selectedCategory === "Salads" ? "active" : ""} onClick={() => setSelectedCategory("Salads")}>
+          🥗 Salads
+        </button>
+        <button
+          className={selectedCategory === "Herbs & Salad Greens" ? "active" : ""}
+          onClick={() => setSelectedCategory("Herbs & Salad Greens")}
+        >
+          🍃 Herbs, Fruits & Greens
+        </button>
+        <button
+          className={selectedCategory === "Edible Flowers" ? "active" : ""}
+          onClick={() => setSelectedCategory("Edible Flowers")}
+        >
+          🌸 Edible Flowers
+        </button>
+        <button className={selectedCategory === "Teas" ? "active" : ""} onClick={() => setSelectedCategory("Teas")}>
+          ☕ Teas
+        </button>
+        <button className={selectedCategory === "Nursery" ? "active" : ""} onClick={() => setSelectedCategory("Nursery")}>
+          🪴 Nursery Plants
+        </button>
+      </div>
+
+      <br />
+
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search for your greens..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-bar"
+        />
+      </div>
+
+      <br />
+
+      {/* ✅ Filtered Products */}
+      <div ref={prodRef} className="product-grid">
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <div key={product.id} className="product-card">
+              <img src={product.image} alt={product.name} className="product-image" />
+              <h2>{product.name}</h2>
+              <p>{product.description}</p>
+              <p>
+                <strong>Add to Cart</strong>
+              </p>
+
+              {product.noStock ? (
+                <button className="no-stock-btn" disabled>
+                  Coming Soon
+                </button>
               ) : (
-                <p>No products found for this category.</p>
-              )}
-            </div>
+                <div className="button-group">
+                  {/* ✅ Quantity selector ONLY for Nursery */}
+                  {product.category === "Nursery" && (
+                    <div className="qty-row">
+                      <button
+                        type="button"
+                        onClick={() => setQtySafe(product.id, getNurseryQty(product.id) - 1)}
+                      >
+                        −
+                      </button>
 
-            <br></br>
-            <br></br>
-            {/* Subscription Packages */}
-            <div className="subscription-packages" >
-              <h2>Subscription</h2>
-              <div
-                className="package2 clickable"
-                onClick={() => setShowModal(true)}
-              >
-                <h3>Monthly Package</h3>
-                <p>
-                  Enjoy our services for one month. Delivered weekly for a month.
-                  Pay Monthly. Get your customized quotation! Mention the Package in Additional Details when checking out!
-                </p>
-                <p><strong>Click to see packages</strong></p>
-              </div>
+                      <input
+                        type="number"
+                        min={1}
+                        value={getNurseryQty(product.id)}
+                        onChange={(e) => setQtySafe(product.id, parseInt(e.target.value, 10))}
+                      />
 
-              {showModal && (
-                <div className="modal-overlay" onClick={() => setShowModal(false)}>
-                  <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                    <img
-                      src="/images/monthly-package.png"
-                      alt="Monthly Package Details"
-                    />
-                    <button onClick={() => setShowModal(false)}>Close</button>
-                  </div>
+                      <button
+                        type="button"
+                        onClick={() => setQtySafe(product.id, getNurseryQty(product.id) + 1)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
+
+                  {product.weightOptions.map((option) => (
+                    <button
+                      key={option.weight}
+                      onClick={() =>
+                        addToCart(
+                          product,
+                          option,
+                          product.category === "Nursery" ? getNurseryQty(product.id) : 1
+                        )
+                      }
+                    >
+                      {option.weight} - {option.price} 🛒
+                    </button>
+                  ))}
                 </div>
               )}
-
-              <div className="package3">
-                <h3>Notice</h3>
-                <p>Kindly note that we require 5–10 days’ lead time to prepare your order. We will inform you prior to completion.</p>
-                <p>All the prices listed in this page are officially the retail prices. For bulk prices please contact us!</p>
-              </div>
             </div>
-    
-            <br />
-            <div ref={cartRef} className="cart">
-            <h2>Your Cart</h2>
-            {cart.length > 0 ? (
-              <div>
-                <ul className="cart-list">
-                  {cart.map((item, index) => (
-                    <li key={index} className="cart-item">
-                      <span className="cart-name">{item.name}</span>
-                      <span className="cart-weight">{item.selectedWeight}</span>
-                      <span className="cart-price">{item.selectedPrice}</span>
-                      <span 
-                        className="cart-remove" 
-                        onClick={() => removeFromCart(index)}
-                      >
-                        🗑️
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <h4>Subtotal: Rs. {getTotalPrice().toLocaleString()}</h4>
-                {discount > 0 && (
-                  <h4>
-                    Discount ({discount}%): - Rs. {((getTotalPrice() * discount) / 100).toLocaleString()}
-                  </h4>
-                )}
-                <h3>
-                  Total: Rs. {(getTotalPrice() - (getTotalPrice() * discount) / 100).toLocaleString()}
-                </h3>
-                <button className="clear-cart-btn" onClick={clearCart}>
-                  Clear Cart
-                </button>
-              </div>
-            ) : (
-              <p>Your cart is empty.</p>
-            )}
+          ))
+        ) : (
+          <p>No products found for this category.</p>
+        )}
+      </div>
 
-            <div className="coupon-section">
-              <input
-                type="text"
-                placeholder="Enter coupon code"
-                value={couponCode}
-                onChange={(e) => setCouponCode(e.target.value)}
-                className="coupon-input"
-              />
-              <button type="button" onClick={applyCoupon} className="apply-coupon-btn">
-                Apply
-              </button>
-              {couponMessage && <p className="coupon-message">{couponMessage}</p>}
+      <br />
+      <br />
+
+      {/* Subscription Packages */}
+      <div className="subscription-packages">
+        <h2>Subscription</h2>
+
+        <div className="package2 clickable" onClick={() => setShowModal(true)}>
+          <h3>Monthly Package</h3>
+          <p>
+            Enjoy our services for one month. Delivered weekly for a month. Pay Monthly. Get your customized quotation!
+            Mention the Package in Additional Details when checking out!
+          </p>
+          <p>
+            <strong>Click to see packages</strong>
+          </p>
+        </div>
+
+        {showModal && (
+          <div className="modal-overlay" onClick={() => setShowModal(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <img src="/images/monthly-package.png" alt="Monthly Package Details" />
+              <button onClick={() => setShowModal(false)}>Close</button>
             </div>
           </div>
+        )}
 
-    
-            <br></br>
-            <form className="checkout-form" onSubmit={handleCheckout} noValidate>
-                <h2>Checkout & Submit</h2>
-                <input
-                    type="text"
-                    value={name}
-                    placeholder="Your Name"
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <input
-                    type="email"
-                    value={email}
-                    placeholder="Your Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                  type="tel"
-                  value={phone}
-                  placeholder="Your Phone Number (e.g., 0771234567)"
-                  onChange={(e) => setPhone(e.target.value)}
-                  required
-                  pattern="^(0)(7[01245678])[0-9]{7}$"
-                  title="Enter a valid phone number"
-                />
-                <textarea
-                    value={message}
-                    placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages / Request Subscription packages)"
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                <button type="submit">Submit</button>
-              </form>
-            <button className="prod-icon-btn" onClick={handleScrollToProduct}>
-            🥬
-            </button>
+        <div className="package3">
+          <h3>Notice</h3>
+          <p>Kindly note that we require 5–10 days’ lead time to prepare your order. We will inform you prior to completion.</p>
+          <p>All the prices listed in this page are officially the retail prices. For bulk prices please contact us!</p>
         </div>
-    );
+      </div>
+
+      <br />
+
+      {/* Cart */}
+      <div ref={cartRef} className="cart">
+        <h2>Your Cart</h2>
+
+        {cart.length > 0 ? (
+          <div>
+            <ul className="cart-list">
+              {cart.map((item, index) => (
+                <li key={index} className="cart-item">
+                  <span className="cart-name">{item.name}</span>
+                  <span className="cart-weight">{item.selectedWeight}</span>
+                  <span className="cart-qty">x {item.quantity}</span>
+                  <span className="cart-price">{item.selectedPrice}</span>
+
+                  <span className="cart-remove" onClick={() => removeFromCart(index)}>
+                    🗑️
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <h4>Subtotal: Rs. {getTotalPrice().toLocaleString()}</h4>
+
+            {discount > 0 && (
+              <h4>
+                Discount ({discount}%): - Rs. {((getTotalPrice() * discount) / 100).toLocaleString()}
+              </h4>
+            )}
+
+            <h3>Total: Rs. {(getTotalPrice() - (getTotalPrice() * discount) / 100).toLocaleString()}</h3>
+
+            <button className="clear-cart-btn" onClick={clearCart}>
+              Clear Cart
+            </button>
+          </div>
+        ) : (
+          <p>Your cart is empty.</p>
+        )}
+
+        <div className="coupon-section">
+          <input
+            type="text"
+            placeholder="Enter coupon code"
+            value={couponCode}
+            onChange={(e) => setCouponCode(e.target.value)}
+            className="coupon-input"
+          />
+          <button type="button" onClick={applyCoupon} className="apply-coupon-btn">
+            Apply
+          </button>
+          {couponMessage && <p className="coupon-message">{couponMessage}</p>}
+        </div>
+      </div>
+
+      <br />
+
+      <form className="checkout-form" onSubmit={handleCheckout} noValidate>
+        <h2>Checkout & Submit</h2>
+
+        <input type="text" value={name} placeholder="Your Name" onChange={(e) => setName(e.target.value)} required />
+        <input type="email" value={email} placeholder="Your Email" onChange={(e) => setEmail(e.target.value)} required />
+
+        <input
+          type="tel"
+          value={phone}
+          placeholder="Your Phone Number (e.g., 0771234567)"
+          onChange={(e) => setPhone(e.target.value)}
+          required
+          pattern="^(0)(7[01245678])[0-9]{7}$"
+          title="Enter a valid phone number"
+        />
+
+        <textarea
+          value={message}
+          placeholder="Additional Details (Delivery Details / Request Customer Support / Request Customized Microgreen packages / Request Subscription packages)"
+          onChange={(e) => setMessage(e.target.value)}
+        />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <button className="prod-icon-btn" onClick={handleScrollToProduct}>
+        🥬
+      </button>
+    </div>
+  );
 };
 
 export default BuyGreens;
