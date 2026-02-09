@@ -861,7 +861,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "100g", price: "420" },
+              { weight: "100g", price: "Rs. 420" },
             ],
             noStock: false,
             category: "Herbs & Salad Greens",
@@ -870,7 +870,7 @@ const BuyGreens = () => {
             id: 57,
             name: "ගම් මිරිස් (Black Pepper)",
             description:
-              "The King of Spices for Your Garden - High-quality black pepper plants with strong root systems and fast climbing growth. Ideal for home gardens and estates, this perennial spice plant gives long-term harvests and excellent market value. Suitable for grow bags or ground planting with support." ,
+              "The King of Spices for Your Garden - High-quality black pepper plants with strong root systems and fast climbing growth. Ideal for home gardens and estates, this perennial spice plant gives long-term harvests and excellent market value. Suitable for grow bags or ground planting with support. Age of plant: 50 - 60 days. " ,
             image: "/images/blackpepper.png",
             nutritionalFacts: [
               "",
@@ -881,7 +881,7 @@ const BuyGreens = () => {
             price: "",
             weightOptions: [
               // { weight: "1 Plant", price: "Rs. 190" },
-              { weight: "Request", price: "" },
+              { weight: "1 Plant", price: "Rs. 58" },
             ],
             noStock: false,
             category: "Nursery",
@@ -890,7 +890,7 @@ const BuyGreens = () => {
             id: 58,
             name: "අමු මිරිස් (MI 2)",
             description:
-              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance." ,
+              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance. ​Age of plant: 25-30 days." ,
             image: "/images/greenchili.png",
             nutritionalFacts: [
               "",
@@ -900,8 +900,8 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              // { weight: "1 Plant", price: "Rs. 60" },
-              { weight: "Request", price: "" },
+              { weight: "1 Plant", price: "Rs. 22" },
+              // { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
@@ -910,7 +910,7 @@ const BuyGreens = () => {
             id: 59,
             name: "නයි මිරිස් (MIHP 1)",
             description:
-              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets." ,
+              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets. ​Age of plant: 45 days." ,
             image: "/images/Michhy1.png",
             nutritionalFacts: [
               "",
@@ -920,8 +920,8 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              // { weight: "1 Plant", price: "Rs. 70" },
-              { weight: "Request", price: "" },
+              { weight: "1 Plant", price: "Rs. 25" },
+              // { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
@@ -930,7 +930,7 @@ const BuyGreens = () => {
             id: 60,
             name: "මිරිස් (MiCH HY)",
             description:
-              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits." ,
+              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days." ,
             image: "/images/michhy.png",
             nutritionalFacts: [
               "",
@@ -940,17 +940,17 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              // { weight: "1 Plant", price: "Rs. 90" },
-              { weight: "Request", price: "" },
+              { weight: "1 Plant", price: "Rs. 68" },
+              // { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
           },
           {
             id: 61,
-            name: "මාළු මිරිස් (Capsicum)",
+            name: "මාළු මිරිස් (Muriya - Capsicum)",
             description:
-              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels." ,
+              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days." ,
             image: "/images/malumiris.png",
             nutritionalFacts: [
               "",
@@ -960,8 +960,8 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              // { weight: "1 Plant", price: "Rs. 290" },
-              { weight: "Request", price: "" },
+              { weight: "1 Plant", price: "Rs. 25" },
+              // { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
