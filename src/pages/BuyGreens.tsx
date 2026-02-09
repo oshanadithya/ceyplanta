@@ -33,7 +33,7 @@ const BuyGreens = () => {
 
   // ✅ cart now includes quantity
   const [cart, setCart] = useState<CartItem[]>([]);
-
+  const MAX_QTY = 20;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -1088,7 +1088,7 @@ const BuyGreens = () => {
   const getNurseryQty = (id: number) => nurseryQty[id] ?? 1;
 
   const setQtySafe = (id: number, val: number) => {
-    const safe = Math.max(1, Math.min(999, Number.isFinite(val) ? val : 1));
+    const safe = Math.max(1, Math.min(MAX_QTY, Number.isFinite(val) ? val : 1));
     setNurseryQty((prev) => ({ ...prev, [id]: safe }));
   };
 
@@ -1553,12 +1553,14 @@ Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
                       <input
                         type="number"
                         min={1}
+                        max={MAX_QTY}
                         value={getNurseryQty(product.id)}
                         onChange={(e) => setQtySafe(product.id, parseInt(e.target.value, 10))}
                       />
 
                       <button
                         type="button"
+                        disabled={getNurseryQty(product.id) >= MAX_QTY}
                         onClick={() => setQtySafe(product.id, getNurseryQty(product.id) + 1)}
                       >
                         +
