@@ -7,6 +7,8 @@ import autoTable from "jspdf-autotable";
 import "../styles//Packages.css";
 
 type CartItem = {
+  productId: number;
+  category: string;
   name: string;
   selectedWeight: string;
   selectedPrice: string; // e.g. "Rs. 68"
@@ -33,7 +35,19 @@ const BuyGreens = () => {
 
   // ✅ cart now includes quantity
   const [cart, setCart] = useState<CartItem[]>([]);
-  const MAX_QTY = 20;
+  const MAX_QTY_DEFAULT = 20;   // for non-nursery (not used in nursery qty selector)
+  const MAX_QTY_NURSERY = 100;  // ✅ allow bulk orders
+
+  const getMinQty = (p: Product) => {
+    if (p.category !== "Nursery") return 1;
+    return p.id === 57 ? 10 : 50; // ✅ Black Pepper id 57 => 10, others nursery => 50
+  };
+
+  const getMaxQty = (p: Product) => {
+    if (p.category !== "Nursery") return MAX_QTY_DEFAULT;
+    return MAX_QTY_NURSERY;
+  };
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -876,9 +890,9 @@ const BuyGreens = () => {
           },
           {
             id: 57,
-            name: "ගම් මිරිස් (Black Pepper)",
+            name: "Black Pepper | ගම් මිරිස්",
             description:
-              "The King of Spices for Your Garden - High-quality black pepper plants with strong root systems and fast climbing growth. Ideal for home gardens and estates, this perennial spice plant gives long-term harvests and excellent market value. Suitable for grow bags or ground planting with support. Age of plant: 50 - 60 days. " ,
+              "The King of Spices for Your Garden - High-quality black pepper plants with strong root systems and fast climbing growth. Ideal for home gardens and estates, this perennial spice plant gives long-term harvests and excellent market value. Suitable for grow bags or ground planting with support. Age of plant: 50 - 60 days. Per Plant Rs 58. Minimum 10 plants required." ,
             image: "/images/blackpepper.png",
             nutritionalFacts: [
               "",
@@ -888,7 +902,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              // { weight: "1 Plant", price: "Rs. 190" },
+              // { weight: "10 Plants", price: "Rs. 580" },
               { weight: "Per Plant", price: "Rs. 58" },
             ],
             noStock: false,
@@ -896,9 +910,9 @@ const BuyGreens = () => {
           },
           {
             id: 58,
-            name: "අමු මිරිස් (MI 2)",
+            name: "MI 2 |අමු මිරිස්",
             description:
-              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance. ​Age of plant: 25-30 days." ,
+              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
             image: "/images/greenchili.png",
             nutritionalFacts: [
               "",
@@ -916,9 +930,9 @@ const BuyGreens = () => {
           },
           {
             id: 59,
-            name: "නයි මිරිස් (MIHP 1)",
+            name: "MIHP 1 | නයි මිරිස්",
             description:
-              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets. ​Age of plant: 45 days." ,
+              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets. ​Age of plant: 45 days. Minimum 50 plants required." ,
             image: "/images/Michhy1.png",
             nutritionalFacts: [
               "",
@@ -936,9 +950,9 @@ const BuyGreens = () => {
           },
           {
             id: 60,
-            name: "මිරිස් (MiCH HY)",
+            name: "MiCH HY | මිරිස්",
             description:
-              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days." ,
+              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
             image: "/images/michhy.png",
             nutritionalFacts: [
               "",
@@ -956,9 +970,9 @@ const BuyGreens = () => {
           },
           {
             id: 61,
-            name: "මාළු මිරිස් (Muriya - Capsicum)",
+            name: "Muriya - Capsicum | මාළු මිරිස්",
             description:
-              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days." ,
+              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
             image: "/images/malumiris.png",
             nutritionalFacts: [
               "",
@@ -1085,11 +1099,17 @@ const BuyGreens = () => {
   // ✅ Nursery quantity per product id
   const [nurseryQty, setNurseryQty] = useState<Record<number, number>>({});
 
-  const getNurseryQty = (id: number) => nurseryQty[id] ?? 1;
+  const getNurseryQty = (product: Product) => {
+    const min = getMinQty(product);
+    return nurseryQty[product.id] ?? min; // ✅ default = min
+  };
 
-  const setQtySafe = (id: number, val: number) => {
-    const safe = Math.max(1, Math.min(MAX_QTY, Number.isFinite(val) ? val : 1));
-    setNurseryQty((prev) => ({ ...prev, [id]: safe }));
+  const setQtySafe = (product: Product, val: number) => {
+    const min = getMinQty(product);
+    const max = getMaxQty(product);
+    const numeric = Number.isFinite(val) ? val : min;
+    const safe = Math.max(min, Math.min(max, numeric));
+    setNurseryQty((prev) => ({ ...prev, [product.id]: safe }));
   };
 
   const addToCart = (
@@ -1097,15 +1117,25 @@ const BuyGreens = () => {
     option?: { weight: string; price: string },
     quantity: number = 1
   ) => {
+    const min = getMinQty(product);
+    const max = getMaxQty(product);
+
+    const finalQty =
+      product.category === "Nursery"
+        ? Math.max(min, Math.min(max, quantity))
+        : 1;
+
     const newItem: CartItem = {
+      productId: product.id,
+      category: product.category,
       name: product.name,
       selectedWeight: option?.weight ?? "Custom Mix",
       selectedPrice: option?.price ?? "Requested",
-      quantity,
+      quantity: finalQty,
     };
 
-    setCart((prev) => [...prev, newItem]);
-  };
+  setCart((prev) => [...prev, newItem]);
+};
 
   const removeFromCart = (index: number) => {
     setCart((prev) => prev.filter((_, i) => i !== index));
@@ -1412,6 +1442,16 @@ const BuyGreens = () => {
       return;
     }
 
+    for (const item of cart) {
+        if (item.category === "Nursery") {
+          const min = item.productId === 57 ? 10 : 50;
+          if ((item.quantity ?? 0) < min) {
+            alert(`Minimum order for "${item.name}" is ${min} plants.`);
+            return;
+          }
+        }
+      }
+
     const orderNumber = `CEYD-${Math.floor(Math.random() * 90000) + 10000}`;
 
     // ✅ include quantity, and do NOT double-add "Rs."
@@ -1545,26 +1585,30 @@ Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
                     <div className="qty-row">
                       <button
                         type="button"
-                        onClick={() => setQtySafe(product.id, getNurseryQty(product.id) - 1)}
+                        onClick={() => setQtySafe(product, getNurseryQty(product) - 1)}
                       >
                         −
                       </button>
 
                       <input
                         type="number"
-                        min={1}
-                        max={MAX_QTY}
-                        value={getNurseryQty(product.id)}
-                        onChange={(e) => setQtySafe(product.id, parseInt(e.target.value, 10))}
+                        min={getMinQty(product)}
+                        max={getMaxQty(product)}
+                        value={getNurseryQty(product)}
+                        onChange={(e) => setQtySafe(product, parseInt(e.target.value, 10))}
                       />
 
                       <button
                         type="button"
-                        disabled={getNurseryQty(product.id) >= MAX_QTY}
-                        onClick={() => setQtySafe(product.id, getNurseryQty(product.id) + 1)}
+                        disabled={getNurseryQty(product) >= getMaxQty(product)}
+                        onClick={() => setQtySafe(product, getNurseryQty(product) + 1)}
                       >
                         +
                       </button>
+
+                      <small className="qty-hint">
+                        Min: {getMinQty(product)}
+                      </small>
                     </div>
                   )}
 
@@ -1575,7 +1619,7 @@ Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
                         addToCart(
                           product,
                           option,
-                          product.category === "Nursery" ? getNurseryQty(product.id) : 1
+                          product.category === "Nursery" ? getNurseryQty(product) : 1
                         )
                       }
                     >
