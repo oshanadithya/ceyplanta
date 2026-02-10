@@ -658,26 +658,26 @@ const BuyGreens = () => {
             noStock: false,
             category: "Microgreens",
           },
-          {
-            id: 40,
-            name: "Impation",
-            description:
-              "Vibrant, shade-loving bloom known for its dazzling colors, soft petals, and long-lasting beauty. Popular in ornamental gardening, bouquets, and edible flower arrangements, Impatiens bring a cheerful burst of color to any setting.",
-            image: "/images/impatient.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "600",
-            weightOptions: [
-              { weight: "20pcs", price: "Rs. 405" },
-              { weight: "100pcs", price: "Rs. 1780" },
-            ],
-            noStock: false,
-            category: "Edible Flowers",
-          },
+          // {
+          //   id: 40,
+          //   name: "Impation",
+          //   description:
+          //     "Vibrant, shade-loving bloom known for its dazzling colors, soft petals, and long-lasting beauty. Popular in ornamental gardening, bouquets, and edible flower arrangements, Impatiens bring a cheerful burst of color to any setting.",
+          //   image: "/images/impatient.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "600",
+          //   weightOptions: [
+          //     { weight: "20pcs", price: "Rs. 405" },
+          //     { weight: "100pcs", price: "Rs. 1780" },
+          //   ],
+          //   noStock: false,
+          //   category: "Edible Flowers",
+          // },
           // {
           //   id: 41,
           //   name: "Zinnia",
