@@ -678,25 +678,25 @@ const BuyGreens = () => {
             noStock: false,
             category: "Edible Flowers",
           },
-          {
-            id: 41,
-            name: "Zinnia",
-            description:
-              "Zinnia is a bright, cheerful flower known for its bold colors, daisy-like shape, and long-lasting blooms. Native to Central America and Mexico, Zinnias have become a favorite in gardens and floral arrangements worldwide due to their vibrant beauty, easy care, and symbolic meaning of joy and friendship.",
-            image: "/images/zinnia.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "600",
-            weightOptions: [
-              { weight: "10pcs", price: "Rs. 500" },
-            ],
-            noStock: false,
-            category: "Edible Flowers",
-          },
+          // {
+          //   id: 41,
+          //   name: "Zinnia",
+          //   description:
+          //     "Zinnia is a bright, cheerful flower known for its bold colors, daisy-like shape, and long-lasting blooms. Native to Central America and Mexico, Zinnias have become a favorite in gardens and floral arrangements worldwide due to their vibrant beauty, easy care, and symbolic meaning of joy and friendship.",
+          //   image: "/images/zinnia.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "600",
+          //   weightOptions: [
+          //     { weight: "10pcs", price: "Rs. 500" },
+          //   ],
+          //   noStock: false,
+          //   category: "Edible Flowers",
+          // },
           {
             id: 43,
             name: "Roses",
@@ -711,6 +711,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
+              { weight: "5pcs", price: "Rs. 1300" },
               { weight: "10pcs", price: "Rs. 2500" },
             ],
             noStock: false,
@@ -730,6 +731,7 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
+              { weight: "5pcs", price: "Rs. 500" },
               { weight: "10pcs", price: "Rs. 900" },
             ],
             noStock: false,
