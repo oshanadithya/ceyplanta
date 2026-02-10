@@ -325,14 +325,14 @@ const BuyGreens = () => {
               { weight: "100g", price: "Rs. 2010" },
               { weight: "200g", price: "Rs. 4000" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Microgreens",
           },
           {
             id: 13,
             name: "Mix Microgreen Pack",
             description:
-              "Mix your favourite microgreens for your highly nutritional meal plan. Includes Beetroot, Kale, Radish, Red Amaranth",
+              "Mix your favourite microgreens for your highly nutritional meal plan. Includes Beetroot, Kale, Radish, Mustard",
             image: "/images/Microgreen-mix.png",
             nutritionalFacts: [""],
             benefits: [""],
