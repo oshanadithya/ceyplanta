@@ -1393,6 +1393,21 @@ const BuyGreens = () => {
       10,
       "italic"
     );
+    y += 4;
+    doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+
+      const terms = [
+        "This quotation is valid for 15 days from the date of issue. Prices and availability are subject to change after this period.",
+        "Bulk Orders: Minimum 400g per microgreen variety or 100 pcs flower.",
+        "No cancellation or refund after order placement.",
+        "Payment Terms: Full payment is required within 2 days of order placement. Order preparation will begin only after payment confirmation.",
+        "Orders must be collected on the confirmed delivery date. Freshness not guaranteed after 2 days of delivery date.",
+      ];
+
+      terms.forEach((t) => {
+        writeWrapped(`• ${t}`, 9, "normal");
+      });
 
     doc.save(`invoice ${orderNo}.pdf`);
   };
