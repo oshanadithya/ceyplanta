@@ -968,7 +968,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "Per Plant", price: "Rs. 68" },
+              { weight: "Per Plant", price: "Rs. 25" },
               // { weight: "Request", price: "" },
             ],
             noStock: false,
