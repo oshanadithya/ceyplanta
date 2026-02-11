@@ -811,8 +811,8 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "100g", price: "Rs. 180" },
-              { weight: "200g", price: "Rs. 350" },
+              { weight: "100g", price: "Rs. 45" },
+              { weight: "200g", price: "Rs. 88" },
             ],
             noStock: false,
             category: "Herbs & Salad Greens",
@@ -831,8 +831,8 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "100g", price: "Rs. 110" },
-              { weight: "200g", price: "Rs. 215" },
+              { weight: "100g", price: "Rs. 150" },
+              { weight: "200g", price: "Rs. 295" },
             ],
             noStock: false,
             category: "Herbs & Salad Greens",
@@ -1046,7 +1046,7 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "100g", price: "Rs. 590" },
+              { weight: "100g", price: "Rs. 380" },
             ],
             noStock: false,
             category: "Herbs & Salad Greens",
