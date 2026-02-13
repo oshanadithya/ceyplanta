@@ -711,8 +711,8 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "5pcs", price: "Rs. 1300" },
-              { weight: "10pcs", price: "Rs. 2500" },
+              { weight: "5pcs", price: "Rs. 1900" },
+              { weight: "10pcs", price: "Rs. 3700" },
             ],
             noStock: false,
             category: "Edible Flowers",
