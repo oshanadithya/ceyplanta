@@ -157,6 +157,20 @@ const ServiceProducts: React.FC = () => {
             Ceyplanta Indoor & Outdoor Garden Setup Services
           </h1>
 
+          <div style={{ textAlign: "center", margin: "100px 0" }}>
+            <img
+              src="/images/gs1.png"
+              alt="Ceyplanta Garden Setup Service"
+              style={{
+                height: "600px",
+                width: "100%",
+                maxWidth: "900px",
+                borderRadius: "12px",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+              }}
+            />
+          </div>
+        
           <div className="services">
             <h2>Grow Your Own Food. Beautify Your Space. Live Healthier.</h2>
             <p>
@@ -231,6 +245,20 @@ const ServiceProducts: React.FC = () => {
                 Hide Details
               </button>
             </div>
+          </div>
+
+          <div style={{ textAlign: "center", margin: "100px 0" }}>
+            <img
+              src="/images/gs2.jpg"
+              alt="Ceyplanta Garden Setup Service"
+              style={{
+                height: "600px",
+                width: "100%",
+                maxWidth: "900px",
+                borderRadius: "12px",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.15)",
+              }}
+            />
           </div>
 
           <div className="products">
