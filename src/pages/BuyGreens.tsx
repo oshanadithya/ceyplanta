@@ -516,7 +516,7 @@ const BuyGreens = () => {
             benefits: ["A source of antioxidants, vitamins, and minerals"],
             price: "",
             weightOptions: [
-              { weight: "20pcs", price: "Rs. 320" },
+              { weight: "50pcs", price: "Rs. 800" },
               { weight: "100pcs", price: "Rs. 1580" },
             ],
             noStock: false,
@@ -559,7 +559,7 @@ const BuyGreens = () => {
             benefits: ["Aesthetic edible garnish rich in phytonutrients, May support eye health due to presence of natural pigments (like anthocyanins), Contains vitamins A and C for skin and immune system support"],
             price: "",
             weightOptions: [
-              { weight: "20pcs", price: "Rs. 270" },
+              { weight: "50pcs", price: "Rs. 675" },
               { weight: "100pcs", price: "Rs. 1290" },
             ],
             noStock: false,
@@ -574,7 +574,7 @@ const BuyGreens = () => {
             benefits: [""],
             price: "",
             weightOptions: [
-              { weight: "20pcs", price: "Rs. 360" },
+              { weight: "50pcs", price: "Rs. 900" },
               { weight: "100pcs", price: "Rs. 1650" },
             ],
             noStock: false,
