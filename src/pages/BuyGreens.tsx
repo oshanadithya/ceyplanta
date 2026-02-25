@@ -172,7 +172,7 @@ const BuyGreens = () => {
               { weight: "100g", price: "Rs. 1860" },
               { weight: "200g", price: "Rs. 3700" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Microgreens",
           },
           {
@@ -635,7 +635,7 @@ const BuyGreens = () => {
               { weight: "50g", price: "Rs. 620" },
               { weight: "100g", price: "Rs. 1150" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Microgreens",
           },
           {
@@ -909,7 +909,8 @@ const BuyGreens = () => {
             price: "",
             weightOptions: [
               // { weight: "10 Plants", price: "Rs. 580" },
-              { weight: "Per Plant", price: "Rs. 58" },
+              // { weight: "Per Plant", price: "Rs. 58" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
@@ -928,8 +929,8 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "Per Plant", price: "Rs. 22" },
-              // { weight: "Request", price: "" },
+              // { weight: "Per Plant", price: "Rs. 22" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
@@ -948,52 +949,52 @@ const BuyGreens = () => {
             ],
             price: "",
             weightOptions: [
-              { weight: "Per Plant", price: "Rs. 25" },
-              // { weight: "Request", price: "" },
+              // { weight: "Per Plant", price: "Rs. 25" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Nursery",
           },
-          {
-            id: 60,
-            name: "MiCH HY | මිරිස්",
-            description:
-              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
-            image: "/images/michhy.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "Per Plant", price: "Rs. 25" },
-              // { weight: "Request", price: "" },
-            ],
-            noStock: false,
-            category: "Nursery",
-          },
-          {
-            id: 61,
-            name: "Muriya - Capsicum | මාළු මිරිස්",
-            description:
-              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
-            image: "/images/malumiris.png",
-            nutritionalFacts: [
-              "",
-            ],
-            benefits: [
-              "",
-            ],
-            price: "",
-            weightOptions: [
-              { weight: "Per Plant", price: "Rs. 25" },
-              // { weight: "Request", price: "" },
-            ],
-            noStock: false,
-            category: "Nursery",
-          },
+          // {
+          //   id: 60,
+          //   name: "MiCH HY | මිරිස්",
+          //   description:
+          //     "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
+          //   image: "/images/michhy.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "Per Plant", price: "Rs. 25" },
+          //     // { weight: "Request", price: "" },
+          //   ],
+          //   noStock: false,
+          //   category: "Nursery",
+          // },
+          // {
+          //   id: 61,
+          //   name: "Muriya - Capsicum | මාළු මිරිස්",
+          //   description:
+          //     "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
+          //   image: "/images/malumiris.png",
+          //   nutritionalFacts: [
+          //     "",
+          //   ],
+          //   benefits: [
+          //     "",
+          //   ],
+          //   price: "",
+          //   weightOptions: [
+          //     { weight: "Per Plant", price: "Rs. 25" },
+          //     // { weight: "Request", price: "" },
+          //   ],
+          //   noStock: false,
+          //   category: "Nursery",
+          // },
           {
             id: 62,
             name: "Cherry Tomatoes",
@@ -1048,7 +1049,7 @@ const BuyGreens = () => {
             weightOptions: [
               { weight: "100g", price: "Rs. 380" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Herbs & Salad Greens",
           },
           // {
