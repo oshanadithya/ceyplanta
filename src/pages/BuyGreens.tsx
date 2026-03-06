@@ -252,33 +252,33 @@ const BuyGreens = () => {
             noStock: false,
             category: "Microgreens",
           },
-          {
-            id: 9,
-            name: "Basil",
-            description:
-              "Aromatic and flavorful, essential for pesto and Italian dishes.",
-            image: "/images/basil2.png",
-            nutritionalFacts: [
-              "Rich in Vitamin K",
-              "Contains Manganese",
-              "Good Source of Magnesium",
-              "High in Antioxidants",
-            ],
-            benefits: [
-              "Reduces Stress",
-              "Supports Liver Health",
-              "Fights Infections",
-              "Aids Digestion",
-            ],
-            price: "600",
-            weightOptions: [
-              { weight: "50g", price: "Rs. 640" },
-              { weight: "100g", price: "Rs. 1100" },
-              { weight: "200g", price: "Rs. 2100" },
-            ],
-            noStock: true,
-            category: "Microgreens",
-          },
+          // {
+          //   id: 9,
+          //   name: "Basil",
+          //   description:
+          //     "Aromatic and flavorful, essential for pesto and Italian dishes.",
+          //   image: "/images/basil2.png",
+          //   nutritionalFacts: [
+          //     "Rich in Vitamin K",
+          //     "Contains Manganese",
+          //     "Good Source of Magnesium",
+          //     "High in Antioxidants",
+          //   ],
+          //   benefits: [
+          //     "Reduces Stress",
+          //     "Supports Liver Health",
+          //     "Fights Infections",
+          //     "Aids Digestion",
+          //   ],
+          //   price: "600",
+          //   weightOptions: [
+          //     { weight: "50g", price: "Rs. 640" },
+          //     { weight: "100g", price: "Rs. 1100" },
+          //     { weight: "200g", price: "Rs. 2100" },
+          //   ],
+          //   noStock: true,
+          //   category: "Microgreens",
+          // },
           {
             id: 11,
             name: "Pea Shoots",
@@ -919,7 +919,7 @@ const BuyGreens = () => {
             id: 58,
             name: "MI 2 |අමු මිරිස්",
             description:
-              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
+              "Sri Lanka’s Most Trusted Green Chilli Variety - MI 2 is a high-yielding, fast-growing green chilli variety with excellent pungency and market demand. Perfect for home growers and commercial farmers looking for consistent harvests and reliable performance. ​Age of plant: 25-30 days. Pots & Trays Available." ,
             image: "/images/greenchili.png",
             nutritionalFacts: [
               "",
@@ -939,7 +939,7 @@ const BuyGreens = () => {
             id: 59,
             name: "MIHP 1 | නයි මිරිස්",
             description:
-              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets. ​Age of plant: 45 days. Minimum 50 plants required." ,
+              "Extra Hot | Premium Market Value - MIHP 1 Nai Miris plants produce intensely spicy chillies with strong market demand. Well-adapted to Sri Lankan conditions, this variety is ideal for farmers targeting niche and high-value chilli markets. ​Age of plant: 45 days. Pots & Trays Available." ,
             image: "/images/Michhy1.png",
             nutritionalFacts: [
               "",
@@ -955,46 +955,46 @@ const BuyGreens = () => {
             noStock: false,
             category: "Nursery",
           },
-          // {
-          //   id: 60,
-          //   name: "MiCH HY | මිරිස්",
-          //   description:
-          //     "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
-          //   image: "/images/michhy.png",
-          //   nutritionalFacts: [
-          //     "",
-          //   ],
-          //   benefits: [
-          //     "",
-          //   ],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "Per Plant", price: "Rs. 25" },
-          //     // { weight: "Request", price: "" },
-          //   ],
-          //   noStock: false,
-          //   category: "Nursery",
-          // },
-          // {
-          //   id: 61,
-          //   name: "Muriya - Capsicum | මාළු මිරිස්",
-          //   description:
-          //     "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days. Minimum 50 plants required." ,
-          //   image: "/images/malumiris.png",
-          //   nutritionalFacts: [
-          //     "",
-          //   ],
-          //   benefits: [
-          //     "",
-          //   ],
-          //   price: "",
-          //   weightOptions: [
-          //     { weight: "Per Plant", price: "Rs. 25" },
-          //     // { weight: "Request", price: "" },
-          //   ],
-          //   noStock: false,
-          //   category: "Nursery",
-          // },
+          {
+            id: 60,
+            name: "MiCH HY | මිරිස්",
+            description:
+              "Hybrid Power for Maximum Yield - MiCH HY is a high-yield hybrid green chilli variety known for uniform fruits, strong plant vigor, and extended harvesting periods. A perfect choice for growers aiming for higher productivity and better profits. ​Age of plant: 25-30 days. Pots & Trays Available." ,
+            image: "/images/nur5.jpeg",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "Per Plant", price: "Rs. 25" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
+          {
+            id: 61,
+            name: "Capsicum | මාළු මිරිස්",
+            description:
+              "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days. Pots & Trays Available" ,
+            image: "/images/nur2png.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              // { weight: "Per Plant", price: "Rs. 25" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Nursery",
+          },
           {
             id: 62,
             name: "Cherry Tomatoes",
@@ -1050,6 +1050,25 @@ const BuyGreens = () => {
               { weight: "100g", price: "Rs. 380" },
             ],
             noStock: true,
+            category: "Herbs & Salad Greens",
+          },
+          {
+            id: 66,
+            name: "Basil",
+            description:
+              "Highly aromatic, culinary herbs from the Ocimum basilicum plant, renowned for their sweet, pungent flavor, particularly in Italian, Thai, and Vietnamese cuisines. They are commonly used fresh in pesto, salads, and pasta, or as a flavorful garnish. Rich in antioxidants like vitamins A and C, basil offers potential anti-inflammatory and digestive benefits" ,
+            image: "/images/basil3.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "",
+            weightOptions: [
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
             category: "Herbs & Salad Greens",
           },
           // {
