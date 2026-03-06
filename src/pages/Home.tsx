@@ -257,7 +257,7 @@ const Home: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2>🌱 Visit Our Nildola Estate</h2>
+        <h2>Visit Our Nildola Estate</h2>
         <p>
           Our Nildola Estate, located in the lush hills, is where we grow our
           premium tea leaves, cinnamons, and other plants. Come and explore the
@@ -279,6 +279,32 @@ const Home: React.FC = () => {
 
           <img src="/images/es3.jpeg" alt="Nildola Estate view 3" />
           <img src="/images/es4.jpeg" alt="Nildola Estate view 4" />
+        </div>
+      </motion.section>
+
+      {/* Nursery Section */}
+      <motion.section
+        className="microgreens-products"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2>Visit Our Green Hut</h2>
+        <p>
+          Our Green Hut, located at panadura, urban-area, is where we grow our
+          fresh organic plant nurseries, edible flowers, other herbs & plants. Come and explore the
+          culture of Ceyplanta's sustainable farming practices.
+        </p>
+
+        <div className="estate-gallery">
+          <img src="/images/flowers2.jpeg" alt="Nur view 1" />
+          <img src="/images/black-pepper-plants.jpeg" alt="Nur view 2" />
+          <img src="/images/nur3.jpeg" alt="Nur view 6" className="estate-image"/>
+          <img src="/images/chili.jpg" alt="Nur view 3" />
+          <img src="/images/chilli2.png" alt="Nur view 4" />
+          <img src="/images/trays.jpeg" alt="Nur view 5" />
+          <img src="/images/flowers.jpeg" alt="Nur view 7" />
+
         </div>
       </motion.section>
 
