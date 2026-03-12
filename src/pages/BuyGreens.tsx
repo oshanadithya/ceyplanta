@@ -1111,7 +1111,12 @@ const BuyGreens = () => {
           // },
     ]);
 
-    const cartRef = useRef<HTMLDivElement | null>(null);
+    const getDeliveryChargeFromMessage = () => {
+      const match = message.match(/delivery\s*[:\-]?\s*(\d+)/i);
+      return match ? parseFloat(match[1]) : 0;
+    };
+
+  const cartRef = useRef<HTMLDivElement | null>(null);
   const prodRef = useRef<HTMLDivElement | null>(null);
 
   const handleScrollToCart = () => {
@@ -1151,17 +1156,40 @@ const BuyGreens = () => {
         ? Math.max(min, Math.min(max, quantity))
         : 1;
 
-    const newItem: CartItem = {
-      productId: product.id,
-      category: product.category,
-      name: product.name,
-      selectedWeight: option?.weight ?? "Custom Mix",
-      selectedPrice: option?.price ?? "Requested",
-      quantity: finalQty,
-    };
+    const weight = option?.weight ?? "Custom Mix";
+    const price = option?.price ?? "Requested";
 
-  setCart((prev) => [...prev, newItem]);
-};
+    setCart((prev) => {
+      const existingIndex = prev.findIndex(
+        (item) =>
+          item.productId === product.id &&
+          item.selectedWeight === weight
+      );
+
+      // ✅ If item already exists → increase qty
+      if (existingIndex !== -1) {
+        const updatedCart = [...prev];
+        updatedCart[existingIndex] = {
+          ...updatedCart[existingIndex],
+          quantity: updatedCart[existingIndex].quantity + finalQty,
+        };
+        return updatedCart;
+      }
+
+      // ✅ If not → add new item
+      return [
+        ...prev,
+        {
+          productId: product.id,
+          category: product.category,
+          name: product.name,
+          selectedWeight: weight,
+          selectedPrice: price,
+          quantity: finalQty,
+        },
+      ];
+    });
+  };
 
   const removeFromCart = (index: number) => {
     setCart((prev) => prev.filter((_, i) => i !== index));
@@ -1357,10 +1385,10 @@ const BuyGreens = () => {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(11);
     ensureSpace(20);
-    doc.text("Delivery Details:", marginLeft, y);
+    doc.text("Additional Details:", marginLeft, y);
     y += 6;
 
-    writeWrapped(`Address & Additional Details – ${message || "N/A"}`, 10, "normal");
+    writeWrapped(`Address & Charges – ${message || "N/A"}`, 10, "normal");
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     doc.text("Delivery charges may change accordingly to the distance", marginLeft, y);
@@ -1370,7 +1398,11 @@ const BuyGreens = () => {
 
     // Totals
     const gross = getTotalPrice();
-    const netTotal = gross - (gross * discount) / 100;
+    const discountAmount = (gross * discount) / 100;
+    const netTotal = gross - discountAmount;
+
+    const deliveryCharge = getDeliveryChargeFromMessage();
+    const finalTotal = netTotal + deliveryCharge;
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(11);
@@ -1387,7 +1419,10 @@ const BuyGreens = () => {
     doc.text(`Discount – ${discount}%`, marginLeft, y);
     y += 5;
     ensureSpace(6);
-    doc.text(`Net Total – Rs. ${netTotal.toFixed(2)} + Delivery Charges`, marginLeft, y);
+    doc.text(`Delivery Charge – Rs. ${deliveryCharge.toFixed(2)}`, marginLeft, y);
+    y += 5;
+    doc.setFont("helvetica", "bold");
+    doc.text(`Net Total – Rs. ${finalTotal.toFixed(2)}`, marginLeft, y);
     y += 8;
 
     // Bank
@@ -1506,6 +1541,8 @@ const BuyGreens = () => {
     const grossTotal = getTotalPrice();
     const discountAmount = (grossTotal * discount) / 100;
     const netTotal = grossTotal - discountAmount;
+    const deliveryCharge = getDeliveryChargeFromMessage();
+    const finalTotal = netTotal + deliveryCharge;
 
     const checkoutMessage = `
 🧾 Order Confirmation - ${orderNumber}
@@ -1525,7 +1562,8 @@ ${cartItems}
 ----------------------------
 Gross Total: Rs. ${grossTotal.toLocaleString()}
 Discount: ${discount}% (- Rs. ${discountAmount.toLocaleString()})
-Net Total: Rs. ${netTotal.toLocaleString()} + Delivery Charges
+Delivery Charge: Rs. ${deliveryCharge.toLocaleString()}
+Net Total: Rs. ${finalTotal.toLocaleString()}
 
 ----------------------------
 📅 Date: ${new Date().toLocaleString()}
