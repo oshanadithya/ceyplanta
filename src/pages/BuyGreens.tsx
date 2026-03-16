@@ -577,7 +577,7 @@ const BuyGreens = () => {
               { weight: "50pcs", price: "Rs. 900" },
               { weight: "100pcs", price: "Rs. 1650" },
             ],
-            noStock: false,
+            noStock: true,
             category: "Edible Flowers",
           },
           {
@@ -977,7 +977,7 @@ const BuyGreens = () => {
           },
           {
             id: 61,
-            name: "Capsicum | මාළු මිරිස්",
+            name: "CA8 Capsicum | මාළු මිරිස්",
             description:
               "High-Value Vegetable for Home & Commercial Growing - Healthy capsicum plants that perform exceptionally well in grow bags and protected cultivation. Produces thick, glossy fruits with excellent shelf life and strong demand in supermarkets and hotels. ​Age of plant: 25-30 days. Pots & Trays Available" ,
             image: "/images/nur2png.png",
