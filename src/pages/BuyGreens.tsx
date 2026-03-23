@@ -516,8 +516,9 @@ const BuyGreens = () => {
             benefits: ["A source of antioxidants, vitamins, and minerals"],
             price: "",
             weightOptions: [
-              { weight: "50pcs", price: "Rs. 800" },
-              { weight: "100pcs", price: "Rs. 1580" },
+              // { weight: "50pcs", price: "Rs. 800" },
+              // { weight: "100pcs", price: "Rs. 1580" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -559,8 +560,9 @@ const BuyGreens = () => {
             benefits: ["Aesthetic edible garnish rich in phytonutrients, May support eye health due to presence of natural pigments (like anthocyanins), Contains vitamins A and C for skin and immune system support"],
             price: "",
             weightOptions: [
-              { weight: "50pcs", price: "Rs. 675" },
-              { weight: "100pcs", price: "Rs. 1290" },
+              // { weight: "50pcs", price: "Rs. 675" },
+              // { weight: "100pcs", price: "Rs. 1290" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -574,8 +576,9 @@ const BuyGreens = () => {
             benefits: [""],
             price: "",
             weightOptions: [
-              { weight: "50pcs", price: "Rs. 900" },
-              { weight: "100pcs", price: "Rs. 1650" },
+              // { weight: "50pcs", price: "Rs. 900" },
+              // { weight: "100pcs", price: "Rs. 1650" },
+              { weight: "Request", price: "" },
             ],
             noStock: true,
             category: "Edible Flowers",
@@ -658,45 +661,47 @@ const BuyGreens = () => {
             noStock: false,
             category: "Microgreens",
           },
-          // {
-          //   id: 40,
-          //   name: "Impation",
-          //   description:
-          //     "Vibrant, shade-loving bloom known for its dazzling colors, soft petals, and long-lasting beauty. Popular in ornamental gardening, bouquets, and edible flower arrangements, Impatiens bring a cheerful burst of color to any setting.",
-          //   image: "/images/impatient.png",
-          //   nutritionalFacts: [
-          //     "",
-          //   ],
-          //   benefits: [
-          //     "",
-          //   ],
-          //   price: "600",
-          //   weightOptions: [
-          //     { weight: "20pcs", price: "Rs. 405" },
-          //     { weight: "100pcs", price: "Rs. 1780" },
-          //   ],
-          //   noStock: false,
-          //   category: "Edible Flowers",
-          // },
-          // {
-          //   id: 41,
-          //   name: "Zinnia",
-          //   description:
-          //     "Zinnia is a bright, cheerful flower known for its bold colors, daisy-like shape, and long-lasting blooms. Native to Central America and Mexico, Zinnias have become a favorite in gardens and floral arrangements worldwide due to their vibrant beauty, easy care, and symbolic meaning of joy and friendship.",
-          //   image: "/images/zinnia.png",
-          //   nutritionalFacts: [
-          //     "",
-          //   ],
-          //   benefits: [
-          //     "",
-          //   ],
-          //   price: "600",
-          //   weightOptions: [
-          //     { weight: "10pcs", price: "Rs. 500" },
-          //   ],
-          //   noStock: false,
-          //   category: "Edible Flowers",
-          // },
+          {
+            id: 40,
+            name: "Impation",
+            description:
+              "Vibrant, shade-loving bloom known for its dazzling colors, soft petals, and long-lasting beauty. Popular in ornamental gardening, bouquets, and edible flower arrangements, Impatiens bring a cheerful burst of color to any setting.",
+            image: "/images/impatient.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              // { weight: "20pcs", price: "Rs. 405" },
+              // { weight: "100pcs", price: "Rs. 1780" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: false,
+            category: "Edible Flowers",
+          },
+          {
+            id: 41,
+            name: "Zinnia",
+            description:
+              "Zinnia is a bright, cheerful flower known for its bold colors, daisy-like shape, and long-lasting blooms. Native to Central America and Mexico, Zinnias have become a favorite in gardens and floral arrangements worldwide due to their vibrant beauty, easy care, and symbolic meaning of joy and friendship.",
+            image: "/images/zinnia.png",
+            nutritionalFacts: [
+              "",
+            ],
+            benefits: [
+              "",
+            ],
+            price: "600",
+            weightOptions: [
+              // { weight: "10pcs", price: "Rs. 500" },
+              { weight: "Request", price: "" },
+            ],
+            noStock: true,
+            category: "Edible Flowers",
+          },
           {
             id: 43,
             name: "Roses",
@@ -711,8 +716,9 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "5pcs", price: "Rs. 1900" },
-              { weight: "10pcs", price: "Rs. 3700" },
+              // { weight: "5pcs", price: "Rs. 1900" },
+              // { weight: "10pcs", price: "Rs. 3700" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Edible Flowers",
@@ -731,8 +737,9 @@ const BuyGreens = () => {
             ],
             price: "600",
             weightOptions: [
-              { weight: "5pcs", price: "Rs. 500" },
-              { weight: "10pcs", price: "Rs. 900" },
+              // { weight: "5pcs", price: "Rs. 500" },
+              // { weight: "10pcs", price: "Rs. 900" },
+              { weight: "Request", price: "" },
             ],
             noStock: false,
             category: "Edible Flowers",
